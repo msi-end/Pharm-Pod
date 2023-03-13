@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="/admin/css/css.css">
+    <link rel="stylesheet" href="/icons/iconsRoot.css" />
+
+</head>
+
+<body>
+    <!-- ///// nav  -->
+    <%- include('./partials/header.ejs') %>
+
+        <!-- Mdl and flashMsg -->
+        <div id="mdl_bx">
+            <div id="mdl_body"style="margin: auto;"></div>
+            <div id="btnCotn">
+                <button type="button" id="btnSave" class="cgreen hover">Save </button>
+                <button onclick="userAction.modelBox_Cls()" class="cred hover "> Cancel</button>
+            </div>
+        </div>
+        <div id="flashMsg">
+            <p id="text"> </p>
+        </div>
+        <!-- ////Main Content -->
+        <main id="mainContent">
+            <% if(data){ %>
+                <% data.forEach(function(data){ %>
+                    <div class="psInfo" clientId='<%= data.id %>''>
+      <div class="psNum">
+          <span class="symbols-rounded">clinical_notes</span>
+          <br>
+          <span>No:</span> 
+          <span><%= data.id %></span>
+      </div>
+      <div class="psDetail">
+          <h4 class="psName"><%= data.clientName %></h4>
+          <p class="psOtherInf"><%= data.clientInfo %></p>
+          <p class="psDoctor"><%= data.clientDoctor %></p>
+      </div>
+     
+      <div class="psAction"> 
+          <a href="javascript:Complete()" class="done hover"><span
+                  class="symbols-rounded">done</span>Completed</a>
+          <a href="javascript:Complete()" class="del hover"><span
+                  class="symbols-rounded">delete</span><br>Delete</a>
+      </div>
+  </div>
+   <% }) %>
+      <% } %> 
+</main>
+
+
+    <!-- ////Bottom Manu -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- <script  src="/admin/js/jsDataObject.js"></script> -->
+    <script src="/admin/js/script.js"></script>
+</body>
+
+</html>
