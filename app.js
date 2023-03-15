@@ -7,7 +7,7 @@ const ejs = require('ejs');
 const PORT = 4000 || process.env.PORT;
 
 const adminRoute = require('./controllers/admin.login.Route.js')
-const ClientView =require('./controllers/client.side.route.js')
+const ClientView =require('./route/clientRoute.js')
 const apiV2 =require('./controllers/crudApiRoute.js')
  
 app.use(session({
@@ -30,6 +30,6 @@ app.use('/', ClientView);
 app.use('/apiV2', apiV2);
 app.use('/admin', adminRoute);
 app.get('*',(req,res)=>{ 
-res.redirect('/admin');
+res.redirect('./views/error');
 })
 app.listen(PORT, ()=>{console.log('Running on port '+PORT)})

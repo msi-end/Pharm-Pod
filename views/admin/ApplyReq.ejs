@@ -8,6 +8,7 @@
     <title>Main page</title>
     <link rel="stylesheet" href="/admin/css/css.css">
     <link rel="stylesheet" href="/icons/iconsRoot.css" />
+
 </head>
 
 <body>
@@ -34,7 +35,7 @@
           <span class="symbols-rounded">clinical_notes</span>
           <br>
           <span>No:</span> 
-          <span><%= data.id %></span> 
+          <span><%= data.id %></span>
       </div>
       <div class="psDetail">
           <h4 class="psName"><%= data.clientName %></h4>
@@ -44,7 +45,7 @@
      
       <div class="psAction"> 
           <a href="javascript:Complete()" class="done hover"><span
-                  class="symbols-rounded">done</span>Completed</a>
+                  class="symbols-rounded">done</span>Approve</a>
           <a href="javascript:Complete()" class="del hover"><span
                   class="symbols-rounded">delete</span><br>Delete</a>
       </div>

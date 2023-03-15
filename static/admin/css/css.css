@@ -297,16 +297,27 @@ input:checked+.slider:before {
     border: 1px solid var(--p-color);
     /* box-shadow: 1; */
 }
-
+#mdl_body {
+    width: 80%;
+}
+#mdl_bx input[type="text"],input[type="number"] {
+    width:96%;
+    margin: auto 0px 15px;
+    height: 35px;
+    border-radius: 7px;
+    padding: 5px;
+    border: 2px solid var(--p2-color);
+}
 #mdl_bx button {
    /* position: relative; */
    bottom:1px;
    width: 45%;
 }
 #mdl_bx button:hover {
-    color: blue;
+    color: var(--p-color);
     font-weight: 500;
     transition: all .4s;
+    border: 2px solid var(--p-color);
  }
 #btnCotn{
     display: flex;
