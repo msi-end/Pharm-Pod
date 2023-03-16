@@ -6,9 +6,9 @@ const path =require('path')
 const ejs = require('ejs');
 const PORT = 4000 || process.env.PORT;
 
-const adminRoute = require('./controllers/admin.login.Route.js')
+const adminRoute = require('./controllers/admin.login.js')
 const ClientView =require('./route/clientRoute.js')
-const apiV2 =require('./controllers/crudApiRoute.js')
+const apiV2 =require('./route/crudApiRoute.js')
  
 app.use(session({
     secret: 'secret',  
@@ -30,6 +30,6 @@ app.use('/', ClientView);
 app.use('/apiV2', apiV2);
 app.use('/admin', adminRoute);
 app.get('*',(req,res)=>{ 
-res.redirect('./views/error');
+res.render('../views/client/error.ejs');
 })
 app.listen(PORT, ()=>{console.log('Running on port '+PORT)})
