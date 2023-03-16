@@ -11,7 +11,7 @@ const ClientView =require('./route/clientRoute.js')
 const apiV2 =require('./route/crudApiRoute.js')
  
 app.use(session({
-    secret: 'secret',  
+    secret: 'secret',
     resave: false,
     saveUninitialized: true
 }));
