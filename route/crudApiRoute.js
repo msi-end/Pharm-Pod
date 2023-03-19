@@ -3,7 +3,9 @@ const router = express.Router();
 const crudModel = require('../controllers/crud-API.js')
 
 
-//To Create or Add Clients
+//To Create or Add by Clients
+router.post('/add',crudModel.create);
+//To Create or Add by Patient
 router.post('/create',crudModel.create);
 // To get all Clients
 router.get('/getAll', crudModel.getAll);

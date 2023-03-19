@@ -28,7 +28,7 @@ app.use('/', ClientView);
 
 // Admin Crud API & AdminLogin 
 app.use('/apiV2', apiV2);
-app.use('/admin', adminRoute);
+app.use( adminRoute);
 app.get('*',(req,res)=>{ 
 res.render('../views/client/error.ejs');
 })

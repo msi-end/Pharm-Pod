@@ -3,7 +3,8 @@ let con = mysql.createPool({
     hos:'localhost',
     user:'root',
     password:'',
-    database:'Nodejs'
+    database:'pharmPod',
+    multipleStatements: true
 })
 con.getConnection((error) => {
     if (!!error) {
