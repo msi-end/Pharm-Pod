@@ -1,0 +1,141 @@
+/* responsive */
+:root{
+    --body-color : rgb(242, 242, 242);
+    --font-color: rgb(0, 0, 0);
+    --background-color: rgb(255, 255, 255);
+    --blue: rgb(0, 153, 255);
+}
+@media(max-width: 960px){
+    .mainPage{
+        flex-direction: column;
+    }
+    .clinicInfo{
+        width: 100%;
+    }
+    .clinicTimings{
+        width: 100%;
+    }
+    #revert{
+        margin: 2em auto;
+        display: block;
+    }
+
+    .splitSection{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .firstSplit{
+        width: 75%;
+        margin: auto;
+        margin-bottom: 3em;
+    }
+
+    .secondSplit{
+        width: 75%;
+        margin: auto;
+    }
+
+    .feedback_Form{
+        flex-direction: column;
+        margin: 2em auto;
+        gap: 2em;
+    }
+    .feedback_Form input{
+        width: 100%;
+    }
+}
+
+@media(max-width: 800px){
+    .clinicInfo{
+        flex-direction: column;
+    }
+
+    .clinicLogo img{
+        width: 300px;
+        height: 200px;
+    }
+    .clinicDetails{
+        margin: auto;
+        margin-top: 2em;
+    }
+    
+    .appointmentBtns{
+        z-index: 1;
+        position: fixed;
+        bottom: 0px;
+        left: 0;
+        width: 91%;
+        margin: 0;
+        background:  linear-gradient(to bottom left, #a6a6a6 0%, #f2f2f2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+    }
+}
+
+@media(max-width: 572px){
+    .starRating span, .starRating p{
+        font-size: 0.8em;
+    }
+
+    .videoContent{
+        flex-direction: column;
+    }
+    .videoContent iframe, .videoContent-desc{
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    .uilreview{
+        font-size: 2em;
+    }
+    .uil-star{
+        font-size: 1.1em;
+    }
+    .reviewSection{
+        padding: 1em;
+    }
+    .reviewText a{
+        font-size: 0.9em;
+    }
+
+}
+
+@media (max-width:480px){
+    .clinicName{
+        flex-direction: column;
+    }
+    
+    .firstSplit-Heading{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+    }
+    .firstSplit-main{
+        flex-direction: column;
+    }
+    .firstSplit-img{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .firstSplit-Content{
+        width: 100%;
+    }
+    .clinicLocation iframe, .content-Events_img img{
+        height: 200px;
+    }
+    .clinicReview{
+        padding: 0;
+        width: 90%;
+        margin: auto;
+    }
+    .reviewSection{
+        margin: 2em auto;
+    }
+    .reviewText{
+        font-size: 0.9em;
+    }
+}

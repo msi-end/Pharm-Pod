@@ -32,12 +32,8 @@ const userAction = {
         setTimeout(() => {this.Anim(msgBody, 'animate__bounceOut', false)
             setTimeout(() => { msgBody.style.display = 'none'; }, 2000);}, 3000);},
     Anim: function (obj, animType, dpOpt) {
-        if (dpOpt ==true) {
-            obj.classList.add('animate__animated');
-            obj.classList.add(animType);
-        }else if(dpOpt === 'rm'){
-            obj.classList.remove(animType)}
-        else { obj.classList.add(animType)} }
+        if (dpOpt ==true) {  obj.classList.add('animate__animated'); obj.classList.add(animType);
+        }else if(dpOpt === 'rm'){ obj.classList.remove(animType)} else { obj.classList.add(animType)} }
 }
 // User Requestes To API
 const userReq ={
@@ -78,10 +74,8 @@ var inputObjects = {
 }
 function modelData(e){
     let doc=mdlBox.children[0]
-    doc.innerHTML+=inputObjects[e].title;
-    doc.innerHTML+=inputObjects[e].input;
-    mdlBox.children[1].children[0].setAttribute('onclick', `${inputObjects[e].saveFn}`);
-   return  mdlOpn=false
+    doc.innerHTML+=inputObjects[e].title; doc.innerHTML+=inputObjects[e].input;
+    mdlBox.children[1].children[0].setAttribute('onclick', `${inputObjects[e].saveFn}`);return  mdlOpn=false
 }
 
 
@@ -90,9 +84,7 @@ let path = window.location.pathname;
 let bottomNav =document.getElementById('bottomNav')
 for (let i = 0; i < bottomNav.length; i++) {
     if(path=='/admin/'+bottomNav.children[i]){
-        bottomNav.children.forEach(e => {
-            e.removeAttribute('active') 
-        });
-        this.setAttribute('action')
+  bottomNav.children.forEach(e => {
+ e.removeAttribute('active') });this.setAttribute('action')
 }
 }

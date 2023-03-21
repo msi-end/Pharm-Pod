@@ -7,14 +7,11 @@
     <title>About Us-Cipmedic</title>
 
      <!-- style sheets -->
-    <link rel="stylesheet" href="/css/home/header.css">
-    <link rel="stylesheet" href="/css/home/clinics.css">
-    <link rel="stylesheet" href="/css/home/aboutUs.css">
-    <link rel="stylesheet" href="/css/home/events.css">
-    <link rel="stylesheet" href="/css/home/footer.css">
-    <link rel="stylesheet" href="/css/page/doctors.css">
-    <link rel="stylesheet" href="/css/page/clinic.css">
-    <link rel="stylesheet" href="/css/page/aboutus.css">
+    <link rel="stylesheet" href="/client/css/home/header.css">
+    <link rel="stylesheet" href="/client/css/home/clinics.css">
+    <link rel="stylesheet" href="/client/css/home/aboutUs.css">
+    <link rel="stylesheet" href="/client/css/home/events.css">
+    <link rel="stylesheet" href="/client/css/home/footer.css">
 
  
     <!-- icons -->
@@ -26,15 +23,21 @@
  
 </head>
 <body>
+    <!-- header -->
+    <%- include('../partials/indexHeader.ejs') %>
     <div class="mainContainer shadowBox">
         <div class="aboutHeader">
             <h1 class="textHeader">About Us</h1>
             <hr>
         </div>
         <div class="aboutPage-img">
-            <img src="/img/aboutUs/abouts.jpg" alt="aboutus">
+            <img src="/client/img/aboutUs/abouts.jpg" alt="aboutus">
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis id distinctio error placeat sapiente minus ad, obcaecati ipsam incidunt voluptate laudantium repudiandae a perferendis quis ex, sunt, illum eos explicabo eligendi quae consequuntur quo accusamus? Quis nisi facilis, eum molestias id nobis officiis! Optio, placeat consequatur consectetur fuga maxime veritatis architecto nemo quasi recusandae aliquam explicabo esse animi autem. Quasi voluptate dolorum inventore modi rem alias hic quaerat libero animi culpa distinctio temporibus totam cupiditate nesciunt dolor, ut illum saepe!</p>
     </div>
+
+    <!-- footer -->
+    <%- include('../partials/indexFooter.ejs') %>
+
 </body>
 </html>

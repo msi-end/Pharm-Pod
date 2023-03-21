@@ -45,10 +45,11 @@
 .rv-btn{
     margin: 1em 2em;
     border-radius: 0;
+    transition: 0.3s ease-in-out;
 }
 
 .rv-btn:hover{
-    background: rgb(166, 166, 166);
+    border-radius: 0.5em;
 }
 
 .event-secondBox{

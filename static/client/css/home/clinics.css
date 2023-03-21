@@ -44,9 +44,9 @@
     cursor: pointer;
     padding: 0.5em 0.8em;
     border-radius: 0.5em;
-    outline: none;
-    background-color: var(--font-color);
-    color: var(--body-color);
+    background: var(--font-color);
+    color: var(--shadow-color-2);
+    transition: 0.3s ease;
 }
 
 .bk-Btn{
@@ -58,8 +58,10 @@
 
 
 .btn:hover{
-    background: var(--background-color);
-    color: var(--shadow-color-2);
+    background: var(--shadow-color-2);
+    color: var(--font-color);
+    font-weight: 600;
+    border: 1px solid var(--font-color);
 }
 
 /* line  */
@@ -97,6 +99,9 @@ hr{
     line-height: 1.9em;
 }
 
+.card-content p a{
+    text-decoration: none;
+}
 .cardImage img{
     width: 100%;
     height: auto;

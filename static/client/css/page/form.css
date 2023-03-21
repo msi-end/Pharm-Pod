@@ -1,0 +1,257 @@
+:root{
+    --body-color : rgb(242, 242, 242);
+    --font-color: rgb(0, 0, 0);
+    --background-color: rgb(255, 255, 255);
+    --blue: rgb(0, 153, 255);
+}
+
+.registration-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: none;
+    
+}
+.registration-details, .reviewPopup-box, .review-form-details{
+    padding: 2em;
+    background: var(--background-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.registration-details #closeX, .reviewPopup-box #clsX, .review-form-details #Xclse{
+    background: var(--font-color);
+    color: var(--background-color);
+    font-weight: 500;
+    font-size: 1.8em;
+    padding: 0 0.5em;
+    border-radius: 1em;
+    position: fixed;
+    top: -0.5em;
+    right: -0.5em;
+    cursor: pointer;
+}
+
+.registration-details .title{
+    font-size: 1.5em;
+    position: relative;
+}
+.registration-details .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
+}
+
+.registration-details form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+form .user-details .input-box{
+    width: 100%;
+}
+
+.user-details .input-box input, .user-details .input-box select{
+    height: 3em;
+    width: 100%;
+    padding-left: 1em;
+    font-size: 1em;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.user-details .input-box input:focus{
+    border-color: var(--font-color);
+}
+.input-box .details{
+    margin-top: 1em;
+    font-size: 0.9em;
+}
+.term-details{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 1em auto;
+}
+
+.term-details input{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+.term-details p{
+    font-size: 0.9em;
+}
+.term-details a{
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.form-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-button input{
+    width: 45%;
+    margin: auto 0;
+    padding: 0.5em 0.5em;
+    font-size: 1em;
+    color: var(--background-color);
+    background: var(--font-color);
+    border-radius: 0.8em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.form-button input:hover, .review-savebtn input:hover, .review-button input:hover{
+    color: var(--font-color);
+    background: var(--background-color);
+    border: 1px solid var(--font-color);
+}
+
+
+
+
+/* review */
+.reviewPopup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.reviewPopup-box{
+    border-radius: 0.5em;
+    width: 50%;
+}
+.reviewPopup-box .title{
+    font-size: 1.2em;
+    text-align: center;
+} 
+
+.review-stars{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.review-stars .star{
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 2em;
+}
+.review-box{
+    width: 100%;
+}
+.review-box textarea{
+    width: 95%;
+    height: 10.5em;
+    margin: 1em auto;
+    padding: 1em;
+    font-size: 1em;
+    border: 2px solid gray;
+    outline: none;
+    resize: none;
+}
+.review-box textarea:focus{
+    border-color: var(--font-color);
+}
+.review-savebtn, .review-button{
+    width: 100%;
+    text-align: center;
+}
+.review-savebtn input{
+    width: 50%;
+    padding: 0.5em 3em;
+    font-size: 1em;
+    color: var(--background-color);
+    background: var(--font-color);
+    border-radius: 0.8em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+
+/* review form */
+.review-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    display: none;
+}
+
+.review-form-details{
+    border-radius: 0.5em;
+    width: 40%;
+}
+.review-input{
+    width: 100%;
+}
+.review-input input{
+    height: 2.5em;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-top: 0.3em;
+    padding-left: 1em;
+    font-size: 1em;
+    border: 2px solid gray;
+    outline: none;
+}
+
+.review-input input:focus{
+    border-color: var(--font-color);
+}
+
+.review-button input{
+    padding: 0.5em 1em;
+    font-size: 1em;
+    color: var(--background-color);
+    background: var(--font-color);
+    border-radius: 0.8em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+
+
+/* responsive  */
+@media(max-width: 572px){
+    .registration-form{
+        width: 100%;
+    }
+    .registration-details,.reviewPopup-box, .review-form-details{
+        width: 75%;
+    }
+    .review-box textarea{
+        width: 90%;
+    }
+}

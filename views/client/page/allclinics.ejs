@@ -7,14 +7,13 @@
     <title>Clinics-Cipmedic</title>
 
      <!-- style sheets -->
-    <link rel="stylesheet" href="/css/home/header.css">
-    <link rel="stylesheet" href="/css/home/clinics.css">
-    <link rel="stylesheet" href="/css/home/aboutUs.css">
-    <link rel="stylesheet" href="/css/home/events.css">
-    <link rel="stylesheet" href="/css/home/footer.css">
-
-     <link rel="stylesheet" href="/css/page/doctors.css">
-     <link rel="stylesheet" href="/css/page/clinic.css">
+    <link rel="stylesheet" href="/client/css/home/header.css">
+    <link rel="stylesheet" href="/client/css/home/clinics.css">
+    <link rel="stylesheet" href="/client/css/home/aboutUs.css">
+    <link rel="stylesheet" href="/client/css/home/events.css">
+    <link rel="stylesheet" href="/client/css/home/footer.css">
+     <link rel="stylesheet" href="/client/css/page/doctors.css">
+     <link rel="stylesheet" href="/client/css/page/allclinics.css">
  
      <!-- icons -->
      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -25,10 +24,12 @@
  
 </head>
 <body>
-    <div class="gridBox">
+    <!-- header -->
+    <%- include('../partials/indexHeader.ejs') %>
 
+    <div class="gridBox">
         <div class="grid-item shadowBox">
-            <a href="/html/clinicHome.html">
+            <a href="/dispur">
                 <div class="grid-img img-1">
                     <h3>Dispur Polyclinic</h3>
                     <div class="grid-img-content">
@@ -111,7 +112,8 @@
                 </div>
             </a>
         </div>
-
     </div>
+    <%- include('../partials/indexFooter.ejs') %>
+
 </body>
 </html>
