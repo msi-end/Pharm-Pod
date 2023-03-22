@@ -4,7 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser')
 const path =require('path')
 const ejs = require('ejs');
-const PORT = 4000 || process.env.PORT;
+const PORT = 8000 || process.env.PORT;
 
 const adminRoute = require('./controllers/admin.login.js')
 const ClientView =require('./route/clientRoute.js')
