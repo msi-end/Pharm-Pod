@@ -410,25 +410,17 @@
         </div>
     </div>
     </div>
-
-
-
-
     <!-- Footer  -->
     <%- include('../partials/indexFooter.ejs') %>
-
     <!-- javascript -->
     <script>
         document.getElementById("bookAppo").addEventListener("click", function () {
             document.querySelector(".registration-form").style.display = "block";
         })
-
         document.getElementById("closeX").addEventListener("click",
             function () {
                 document.querySelector(".registration-form").style.display = "none";
             })
-
-
         //review
         document.getElementById("writeReview").addEventListener("click", function () {
             document.querySelector(".reviewPopup").style.display = "block";
@@ -436,7 +428,6 @@
         document.getElementById("clsX").addEventListener("click", function () {
             document.querySelector(".reviewPopup").style.display = "none";
         })
-
         // submit review
         document.getElementById("saveReview").addEventListener("click", function () {
             document.querySelector(".review-form").style.display = "block";
@@ -445,7 +436,5 @@
             document.querySelector(".review-form").style.display = "none";
         })
     </script>
-    <script src="/client/js/script.js"></script>
 </body>
-
 </html>
