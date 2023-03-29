@@ -19,7 +19,7 @@ let Obj = { flashMsg: function (h,p,e) {
 
 
 
-
+// USE  Obj.flashMsg('main message','second detailed message',true)
 
 
 

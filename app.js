@@ -5,16 +5,24 @@ const bodyParser = require('body-parser')
 const path =require('path')
 const ejs = require('ejs');
 const PORT = 8000 || process.env.PORT;
+const LokiStore = require('connect-loki')(session);
 
+
+var options = {path:'./sessions/authSession.db'};
 const adminRoute = require('./controllers/admin.login.js')
 const ClientView =require('./route/clientRoute.js')
-const apiV2 =require('./route/crudApiRoute.js')
+const apiV3 =require('./route/crudApiRoute.js')
  
+
+const athTime = 1000*60*60*24*15;
 app.use(session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true
+    store: new LokiStore(options),
+    secret: "secrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: athTime },
+    resave: false 
 }));
+
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,7 +35,7 @@ app.set('view engin', ejs);
 app.use('/', ClientView);
 
 // Admin Crud API & AdminLogin 
-app.use('/apiV2', apiV2);
+app.use('/apiV3', apiV3);
 app.use( adminRoute);
 app.get('*',(req,res)=>{ 
 res.render('../views/client/error.ejs');

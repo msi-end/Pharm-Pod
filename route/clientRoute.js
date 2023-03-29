@@ -7,7 +7,7 @@ const crudModel = require('../controllers/crud-API.js')
 
 
 route.get('/', (req, res) => {
-    console.log('ok');
+    // console.log(req );
     res.render('../views/client/index.ejs')
 })
 route.get('/:page', (req, res) => {

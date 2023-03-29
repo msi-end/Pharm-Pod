@@ -27,20 +27,22 @@ exports.create = (req, res) => {
         })}else{
             res.status(401).send({status:'false', msg: 'Somthing Wrong ! 401 Unauthorized' })
         }}
-
-
-exports.getAll = (req, res) => {
-    databaseCon.query(`SELECT * FROM ${user}_PS_data`, function (err, results, fields) {
-        if (err) throw err;
         
-    })
-}
-
-
+exports.getAll = (req, res) => {
+    if (req.session.loggedin) {
+    let user = req.session.user_id;
+    databaseCon.query(`SELECT * FROM ${user}_PS_data WHERE p_aptDate='${req.body.date}'`, function (err, results, fields) {
+        if (err) throw err;
+        res.send(results)
+        // res.status(201).send({ status: 'true', msg: 'Patient Created Sucessfully!' })
+    })}else{
+        res.status(401).send({status:'false', msg: 'Somthing Wrong ! 401 Unauthorized' })
+    }}
 
 
 exports.delete = (req, res) => {
     if (req.session.loggedin) {
+        let user = req.session.user_id;
     databaseCon.query(`DELETE FROM ${user}_PS_data WHERE 'id'=?`, [req.params.id], function (error, results, fields) {
         if (error) throw error;
         console.log(req.params.id + "+++" + results)
@@ -51,14 +53,15 @@ exports.delete = (req, res) => {
 exports.update = (req, res) => {
     if (req.session.loggedin) {
     if (!req.body) {
-        return res.status(400).send('Endter value Correctly');
+        return res.status(400).send('Enter value Correctly');
     }
-    databaseCon.query(`UPDATE '${user}PS_data SET' 'clientName'=?,'clientInfo'=? where 'id'=?`, [req.body.clientName, req.body.clientInfo, req.params.id],
+    let user = req.session.user_id;
+    databaseCon.query(`UPDATE '${user}_PS_data SET' 'clientName'=?,'clientInfo'=? where 'id'=?`, [req.body.clientName, req.body.clientInfo, req.params.id],
         function (error, results, fields) {
             if (error) throw error;
             res.end(JSON.stringify(results));
-        });
-}};
+        });}};
+
 exports.findOne = (req, res) => {
     databaseCon.query('select * from Client_Details where id=?', [req.params.id], function (error, results, fields) {
         if (error) throw error;
@@ -70,7 +73,7 @@ exports.postpond = (req, res) => {
     if (!(req.body)) {
         res.status(400).send(' selet Date');
     }
-    databaseCon.query('INSERT INTO Client_Details SET ?', x, function (err, results, fields) {
+    databaseCon.query('INSERT INTO Client_Details SET ?', [x], function (err, results, fields) {
         if (err) throw err;
         return res.send('added' + results.status)
     })
