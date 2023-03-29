@@ -12,9 +12,12 @@ route.get('/', (req, res) => {
 })
 route.get('/:page', (req, res) => {
     if (fs.existsSync(`./views/client/Cl_pages/${req.params.page}.ejs`)) {
-        res.status(200).render(`../views/client/Cl_pages/${req.params.page}.ejs`)
-    } else { res.status(400).render('../views/client/error.ejs') }
-})
+        databaseCon.query(`SELECT form_Status FROM client_Info WHERE c_id='${req.session.user_id}'`, function (err, results, fields) {
+            if (err) {console.log('Admin Route Error' + err)
+            } else { res.status(200).render(`../views/client/Cl_pages/${req.params.page}.ejs`,{date:results})}});
+    } else { res.status(400).render('../views/client/error.ejs') }})
+
+
 route.get('/p/aboutus', (req, res) => {
     res.render('../views/client/page/aboutus.ejs')
 })
