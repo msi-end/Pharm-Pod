@@ -1,7 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const fs = require('fs')
-const database = require('../models/db.model')
+const db = require('../models/db.model')
 const crudModel = require('../controllers/crud-API.js')
 
 
@@ -12,7 +12,7 @@ route.get('/', (req, res) => {
 })
 route.get('/:page', (req, res) => {
     if (fs.existsSync(`./views/client/Cl_pages/${req.params.page}.ejs`)) {
-        databaseCon.query(`SELECT form_Status FROM client_Info WHERE c_id='${req.session.user_id}'`, function (err, results, fields) {
+        db.query(`SELECT form_Status FROM client_Info WHERE c_id='${req.session.user_id}'`, function (err, results, fields) {
             if (err) {console.log('Admin Route Error' + err)
             } else { res.status(200).render(`../views/client/Cl_pages/${req.params.page}.ejs`,{date:results})}});
     } else { res.status(400).render('../views/client/error.ejs') }})

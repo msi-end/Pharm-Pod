@@ -9,7 +9,8 @@ const LokiStore = require('connect-loki')(session);
 
 
 var options = {path:'./sessions/authSession.db'};
-const adminRoute = require('./controllers/admin.login.js')
+const adminLogRoute = require('./controllers/admin.login.js')
+const adminRoute = require('./route/adminRoute.js')
 const ClientView =require('./route/clientRoute.js')
 const apiV3 =require('./route/crudApiRoute.js')
  
@@ -36,7 +37,9 @@ app.use('/', ClientView);
 
 // Admin Crud API & AdminLogin 
 app.use('/apiV3', apiV3);
-app.use( adminRoute);
+app.use(adminLogRoute);
+app.use(adminRoute);
+
 app.get('*',(req,res)=>{ 
 res.render('../views/client/error.ejs');
 })
