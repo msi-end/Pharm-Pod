@@ -1,26 +1,20 @@
 <header>
-    <div class="header-content">
-        <div onclick="window.location='/'" class="logo">
-            cipmedic
-        </div>
-        <nav>
-            <ul class="nav-links nav-hide">
-                <li><a href="/">Home</a></li>
+    <div onclick="window.location='/'" class="logo">
+        Cipmedic
+    </div>
+    <nav id="navbar" class="">
+        <ul class="nav-list" id="navlist">
+            <li><a href="/">Home</a></li>
                 <li><a href="/p/clinics">Clinics</a></li>
                 <li><a href="/p/aboutus">About Us</a></li>
                 <li><a href="/p/contactus">Contact Us</a></li>
                 <li><a href="/p/login">Login
                     <i class="uil uil-user"></i>
                 </a></li>
-            </ul>
-        </nav>
-        <div class="searchBox hidden">
-            <input type="text" name="searchline" id="searchline">
-        </div>
-        <div class="search">
-            <i class="uil uil-search-alt searchIcon"></i>
-            <i class="uil uil-multiply hidden"></i>
-            <i class="uil uil-bars berger"></i>
-        </div> 
-    </div>
+        </ul>
+    </nav>
+    <input type="checkbox" id="navCheck">
+    <label for="navCheck" class="mobile-nav-icon" id="nav-menu">
+        <i class="uil uil-bars"></i>
+    </label>
 </header>
