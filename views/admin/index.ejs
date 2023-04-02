@@ -16,24 +16,21 @@
 
         <!-- Mdl and flashMsg -->
         <div id="mdl_bx">
-            <div id="mdl_body"style="margin: auto;"></div>
+            <div id="mdl_body" style="margin: auto;"></div>
             <div id="btnCotn">
                 <button type="button" id="btnSave" class="cgreen hover">Save </button>
                 <button onclick="userAction.modelBox_Cls()" class="cred hover "> Cancel</button>
-            </div>
-        </div>
-        <div id="flashMsg">
-            <p id="text"> </p>
-        </div>
+            </div></div>
+        <div id="flashMsg"><p id="text"></p></div>
+
         <!-- ////Main Content -->
         <main id="mainContent">
-            <% if(ps_data){ %>
+            <% if(ps_data>0){ %>
                 <% ps_data.forEach(function(data){ %>
-                    <div class="psInfo" clientId='<%= data.id %>''>
+        <div class="psInfo" clientId='<%= data.id %>''>
       <div class="psNum">
           <span class="symbols-rounded">clinical_notes</span>
-          <br>
-          <span>No:</span> 
+          <br><span>No:</span> 
           <span><%= data.id %></span> 
       </div>
       <div class="psDetail">
@@ -41,7 +38,6 @@
           <p class="psOtherInf"><%= data.p_OthInfo %></p>
           <p class="psDoctor"><%= data.p_doctor %></p>
       </div>
-     
       <div class="psAction"> 
           <a href="javascript:Complete()" class="done hover"><span
                   class="symbols-rounded">done</span>Completed</a>
@@ -50,14 +46,15 @@
       </div>
   </div>
    <% }) %>
+<% } else { %>
+     <h2 style="text-align: center; color: rgb(183, 213, 240);"> No Data Available !!!</h2> 
       <% } %> 
 </main>
 
-
     <!-- ////Bottom Manu -->
     <%- include('./partials/footer.ejs') %>
-    <!-- <script  src="/admin/js/jsDataObject.js"></script> -->
-    <script src="/admin/js/script.js"></script>
+                        <!-- <script  src="/admin/js/jsDataObject.js"></script> -->
+                        <script src="/admin/js/script.js"></script>
 </body>
 
 </html>

@@ -5,33 +5,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/admin/css/picnic.css">
+    <title>Login | Cipmedic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 <style>
-    label {
-        width: 100% !important;
-    }
+    
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.login-container{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 25px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+.login-container header{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 10px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+.login-container form{
+    margin: 20px 0;
+}
+.login-container form .user{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    position: relative;
+}
+.login-container form .user label{
+    margin-bottom: 2px;
+}
+.login-container form .input{
+    width: 100%;
+    box-sizing: border-box;
+}
+.login-container form .input input{
+    height: 40px;
+    /* width: 100%; */
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-container form .user i{
+    position: absolute;
+    right: 15px;
+    color: #ccc;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.login-container form .buton button{
+    margin-top: 13px;
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    font-weight: 400;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.power{
+    text-align: center;
+}
+
 </style>
 
 <body>
 
-    <h1 style="text-align:center; font-family: 'El Messiri', sans-serif;">
-        <u>Login</u>
-    </h1>
-    <div class="card" style="width: 90%; margin: auto; padding: 10px; margin-top: 30px;">
+    <div class="login-container">
+        <header>Admin Login</header>
         <form action="auth" method="post">
-            <fieldset class="flex two">
-                <p>Username :</p>
-                <label><input class="input" type="text" name="Username" placeholder="@Username"></label>
-                <p>Password :</p>
-                <label><input type="password" name="Password" placeholder="Password"></label>
-            </fieldset>
-            <button type="submit"> Login</button>
+            <div class="user input">
+                <label>Username</label>
+                <input class="input" type="text" name="Username" placeholder="@Username">
+            </div>
+            <div class="user input">
+                <label>Password</label>
+                <input type="password" name="Password" placeholder="Password">
+                <i class="uil uil-eye"></i>
+            </div>
+            <div class="user buton">
+                <button type="submit"> Login</button>
+            </div>
+                
         </form>
+    </div>
+
+    <div class="power">
+        <p>Powered by Cipmedic</p>
+        <p>Copyright @ 2023</p>
     </div>
 
 </body>
