@@ -1,8 +1,34 @@
-let berger = document.querySelector('.berger');
-let nav = document.querySelector('.nav-links');
-let searchIcon = document.querySelector('.searchIcon');
-let searchBox = document.querySelector('.searchBox');
-berger.onclick = function () { nav.classList.add('active')}
+// let berger = document.querySelector('.berger');
+// let nav = document.querySelector('.nav-links');
+// let searchIcon = document.querySelector('.searchIcon');
+// let searchBox = document.querySelector('.searchBox');
+// berger.onclick = function () { nav.classList.add('active')}
+
+let navMenu = document.getElementById('nav-menu');
+let navlist = document.getElementById('navlist');
+
+let a = true;
+
+navMenu.addEventListener('click', function() {
+
+    let navbar = document.getElementById('navbar');
+
+    console.log(a);
+    if (a === true) {
+        //navbar.classList.remove('hidden')
+        navlist.style.left = 0;
+        a = false;
+    }else{
+        //navbar.classList.add('hidden') 
+        navlist.style.left = '-100%';
+        a = true;
+    }
+})
+
+
+
+
+
 let Obj = { flashMsg: function (h,p,e) {
         let msgBody = document.getElementById('msg_bx')
         let ctn = document.getElementById('msg_Ctn').children;

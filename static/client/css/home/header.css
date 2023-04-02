@@ -14,49 +14,42 @@
 body{
     background: var(--body-color);
 }
-
-.header-content{
+header{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
-    margin: auto;
-    height: 5.5em;
     background: var(--shadow-color-2);
     box-shadow: 0 1em 1.1em var(--shadow-color);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    box-sizing: border-box;
+    height: 5.5em;
 }
 .logo{
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     cursor: pointer;
 }
-nav{
+.nav-list{
     display: flex;
     align-items: center;
-}
-.nav-links{
-    display: flex;
+    justify-content: center;
     gap: 2em;
+    color: rgb(13, 13, 13);
+    background-color: var(--shadow-color-2);
 }
-.nav-links li{
+.nav-list li{
     list-style: none;
 }
-.nav-links li a{
-    position: relative;
+.nav-list li a{
+    font-size: 1.1em;
     text-decoration: none;
-    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--font-color);
+    position: relative;
 }
-
-
-.nav-links li a::after{
+.nav-list li a::before{
     content: '';
     position: absolute;
     background-color: var(--font-color);
@@ -68,50 +61,23 @@ nav{
     transition: transform 0.5s ease-in-out;
     transform-origin: right;
 }
-
-.nav-links li a:hover::after{
+.nav-list li a:hover::before{
     transform: scaleX(1);
     transform-origin: left;
 }
 
- /* common class icon  */
-.uil{
+.mobile-nav-icon{
+    font-size: 2em;
     cursor: pointer;
+    display: none;
+}
+#navCheck{
+    display: none; 
+}
+
+.uil{
     color: var(--font-color);
 }
-/* == */
-.berger{
-    display: none;
-}
-
-.searchBox{
-    width: 100%;
-    height: 5.5em;
-    display: flex;
-    align-items: center;
-
-}
-
-.searchBox input{
-    border: none;
-    outline: none;
-    width: 95%;
-    margin: auto;
-    font-size: 1.25em;
-    border-bottom: 0.1em solid var(--font-color);
-}
-
-
-.hidden{
-    display: none;
-}
-.search{
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    font-size: 1.5em;
-}
-
 /* location  */
 
 .location-container{
@@ -120,6 +86,7 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* opacity: 0; */
 }
 
 .location{
@@ -139,52 +106,45 @@ nav{
 /* slider   */
 .slider{
     width: 80%;
-    margin: auto;
+    margin: 5% auto;
+    height: 100%;
     border-radius: 0.5em;
 }
 
 .slider img{
     max-width: 100%;
     width: 100%;
-    height: auto;
+    height: 75vh;
     border-radius: 0.5em;
-    box-shadow:  1.25em 1.25em 3.75em var(--shadow-color-1),
-    -1.25em -1.25em 3.75em var(--shadow-color-2);
+    object-fit: cover;
 }
 
 
 
 /* responsive */
 @media(max-width: 960px){
-    .berger{
+    .mobile-nav-icon{
         display: block;
     }
-    
-    .nav-links{
-        display: flex;
-        flex-direction: column;
-        background-color: var(--shadow-color-2);
-        position: absolute;
+    .nav-list{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: white;
+        height: 85vh;
         width: 100%;
-        top: 4em;
-        left: 0;
-        padding: 2em 0;
-        border-bottom-right-radius: 5em;
-    }
-
-    .nav-hide{
-        display: none;
-    }
-    .active{
         display: block;
+        text-align: center;
+        border-bottom-right-radius: 10em;
+        transition: all 0.3s ease;
     }
-
-    .nav-links li{
-        padding: 1em 3em;
+    .nav-list li{
+        margin: 40px 0;
     }
-
-    
-
+    #navCheck:checked ~ .mobile-nav-icon i::before{
+        content: "\e9b8";
+    }
+ 
 }
 
 @media (max-width: 480px){
