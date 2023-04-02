@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <!-- ///// nav  -->
-    <%- include('./partials/header.ejs') %>
+<!-- ///// nav  -->
+<%- include('./partials/header.ejs') %>
 
-        <!-- Mdl and flashMsg -->
+<!-- Mdl and flashMsg -->
         <div id="mdl_bx">
             <div id="mdl_body" style="margin: auto;"></div>
             <div id="btnCotn">
@@ -23,7 +23,7 @@
             </div></div>
         <div id="flashMsg"><p id="text"></p></div>
 
-        <!-- ////Main Content -->
+<!-- ////Main Content -->
         <main id="mainContent">
             <% if(ps_data>0){ %>
                 <% ps_data.forEach(function(data){ %>
@@ -53,8 +53,8 @@
 
     <!-- ////Bottom Manu -->
     <%- include('./partials/footer.ejs') %>
-                        <!-- <script  src="/admin/js/jsDataObject.js"></script> -->
-                        <script src="/admin/js/script.js"></script>
+<!-- <script  src="/admin/js/jsDataObject.js"></script> -->
+<script src="/admin/js/script.js"></script>
 </body>
 
 </html>

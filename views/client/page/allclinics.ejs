@@ -28,90 +28,28 @@
     <%- include('../partials/indexHeader.ejs') %>
 
     <div class="gridBox">
-        <div class="grid-item shadowBox">
-            <a href="/dispur">
+        <% if(data){ %>
+            <% data.forEach(function(data){ %>
+        <div class="grid-item shadowBox" data-id="<%= data.c_id %>">
+            <a href="<%= data.c_img %>">
                 <div class="grid-img img-1">
-                    <h3>Dispur Polyclinic</h3>
+                    <h3><%= data.c_name %></h3>
                     <div class="grid-img-content">
-                        <p><i class="uil uil-user-md uil-color"></i>
-                            Dr Mohibul Hoque
-                        </p>
-                        <span>4.5&#9733;</span>
+                        <p><i class="uil uil-user-md uil-color"></i></p>
+                        <span><%= data.star %>&#9733;</span>
                     </div>
                 </div>
                 <div class="grid-content">
                     <p><i class="uil uil-location-point"></i>
-                        Ganeshguri,Dispur,Guwahati</p>
+                        <%= data.c_location %></p>
                     <p><i class="uil uil-rupee-sign"></i>
-                        500 at clinic
+                        <%= data.fees %> at clinic
                     </p>
                 </div>
             </a>
         </div>
-         <!-- clinic-2  -->
-        <div class="grid-item shadowBox">
-            <a href="#">
-                <div class="grid-img img-1">
-                    <h3>Dispur Polyclinic</h3>
-                    <div class="grid-img-content">
-                        <p><i class="uil uil-user-md uil-color"></i>
-                            Dr Mohibul Hoque
-                        </p>
-                        <span>4.5&#9733;</span>
-                    </div>
-                </div>
-                <div class="grid-content">
-                    <p><i class="uil uil-location-point"></i>
-                        Ganeshguri,Dispur,Guwahati</p>
-                    <p><i class="uil uil-rupee-sign"></i>
-                        500 at clinic
-                    </p>
-                </div>
-            </a>
-        </div>
-        <!-- clinic-3  -->
-        <div class="grid-item shadowBox">
-            <a href="#">
-                <div class="grid-img img-1">
-                    <h3>Dispur Polyclinic</h3>
-                    <div class="grid-img-content">
-                        <p><i class="uil uil-user-md uil-color"></i>
-                            Dr Mohibul Hoque
-                        </p>
-                        <span>4.5&#9733;</span>
-                    </div>
-                </div>
-                <div class="grid-content">
-                    <p><i class="uil uil-location-point"></i>
-                        Ganeshguri,Dispur,Guwahati</p>
-                    <p><i class="uil uil-rupee-sign"></i>
-                        500 at clinic
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <!-- clinic-4  -->
-        <div class="grid-item shadowBox">
-            <a href="#">
-                <div class="grid-img img-1">
-                    <h3>Dispur Polyclinic</h3>
-                    <div class="grid-img-content">
-                        <p><i class="uil uil-user-md uil-color"></i>
-                            Dr Mohibul Hoque
-                        </p>
-                        <span>4.5&#9733;</span>
-                    </div>
-                </div>
-                <div class="grid-content">
-                    <p><i class="uil uil-location-point"></i>
-                        Ganeshguri,Dispur,Guwahati</p>
-                    <p><i class="uil uil-rupee-sign"></i>
-                        500 at clinic
-                    </p>
-                </div>
-            </a>
-        </div>
+        <% }) %>
+<% } %>
     </div>
     <%- include('../partials/indexFooter.ejs') %>
 

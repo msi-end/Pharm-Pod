@@ -13,7 +13,7 @@ route.get('/', (req, res) => {
 route.get('/:page', (req, res) => {
     if (fs.existsSync(`./views/client/Cl_pages/${req.params.page}.ejs`)) {
         db.query(`SELECT form_Status FROM client_Info WHERE c_id='${req.session.user_id}'`, function (err, results, fields) {
-            if (err) {console.log('Admin Route Error' + err)
+            if (err) {console.log('Page Route Error' + err)
             } else { res.status(200).render(`../views/client/Cl_pages/${req.params.page}.ejs`,{date:results})}});
     } else { res.status(400).render('../views/client/error.ejs') }})
 
@@ -25,8 +25,12 @@ route.get('/p/contactus', (req, res) => {
     res.render('../views/client/page/contactus.ejs')
 })
 route.get('/p/clinics', (req, res) => {
-    res.render('../views/client/page/allclinics.ejs')
-})
+    db.query(`SELECT client_Info.c_id, client_Info.c_name, client_Info.c_location,fees, COUNT(rr_data.review) AS total_review,
+    AVG(rr_data.rating) AS star FROM client_Info INNER JOIN rr_data ON rr_data.c_id = client_Info.c_id
+    GROUP BY c_id;`, function (err, results, fields) {
+        if (err) {console.log('Clinic Route Error' + err)
+        } else { res.status(200).render(`../views/client/page/allclinics.ejs`,{data:results})}});
+}) 
 route.get('/p/privacy-policy', (req, res) => {
     res.render('../views/client/page/privacypolicy.ejs')
 })

@@ -1,8 +1,8 @@
 <nav id="NavContainer">
-    <a id="val1" href="javascript:userAction.modelBox_Opn('MaxChange')" title="Increase/Decrease Apply Quantity" aria-checked="true">Maximum Apply:<span> <%= sets.maxApply %></span></a>
-    <a href="javascript:userAction.modelBox_Opn('AutoApv')" id="val2"  title="Off/On Auto Approval">Auto Approval: <span> <%= sets.autoReqAppl %></span></a>
-    <a class="switch" href="javascript:userAction.modelBox_Opn('AutoApv')" id="val2"  title="Off/On Auto Approval">Auto Approval: <span> <%= sets.autoReqAppl %></span></a>
-
+    <a href="javascript:userAction.modelBox_Opn('MaxChange')" title="Increase/Decrease Apply Quantity" aria-checked="true">Maximum Apply:<span> <%= sets.maxApply %> r/Day</span></a>
+    <a href="javascript:userAction.modelBox_Opn('AutoApv')"   title="Off/On Auto Approval">Auto Approval: <span><%= sets.autoReqAppl=='true'?'On':'Off' %></span></a>
+    <a href="javascript:userAction.modelBox_Opn('AutoApv')"   title="Off/On Submission Form">Apply Form: <span><%= sets.form_Status=='true'?'On':'Off' %></span></a>
+    <input type="date" name="" id="">
     <!-- <span id="toggalOpt" onclick="taggleNav()">0</span> -->
 </nav>
 <br> 
