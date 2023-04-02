@@ -1,5 +1,4 @@
 @import './anim.css';
-
 :root {
     --p-color: rgb(17, 5, 85);
     --p2-color: rgb(42, 15, 199);
@@ -22,8 +21,6 @@ a {
         'GRAD' 0,
         'opsz' 48
 }
-
-
 /* ///// nav  */
 #NavContainer {
     background-color: var(--p-color);
@@ -40,9 +37,6 @@ a {
     margin: 5px;
     display: block;
 }
-
-
-
 /* ///// navBottom  */
 .addPS {
     background-color: var(--p-color);
@@ -335,3 +329,5 @@ input:checked+.slider:before {
     box-shadow: 1px 10ps -5px black;
     background-color: var(--p2-color);
 }
+h2 [data-val="nl"]{
+text-align: center; color: rgb(183, 213, 240);}
