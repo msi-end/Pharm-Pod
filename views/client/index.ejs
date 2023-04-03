@@ -8,12 +8,14 @@
     
     <!-- style sheets -->
     <link rel="stylesheet" href="/client/css/home/header.css">
+    <link rel="stylesheet" href="/client/css/home/location-slider.css">
     <link rel="stylesheet" href="/client/css/home/clinics.css">
     <link rel="stylesheet" href="/client/css/home/aboutUs.css">
     <link rel="stylesheet" href="/client/css/home/events.css">
     <link rel="stylesheet" href="/client/css/home/footer.css">
     <!-- icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,20 +25,38 @@
 <body>
     <%- include('./partials/indexHeader.ejs') %>
       <!--location -->
-      <section class="location-container">
-        <a href="#"><i class="uil uil-location-point lr-icon"></i></a>
-        <input type="text" placeholder="Enter your location..." class="location">
-        <i class="uil uil-multiply lr-icon"></i>
+      <section class="location-container shadowBox">
+        <a href="#"><i class="uil uil-location-point"></i></a>
+        <input type="text" placeholder="Enter your location..." class="location" />
+        <i class="uil uil-multiply"></i>
     </section>
 
 
     <!-- slider images (1215x500px)-->
-    <div class="slider">
-        <img src="/client/img/slider-img/img-4.jpg" alt="medicine"
-        width="1215px" height="500px">
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="/img/slider-img/img-1.jpg" alt="medicine" />
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/img/slider-img/img-2.jpg" alt="medicine" />
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/img/slider-img/img-3.jpg" alt="medicine" />
+        </div>
+
+        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
     </div>
+    <br />
+    <!-- <div class="slideDot">
+        <span class="dot" onclick="currentSlides(1)"></span>
+        <span class="dot" onclick="currentSlides(2)"></span>
+        <span class="dot" onclick="currentSlides(3)"></span>
+    </div> -->
 
-
+    
     <!-- Clinics  -->
     <div class="mainContainer shadowBox clinicContain">
         <div class="clinics">
