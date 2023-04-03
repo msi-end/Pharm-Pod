@@ -11,6 +11,7 @@ route.get('/:user/admin/login', (req, res) => {
 
 
 route.post('/:user/admin/auth', async (req, res) => {
+    user = req.params.user
     if (req.body.Username && req.body.Password) {
         const query = `SELECT username,password FROM auth WHERE c_id ='${user}'`;
         await databaseCon.query(query, [req.body.Username, req.body.Password], (err, results, fields) => {
@@ -24,8 +25,8 @@ route.post('/:user/admin/auth', async (req, res) => {
             } })}});
 
 route.get('/:user/admin/logOut', (req, res) => {
-    req.session.destroy();
-    res.redirect(`/${user}/admin/login`)
+    user = req.params.user;req.session.destroy();
+    res.redirect(`/${user}`)
 })
 
 
