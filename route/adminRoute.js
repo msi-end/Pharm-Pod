@@ -3,8 +3,8 @@ const route = express.Router();
 const databaseCon = require('../models/db.model');
 
 
-let user = null;
 route.get('/:user/admin', async (req, res) => {
+    let user = null;
     let tdt =new Date().toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"})
     user = req.params.user;
     if (req.session.loggedin) {
@@ -26,7 +26,6 @@ route.get('/:user/admin/ApplyRequest', (req, res) => {
 route.get('/:user/admin/settings', (req, res) => {
      if (req.session.loggedin) {
     res.render('../views/admin/settings.ejs')
-res.send('new updates')
      }else{
         res.render('../views/admin/userError.ejs')
      }})

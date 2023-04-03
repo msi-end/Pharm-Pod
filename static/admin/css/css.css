@@ -1,5 +1,4 @@
 @import './anim.css';
-
 :root {
     --p-color: rgb(17, 5, 85);
     --p2-color: rgb(42, 15, 199);
@@ -22,8 +21,6 @@ a {
         'GRAD' 0,
         'opsz' 48
 }
-
-
 /* ///// nav  */
 #NavContainer {
     background-color: var(--p-color);
@@ -40,9 +37,6 @@ a {
     margin: 5px;
     display: block;
 }
-
-
-
 /* ///// navBottom  */
 .addPS {
     background-color: var(--p-color);
@@ -82,71 +76,10 @@ a {
     transition: all .5s;
     color: var(--p-color);
 }
-
-
-
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 45px;
-    height: 23px;
     float: right;
 }
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgb(255, 255, 255);
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    bottom: 4px;
-    background-color: rgb(224, 224, 224);
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked+.slider {
-    background-color: #2196F3;
-}
-
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(22px);
-    -ms-transform: translateX(22px);
-    transform: translateX(22px);
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
 /* ///////////Main  */
-
 .psInfo {
     width: 88%;
     border: 1px solid var(--p-color);
@@ -157,11 +90,9 @@ input:checked+.slider:before {
     justify-content: space-evenly;
     box-shadow: 1px 2px 4px 1px rgb(206, 205, 205);
 }
-
 .psInfo::before {
     content: '';
 }
-
 .psNum {
     background-color: rgb(133, 192, 240);
     border-radius: 11px;
@@ -169,43 +100,34 @@ input:checked+.slider:before {
     width: 15%;
     margin-right: 7px;
     text-align: center;
-
 }
-
 .psNum span {
     text-align: center;
 }
-
 .psDetail {
     width: 70%;
 }
-
 .psDoctor,
 .psOtherInf {
     font-size: 13px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 .psAction {
     width: 22%;
     display: grid;
     font-size: 13px;
     text-align: center;
 }
-
 .del,
 .done {
     display: block;
 }
-
 .done {
     color: green;
 }
-
 .del {
     color: red;
 }
-
 .hover:hover {
     background: white;
     color: var(--p-color);
@@ -214,24 +136,22 @@ input:checked+.slider:before {
     border: 2px solid var(--p-color);
     font-size: 10px;
 }
-
 /* ////Plus Icon /// */
 .addPSpan {
+    display: block;
     background-color: var(--p-color);
     color: rgba(255, 255, 255, 0);
     font-size: 39px;
     width: 93%;
     height: 370px;
-    border-radius: 13px;
-    display: block;
+    padding: 10px;
     text-align: center;
+    border-radius: 13px;
     position: fixed;
     bottom: 70px;
     margin: auto;
     transition: all .4s;
-    padding: 10px;
 }
-
 .addPSpan p {
     margin: 12px 2px -3px 2px;
     color: white;
@@ -335,3 +255,5 @@ input:checked+.slider:before {
     box-shadow: 1px 10ps -5px black;
     background-color: var(--p2-color);
 }
+h2[data-val="nl"]{
+text-align: center; color: rgb(183, 213, 240);}

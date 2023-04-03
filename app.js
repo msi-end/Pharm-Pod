@@ -13,6 +13,7 @@ const adminLogRoute = require('./controllers/admin.login.js')
 const adminRoute = require('./route/adminRoute.js')
 const ClientView =require('./route/clientRoute.js')
 const apiV3 =require('./route/crudApiRoute.js')
+const review =require('./route/reviewRoute.js')
  
 
 const athTime = 1000*60*60*24*15;
@@ -36,7 +37,8 @@ app.set('view engin', ejs);
 app.use('/', ClientView);
 
 // Admin Crud API & AdminLogin 
-app.use('/apiV3', apiV3);
+app.use('/apiV3',apiV3);
+app.use('/apiV3/r/',review);
 app.use(adminLogRoute);
 app.use(adminRoute);
 
