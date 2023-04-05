@@ -5,11 +5,12 @@ const databaseCon = require('../models/db.model');
 // patient application req
 exports.add = (req, res) => {
     let user = req.params.user;
-    databaseCon.query(`SELECT COUNT(p_aptDate) as count from ${user}_PS_data WHERE p_aptDate='${req.body.date}'; SELECT maxApply from client_Info WHERE c_id='${user}'`, function (err, results, fields) {
+    databaseCon.query(`SELECT COUNT(p_aptDate) as count from ${user}_PS_data WHERE p_aptDate='${req.body.date}'; SELECT maxApply ,autoReqAppl from client_Info WHERE c_id='${user}'`, function (err, results, fields) {
         if (err) throw err;// console.log(results);
         if (results[1][0].maxApply >= results[0][0].count) {
-            let params =[req.body.name ,req.body.otherInfo,req.body.doctor,req.body.date];
-            let sql = `INSERT INTO ${user}_PS_data (p_name,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
+            console.log(results[1][0].autoReqAppl);
+            let params =[req.body.name,req.body.number,req.body.otherInfo,req.body.doctor,req.body.date];
+            let sql = `INSERT INTO ${user}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
             databaseCon.query(sql,[params], function (err, results, fields) {
                 if (err) throw err;
                 res.send({ status: 'true', msg: 'Application submited Sucessfully!' })

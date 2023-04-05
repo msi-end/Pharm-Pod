@@ -41,13 +41,13 @@ let Obj = { flashMsg: function (h,p,e) {
             setTimeout(() => { msgBody.style.display = 'none';this.Anim(msgBody, 'animate__bounceOut', false)}, 1000);
             ctn[0].children[0].classList.remove(e?'uil-check-circle':'uil-exclamation-triangle')},2000);},
     Anim: function (obj, animType, dpOpt) {dpOpt ?obj.classList.add(animType): obj.classList.remove(animType)}}
-function dSplit(val,p,t){let [d,m,y]=val.split(p);return t?`${d}/${m}/${y}`:`${y}-${m}-${d}`}
-let dtEm=document.getElementById('reqDate');let tdy =new Date;
-let tdyVal=tdy.toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"})
-let odt =new Date(tdy.setDate(tdy.getDate()-parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"});
-let ndt =new Date(tdy.setDate(tdy.getDate()+parseInt(dtEm.dataset.max)+parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric",day:"2-digit"})
-dtEm.value=dSplit(tdyVal,'/',false);    dtEm.min=dSplit(odt,'/',false); dtEm.max=dSplit(ndt,'/',false);
-
+    function dSplit(val,p,t){let [d,m,y]=val.split(p);return t?`${y}/${m}/${d}`:`${y}-${m}-${d}`}
+    function dateFn(e) {   let dtEm=document.getElementById(e);let tdy =new Date; if(dtEm){
+        let tdyVal=tdy.toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"})
+        let odt =new Date(tdy.setDate(tdy.getDate()-parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"});
+        let ndt =new Date(tdy.setDate(tdy.getDate()+parseInt(dtEm.dataset.max)+parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric",day:"2-digit"})
+        dtEm.value=dSplit(tdyVal,'/',false);dtEm.min=dSplit(odt,'/',false); dtEm.max=dSplit(ndt,'/',false);}}
+   dateFn('formDate');
 
 
 // USE  Obj.flashMsg('main message','second detailed message',true)
