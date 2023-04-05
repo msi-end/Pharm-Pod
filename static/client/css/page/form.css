@@ -18,7 +18,7 @@
     display: none;
     
 }
-.registration-details, .reviewPopup-box, .review-form-details{
+.registration-details, .reviewPopup-box, .review-form-details, .zoomPhoto{
     padding: 2em;
     background: var(--background-color);
     position: absolute;
@@ -27,7 +27,7 @@
     transform: translate(-50%, -50%);
 }
 
-.registration-details #closeX, .reviewPopup-box #clsX, .review-form-details #Xclse{
+.registration-details #closeX, .reviewPopup-box #clsX, .review-form-details #Xclse, .photo-box #pclose{
     background: var(--font-color);
     color: var(--background-color);
     font-weight: 500;
@@ -240,11 +240,76 @@ form .user-details .input-box{
     cursor: pointer;
 }
 
+/* form css */
+.hide{
+    display: none;
+}
+
+.photo-box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 35;
+}
+.zoomPhoto{
+    border-radius: 0.5em;
+    width: 75%;
+    height: auto;
+    padding: 20px;
+}
+.zoomPhoto img{
+    border-radius: 10px;
+    width: 100%;
+    max-height: 350px;
+    height: 100%;
+}
+
+/* ///// Model Msg  */
+#msg_bx {
+    display: none;
+    width: 100%;
+    background-color: #ffffff00;
+    position: fixed;
+    top: 20%;
+}
+#msg_Ctn {
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    padding: 30px;
+    border-radius: 13px;
+    z-index: 50;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.692);
+}
+#msg_Ctn #icon {
+    width: 20%;
+    height: 10vh;
+    border-radius: 50%;
+}
+#msg_Ctn .uil-exclamation-triangle::before ,#msg_Ctn .uil-check-circle::before {
+    font-size: 60px;
+    vertical-align: middle;
+    color: white;
+}
+#msg_Ctn #msg_k790 {
+    display: inline-block;
+    width: 80%;
+}
 
 
 
 
 /* responsive  */
+
+@media (max-width:480px){
+    #msg_Ctn {width: 80%;}
+}
+
 @media(max-width: 572px){
     .registration-form{
         width: 100%;

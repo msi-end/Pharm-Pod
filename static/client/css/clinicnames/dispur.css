@@ -429,38 +429,3 @@
 
 
 
-/* ///// Model Msg  */
-#msg_bx {
-    display: none;
-    width: 100%;
-    background-color: #ffffff00;
-    position: fixed;
-    top: 20%;
-}
-#msg_Ctn {
-    width: 400px;
-    height: 100px;
-    margin: auto;
-    display: flex;
-    padding: 30px;
-    border-radius: 13px;
-    z-index: 50;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.692);
-}
-#msg_Ctn #icon {
-    width: 20%;
-    height: 10vh;
-    border-radius: 50%;
-}
-#msg_Ctn .uil-exclamation-triangle::before ,#msg_Ctn .uil-check-circle::before {
-    font-size: 60px;
-    vertical-align: middle;
-    color: white;
-}
-#msg_Ctn #msg_k790 {
-    display: inline-block;
-    width: 80%;
-}
-@media (max-width:480px){
-    #msg_Ctn {width: 80%;}
-}
