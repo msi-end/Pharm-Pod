@@ -9,10 +9,12 @@
 
     <!-- style sheets -->
     <link rel="stylesheet" href="/client/css/home/header.css">
+    <link rel="stylesheet" href="/client/css/home/location-slider.css">
     <link rel="stylesheet" href="/client/css/home/clinics.css">
     <link rel="stylesheet" href="/client/css/home/aboutUs.css">
     <link rel="stylesheet" href="/client/css/home/events.css">
     <link rel="stylesheet" href="/client/css/home/footer.css">
+    
 
     <link rel="stylesheet" href="/client/css/clinicnames/dispur.css">
     <link rel="stylesheet" href="/client/css/clinicnames/respDispur.css">
@@ -20,6 +22,7 @@
 
     <!-- icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,16 +33,17 @@
 <body>
     <%- include('../partials/indexHeader.ejs') %>
     <div class="mainPage mainContainer shadowBox">
+        
         <div class="clinicInfo">
             <div class="clinicLogo shadowBox">
-                <img src="/client/img/Clinics/Dispur/logo.png" alt="Logo">
+                <img src="doctor.JPG" alt="Logo">
             </div>
             <div class="clinicDetails">
-                <div class="clinicName">
-                    <h3>Dispur Polyclinic</h3>
+                <div class="clinicName" id="clinicid" data-valuguti="">
+                    <h3 id="clinicName">Dispur Polyclinic</h3>
                     <div class="starRating">
-                        <span>4.6&#9733;</span>
-                        <p>(200+ Ratings)</p>
+                        <span id="clinicRating">4.6&#9733;</span>
+                        <p id="clinicRev">(200+ Ratings)</p>
                     </div>
                 </div>
                 <p>
@@ -49,24 +53,24 @@
                 <p>
                     <i class="uil uil-map-marker-plus"></i>
                     <a href="#">
-                        H.No.6A, Juripar, Panjabari, SixMile, Guwahati
+                    H.No.6A, Juripar, Panjabari, SixMile, Guwahati
                     </a>
-
+                    
                 </p>
                 <p> <i class="uil uil-check-circle"></i>
-                    3 Doctors &nbsp;
-                    <i class="uil uil-check-circle"></i>
+                    3 Doctors  &nbsp;
+                    <i class="uil uil-check-circle"></i> 
                     <i class="uil uil-rupee-sign"></i>
-                    500 at clinic
+                    500 at clinic  
                 </p>
 
                 <div class="appointmentBtns">
                     <button class="appbtn" id="bookAppo">Book Appointment</button>
                     <button class="appbtn">Call Now</button>
-                </div>
+                 </div>
             </div>
         </div>
-        <hr id="revert">
+            <hr id="revert">
 
         <div class="clinicTimings">
             <p>timings</p>
@@ -90,19 +94,19 @@
                     <li>10:00 AM - 01:00 PM</li>
                 </ul>
             </div>
-
+            
         </div>
     </div>
-    <!-- mainPAge section ends here -->
+            <!-- mainPAge section ends here -->
 
     <div class="splitSection">
         <div class="firstSplit shadowBox">
             <div class="firstSplit-Heading">
                 <h3>DOCTORS IN THE CLINIC</h3>
-                <select name="doctors" id="doctors">
+                <select name="doctors" id="doctors" onchange="getValu()">
                     <optgroup label="Physiotherapist">
-                        <option value="kank">Dr Kankan Jyoti Nath</option>
-                        <option value="panc">Dr Panchanan Deka</option>
+                        <option value="0">Dr Kankan Jyoti Nath</option>
+                        <option value="1">Dr Panchanan Deka</option>
                     </optgroup>
 
                     <optgroup label="Radiologist">
@@ -111,7 +115,7 @@
                     </optgroup>
                 </select>
             </div>
-
+            
             <hr>
             <div class="firstSplit-main">
                 <div class="firstSplit-img">
@@ -119,29 +123,29 @@
                         <i class="uil uil-award"></i>
                         Certification verified
                     </p>
-                    <img src="/client/img/doctor/Dr Kankan/logo.png" alt="Dr Kankan">
+                    <img src="doctor.JPG" alt="Dr Kankan">
                 </div>
                 <div class="firstSplit-Content">
-                    <h3>Dr Kankan Jyoti Nath</h3>
+                    <h3 id="dname">Dr Kankan Jyoti Nath</h3>
                     <p>
                         <i class="uil uil-user-md"></i>
-                        NEUROSURGEON
+                       <span id="dspec"> NEUROSURGEON</span>
                     </p>
                     <p>
                         <i class="uil uil-university"></i>
-                        MBBS, MD, MSc
+                       <span id="ddeg"> MBBS, MD, MSc</span>
                     </p>
                     <p>
                         <i class="uil uil-medkit"></i>
-                        12 Years Experience
+                       <span id="dexp"> 12 Years Experience</span>
                     </p>
                     <p>
                         <i class="uil uil-language"></i>
-                        English, Hindi, Assamese
+                        <span id="dlang">English, Hindi, Assamese</span>
                     </p>
                     <p>
                         <i class="uil uil-heart-medical"></i>
-                        250+ Ratings
+                       <span id="drat"> 250+ Ratings</span>
                     </p>
 
                 </div>
@@ -149,63 +153,57 @@
 
             <hr>
 
-            <div class="doctorTimings">
-                <h4>Timings</h4>
-                <div class="weekDays">
-                    <ul>
-                        <li>Sunday</li>
-                        <li>Monday</li>
-                        <li>Tuesday</li>
-                        <li>Wednesday</li>
-                        <li>Thursday</li>
-                        <li>Friday</li>
-                        <li>Saturday</li>
-                    </ul>
-                    <ul>
-                        <li>10:00 AM - 01:00 PM</li>
-                        <li>11:00 AM - 02:00 PM</li>
-                        <li>09:00 AM - 11:00 AM</li>
-                        <li>11:30 AM - 01:30 PM</li>
-                        <li>10:30 AM - 02:30 PM</li>
-                        <li>09:30 AM - 01:30 PM</li>
-                        <li>10:00 AM - 01:00 PM</li>
-                    </ul>
-                </div>
-
+        <!-- <div class="doctorTimings">
+            <h4>Timings</h4>
+            <div class="weekDays">
+                <ul>
+                    <li>Sunday</li>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                </ul>
+                <ul>
+                    <li>10:00 AM - 01:00 PM</li>
+                    <li>11:00 AM - 02:00 PM</li>
+                    <li>09:00 AM - 11:00 AM</li>
+                    <li>11:30 AM - 01:30 PM</li>
+                    <li>10:30 AM - 02:30 PM</li>
+                    <li>09:30 AM - 01:30 PM</li>
+                    <li>10:00 AM - 01:00 PM</li>
+                </ul>
             </div>
+            
+        </div>
 
-            <hr>
+            <hr> -->
 
             <div class="firstSplit-details">
                 <h4>About</h4>
                 <details>
-                    <summary>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi impedit nihil veritatis
-                        omnis nemo, illo qui facere minima magnam tenetur, ex, aliquam doloribus. Ea tempora quo dolorem
-                        dolore vero eum...
+                    <summary id="aboutsum">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi impedit nihil veritatis omnis nemo, illo qui facere minima magnam tenetur, ex, aliquam doloribus. Ea tempora quo dolorem dolore vero eum...
                     </summary>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos officiis officia dolores
-                        veniam dicta repellat magnam? Vel suscipit nobis repudiandae iusto voluptatibus maxime cum a,
-                        sit unde. Corrupti, deserunt culpa!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos officiis officia dolores veniam dicta repellat magnam? Vel suscipit nobis repudiandae iusto voluptatibus maxime cum a, sit unde. Corrupti, deserunt culpa!</p>
                 </details>
                 <hr>
                 <h4>What the Doctor has to say?</h4>
                 <div class="videoContent">
-                    <iframe src="https://www.youtube.com/embed/Yxl-kfl9MIg" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/Yxl-kfl9MIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
                     <div class="videoContent-desc">
                         <h5>Lifestyle Diseases</h5>
-                        <p> NCDs such as cardiovascular diseases (CVD), stroke, diabetes and certain forms of cancer are
-                            heavily linked to lifestyle choices, and hence, are often known as lifestyle diseases.
+                        <p>  NCDs such as cardiovascular diseases (CVD),  stroke, diabetes and certain forms of cancer are heavily linked to lifestyle choices, and hence, are often known as lifestyle diseases.
                             <a href="#">Know more&rarr;</a>
                     </div>
                     </p>
                 </div>
             </div>
-
+            
         </div>
+
 
         <!-- Right Side Split section  -->
 
@@ -233,13 +231,13 @@
                     <!-- <button class="btn">View All</button> -->
                 </div>
                 <div class="galleryPhotos">
-                    <img src="/client/img/Clinics/Dispur/cover-image.jpg" alt="">
-                    <img src="/client/img/Clinics/Dispur/logo.png" alt="">
-                    <img src="/client/img/Clinics/Dispur/logo.png" alt="">
-                    <img src="/client/img/Clinics/Dispur/logo.png" alt="">
-                    <img src="/client/img/doctor/profile-img/doctor.jpg" alt="">
-                    <img src="/client/img/doctor/profile-img/doctor.jpg" alt="">
-                    <img src="/client/img/doctor/profile-img/doctor.jpg" alt="">
+                    <img src="cover-image.jpg" alt="">
+                    <img src="logo.png" alt="">
+                    <img src="logo.png" alt="">
+                    <img src="logo.png" alt="">
+                    <img src="doctor.jpg" alt="">
+                    <img src="doctor.jpg" alt="">
+                    <img src="doctor.jpg" alt="">
                 </div>
             </div>
 
@@ -256,7 +254,7 @@
 
                 <div class="clinicalEvents-Content">
                     <div class="content-Events_img">
-                        <img src="/client/img/card-img/clinic-1.jpg" alt="">
+                        <img src="/img/card-img/clinic-1.jpg" alt="">
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quod totam expedita adipisci nostrum
                         quas eligendi. Excepturi asperiores dignissimos ducimus libero ratione, sapiente commodi
@@ -272,38 +270,33 @@
 
     <!-- second section ends here  -->
 
-    <div class="feedback_Form mainContainer shadowBox">
-        <input type="text" name="feedback" id="feedback">
-        <a href="#">
-            <button>Send us your feedback&rarr;</button>
-        </a>
-    </div>
-    <!-- feedbck container ends here  -->
-
-    <div class="clinicReview mainContainer shadowBox">
-
-        <i class="uil uil-angle-left uilreview"></i>
-
-        <div class="reviewSection">
-            <div class="reviewStars">
-                <i class="uil uil-star"></i>
-                <i class="uil uil-star"></i>
-                <i class="uil uil-star"></i>
-                <i class="uil uil-star"></i>
-                <i class="uil uil-star"></i>
-            </div>
-            <div class="reviewText">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quod ea illum porro optio totam ipsa
-                    fugiat eius vel quaerat asperiores"</p>
-                <p>Madhabendra Phukan</p>
+    <!-- review split section  -->
+    <section class="reviewSplit-section">
+        <div class="first-reviewSplit shadowBox">
+            <div class="writeReview-section">
+                <h3>Review this Clinic</h3>
                 <hr>
+                <p>Share your thoughts with others</p>
                 <a href="#" id="writeReview">Write a review&rarr;</a>
             </div>
+            <hr>
+            <div class="review-ad-section">
+                <div class="review-ad-img">
+                    <img src="/img/ads/ad.jpg" alt="ads">
+                    <span>Ad</span>
+                </div>
+            </div>
         </div>
+        <!-- secondf split  -->
+        <div class="second-reviewSplit shadowBox">
+            <h3>Customer Reviews</h3>
+            <hr>
+            <div id="review">
 
-        <i class="uil uil-angle-right uilreview"></i>
-    </div>
-    <!-- feeback container ends here  -->
+            </div>
+        </div>
+    </section>
+
 
 
     <!-- appoinment form  -->
@@ -330,15 +323,15 @@
                                 <option value="kank">Dr Kankan Jyoti Nath</option>
                                 <option value="panc">Dr Panchanan Deka</option>
                             </optgroup>
-
                             <optgroup label="Radiologist">
                                 <option value="mint">Dr Mintu Sharma</option>
                                 <option value="mohi">Dr Mohibul Hoque</option>
                             </optgroup>
                         </select>
+
                     </div>
                     <div class="input-box">
-                        <p class="details">Select Date:</p>
+                        <p class="details">Select the date:</p>
                         <input id="formDate" type="date" data-min="0" data-max="1" value name="date">
                     </div>
                     <div class="input-box">
@@ -357,50 +350,68 @@
             </form>
         </div>
     </div>
-
     <!-- appointment form ends here -->
+
+
     <!-- review popup  -->
-    <div class="reviewPopup">
+    <div class="reviewPopup hide" id="cls-mainbox">
         <div class="reviewPopup-box">
             <span id="clsX">&times;</span>
             <div class="title">Rate & Review</div>
             <div class="review-details">
                 <div class="review-stars">
-                    <p class="star">&#9734;</p>
-                    <p class="star">&#9734;</p>
-                    <p class="star">&#9734;</p>
-                    <p class="star">&#9734;</p>
-                    <p class="star">&#9734;</p>
+                    <input type="radio" name="rate" value="5" id="5">
+                    <label for="5" class="uis uis-star" id="star" data-val="5"></label>
+
+                    <input type="radio" name="rate" value="4" id="4">
+                    <label for="4" class="uis uis-star" id="star" data-val="4"></label>
+
+                    <input type="radio" name="rate" value="3" id="3">
+                    <label for="3" class="uis uis-star" id="star" data-val="3"></label>
+
+                    <input type="radio" name="rate" value="2" id="2">
+                    <label for="2" class="uis uis-star" id="star" data-val="2"></label>
+
+                    <input type="radio" name="rate" value="1" id="1">
+                    <label for="1" class="uis uis-star" id="star" data-val="1"></label>
+
                 </div>
                 <div class="review-box">
-                    <textarea name="ReviewText" id="" placeholder="Write your review"></textarea>
+                    <textarea name="ReviewText" id="cus-review" placeholder="Write your review"></textarea>
                 </div>
                 <div class="review-savebtn">
-                    <input type="submit" value="Save" id="saveReview">
+                    <input type="button" value="Save" id="saveReview">
                 </div>
             </div>
         </div>
     </div>
 
+
     <!-- review popup ends here  -->
-    <div class="review-form">
+    <div class="review-form hide" id="reviewPopup-NE">
         <div class="review-form-details">
             <span id="Xclse">&times;</span>
             <div class="review-input">
                 <p class="details">Full Name:</p>
-                <input type="text" placeholder="Enter your name" name="name" id="name" required>
+                <input type="text" placeholder="Enter your name" name="name" id="cus-name" required>
             </div>
             <div class="review-input">
                 <p class="details">Email:</p>
-                <input type="text" placeholder="Enter your email" name="name" id="name" required>
+                <input type="text" placeholder="Enter your email" name="email" id="emails" required>
             </div>
             <div class="review-button">
-                <input type="submit" value="Submit your review">
+                <input type="button" value="Submit your review" id="submit-review">
             </div>
         </div>
     </div>
 
-<!-- ////// flaSH MESSAGE  -->
+  <div class="photo-box hide" id="photo-Box">
+    <span id="pclose">&times;</span>
+    <img src="" class="img-zoom" id="photoBox">
+  </div>
+
+  
+  <!-- ////// flaSH MESSAGE  -->
     <div id="msg_bx" class="animate__animated">
     <div id="msg_Ctn">
         <div id="icon"><i class="uil" class=""></i></div>
@@ -411,28 +422,7 @@
     <!-- Footer  -->
     <%- include('../partials/indexFooter.ejs') %>
     <!-- javascript -->
-    <script>
-        document.getElementById("bookAppo").addEventListener("click", function () {
-            document.querySelector(".registration-form").style.display = "block";
-        })
-        document.getElementById("closeX").addEventListener("click",
-            function () {
-                document.querySelector(".registration-form").style.display = "none";
-            })
-        //review
-        document.getElementById("writeReview").addEventListener("click", function () {
-            document.querySelector(".reviewPopup").style.display = "block";
-        })
-        document.getElementById("clsX").addEventListener("click", function () {
-            document.querySelector(".reviewPopup").style.display = "none";
-        })
-        // submit review
-        document.getElementById("saveReview").addEventListener("click", function () {
-            document.querySelector(".review-form").style.display = "block";
-        })
-        document.getElementById("Xclse").addEventListener("click", function () {
-            document.querySelector(".review-form").style.display = "none";
-        })
-    </script>
+    <script src="dispur.js"></script>
+    <script src="dispurDoctor.js"></script>
 </body>
 </html>
