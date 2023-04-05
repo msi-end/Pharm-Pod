@@ -12,6 +12,7 @@
     align-items: center;
     border-radius: 10px;
     position: relative;
+    background: var(--white);
 }
 
 .location{
@@ -20,7 +21,7 @@
     outline: none;
     border: none;
     font-size: 1em;
-    margin-left: 45px;
+    margin-left: 40px;
     border-radius: 10px;
 }
 .location-container .uil{
