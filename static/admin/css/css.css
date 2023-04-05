@@ -114,28 +114,35 @@ a {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .psAction {
-    width: 22%;
+    width: 18%;
     display: grid;
     font-size: 13px;
     text-align: center;
 }
 .del,
 .done {
-    display: block;
+    display: grid;
+    grid-template-columns: 100%;
+    width: 80px;
+    font-size: 10px;
+    align-self: center;
+    transition: all .5s;
+
 }
 .done {
     color: green;
 }
 .del {
+    
     color: red;
 }
 .hover:hover {
-    background: white;
+    background: rgb(218, 218, 218);
     color: var(--p-color);
     border-radius: 13px;
     transition: all .3s;
-    border: 2px solid var(--p-color);
-    font-size: 10px;
+    height: 50px;
+    box-shadow: 0px 1px 10px rgb(228, 228, 228);
 }
 /* ////Plus Icon /// */
 .addPSpan {
@@ -144,7 +151,7 @@ a {
     color: rgba(255, 255, 255, 0);
     font-size: 39px;
     width: 93%;
-    height: 370px;
+    height: fit-content;
     padding: 10px;
     text-align: center;
     border-radius: 13px;
@@ -154,7 +161,8 @@ a {
     transition: all .4s;
 }
 .addPSpan p {
-    margin: 12px 2px -3px 2px;
+    width: 80%;
+    margin: 10px auto 0px auto;
     color: white;
     font-size: 16px;
     text-align: left;
@@ -167,7 +175,6 @@ a {
     border-radius: 7px;
     padding: 5px;
 }
-
 .addPSpan button,
 #mdl_bx button {
     width: 45%;
@@ -178,8 +185,8 @@ a {
     box-shadow: 1px 1px 3px 0.1px #f5f5dc;
     font-size: 18px;
     color: white;
+    margin-top: 40px;
 }
-
 .addPSpan span {
     width: 25px;
     height: 25px;
@@ -207,11 +214,12 @@ a {
     position: absolute;
     top: 20vh;
     width: 94%;
-    height: 40vh;
+    height: 30vh;
     border-radius: 13px;
     padding: 10px;
     background-color: rgb(255, 255, 255);
     z-index: 1;
+    box-shadow:  0px 1px 5px #00000057;
     border: 1px solid var(--p-color);
 }
 #mdl_body {

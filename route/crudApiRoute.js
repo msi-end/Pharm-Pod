@@ -9,11 +9,13 @@ router.post('/add',crudModel.create);
 //To Create or Add by Patient
 router.post('/crt',crudModel.create);
 // To get all Clients
-router.post('/get', crudModel.getAll);
+router.get('/get', crudModel.getAll);
 // //To Find a Clients
 router.get('/fnO/:id', crudModel.findOne);
 // //To update any Clients
 router.put('/upd/:id', crudModel.update);
+// //To update any Clients
+router.put('/upd', crudModel.update);
 // //To delete a Clients
 router.delete('/del/:id', crudModel.delete);
 // //To schedule Clients

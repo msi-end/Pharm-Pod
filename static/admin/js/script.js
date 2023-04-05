@@ -27,21 +27,69 @@ const userAction = {
         if (dpOpt ==true) {  obj.classList.add('animate__animated'); obj.classList.add(animType);
         }else if(dpOpt === 'rm'){ obj.classList.remove(animType)} else { obj.classList.add(animType)} }
 }
+// ReqHandler Data  
+let ReqURI={AddPs:location.origin+'/apiV3/crt',GetA_ps:location.origin+'/apiV3/fnO/',upd:{MaxApply:location.origin+'/apiV3/upd?maxAp=',AutoApv:location.origin+'/apiV3/upd?autoAp=',ClsOpn:location.origin+'/apiV3/upd?fState='},dtBD_:location.origin+'/apiV3/get?dt='}
 // User Requestes To API
+
+let ReqHandler ={
+    GET: async function(url) {
+      console.log(url)
+       const response = await fetch(url, {
+         method: "GET",
+         headers: {"Content-Type": "application/json; charset=UTF-8",}
+       });
+       return response.json();
+     },
+      POST: async function(url,data) {
+        console.log(data );
+       const response = await fetch(url, {
+         method: "POST",
+         headers: {"Content-Type": "application/json; charset=UTF-8",},
+         body:JSON.stringify(data)
+       });
+       return response.json();
+     } , PUT: async function(url,data) {
+       const response = await fetch(url, {
+         method: "PUT",
+         headers: {"Content-Type": "application/json; charset=UTF-8",},
+         body:data
+       });
+       return response.json();
+     } , DEL: async function(url,date) {
+       const response = await fetch(url, {
+         method: "DELETE",
+         headers: {"Content-Type": "application/json; charset=UTF-8",}
+       });
+       return response.json();
+     }}
 const userReq ={
     AddPs:function() {
-        
+      let val=document.getElementsByClassName('addPS')[0].children;
+      let ap_date = dSplit(val[9].value,'-',true)
+    let data ={name:val[3].value,OthInfo:val[5].value,doctor:val[7].value,date:ap_date}
+      ReqHandler.POST(ReqURI.AddPs,data).then((data)=>{
+        userAction.flashMsg(data.msg)})
     },
-    MaxChange:function() {
-
+    MaxApply:function() {
+    let val=document.getElementById('mdl_body').children[1].value;
+    ReqHandler.PUT(ReqURI.upd.MaxApply+val,'').then((data)=>{
+    userAction.flashMsg(data.msg)
+ })
     },
     AutoApv:function() {
-        
+      let val=document.getElementById('mdl_body').children[1].value;
+      ReqHandler.PUT(ReqURI.upd.AutoApv+val,'').then((data)=>{
+     userAction.flashMsg(data.msg)})
     },
-    FormSta:function() {
-        
-    },dtBD_:function() {
-    dSplit(document.getElementById('reqDate'),value,'-',true)
+    ClsOpn:function() {
+      let val=document.getElementById('mdl_body').children[1].value;
+      ReqHandler.PUT(ReqURI.upd.ClsOpn+val,'').then((data)=>{
+     userAction.flashMsg(data.msg)})
+    },dtBD_:function(e) {
+    let val=dSplit(e.value,'-',true)
+    ReqHandler.GET(ReqURI.dtBD_+val).then((data)=>{
+      console.log(data)
+   userAction.flashMsg(data.msg)})
     }}
 var addPS = document.getElementsByClassName('addPS')[0];
 function Opn_addPS(e){ e.parentElement.classList.toggle('addPSpan'); }
@@ -53,9 +101,10 @@ function modelData(e){
     doc.innerHTML+=inputObjects[e].title; doc.innerHTML+=inputObjects[e].input;
     mdlBox.children[1].children[0].setAttribute('onclick', `${inputObjects[e].saveFn}`);return  mdlOpn=false}
     function dSplit(val,p,t){let [d,m,y]=val.split(p);return t?`${y}/${m}/${d}`:`${y}-${m}-${d}`}
-    let dtEm=document.getElementById('reqDate');let tdy =new Date; if(dtEm){
+function dateFn(e) {   let dtEm=document.getElementById(e);let tdy =new Date; if(dtEm){
     let tdyVal=tdy.toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"})
     let odt =new Date(tdy.setDate(tdy.getDate()-parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric", day:"2-digit"});
     let ndt =new Date(tdy.setDate(tdy.getDate()+parseInt(dtEm.dataset.max)+parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric",day:"2-digit"})
-    dtEm.value=dSplit(tdyVal,'/',false);dtEm.min=dSplit(odt,'/',false); dtEm.max=dSplit(ndt,'/',false);}
+    dtEm.value=dSplit(tdyVal,'/',false);dtEm.min=dSplit(odt,'/',false); dtEm.max=dSplit(ndt,'/',false);}}
+dateFn('reqDate');dateFn('formDate');
 
