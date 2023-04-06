@@ -40,7 +40,7 @@
       </div>
       <div class="psAction"> 
           <a href="javascript:Complete()" class="done hover"><span
-                  class="symbols-rounded">done</span>Completed</a>
+                  class="symbols-rounded">done</span>Done</a>
           <a href="javascript:Complete()" class="del hover"><span
                   class="symbols-rounded">delete</span><br>Delete</a>
       </div>
@@ -54,6 +54,8 @@
     <span onclick="Opn_addPS(this)" > + </span><br>
     <p>Patient Name:</p>
     <input type='text' name="PName" placeholder='Patient Name' required>
+    <p>Patient Number :</p>
+    <input type='text' name="PNum" placeholder='Additional Info' required>
     <p>Additional Info :</p>
     <input type='text' name="PInfo" placeholder='Additional Info' required>
     <p>Select Doctor :</p>
@@ -70,6 +72,7 @@
     <button type="button" onclick="userReq.AddPs()" class="cgreen hover">Save </button>
     <button onclick="Cls_addPS(this)" class="cred hover "> Cancel</button>
 </div>
+<br><br><br><br>
     <!-- ////Bottom Manu -->
     <%- include('./partials/footer.ejs') %>
 <!-- <script  src="/admin/js/jsDataObject.js"></script> -->

@@ -23,8 +23,8 @@ exports.add = (req, res) => {
 exports.create = (req, res) => {
     if (req.session.loggedin) {
         console.log(req.body);
-        let params =[req.body.name ,req.body.OthInfo,req.body.doctor,req.body.date];
-        let sql = `INSERT INTO ${req.session.user_id}_PS_data (p_name,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
+        let params =[req.body.name,req.body.number,req.body.OthInfo,req.body.doctor,req.body.date];
+        let sql = `INSERT INTO ${req.session.user_id}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
         databaseCon.query(sql,[params], function (err, results, fields) {
             if (err) throw err;
             res.status(201).send({ status: 'true', msg: 'Patient Created Sucessfully!' })
@@ -45,8 +45,8 @@ exports.getAll = (req, res) => {
 
 exports.delete = (req, res) => {
     if (req.session.loggedin) {
-        let user = req.session.user_id;
-    databaseCon.query(`DELETE FROM ${user}_PS_data WHERE 'id'=?`, [req.params.id], function (error, results, fields) {
+        let user = req.query.user;
+    databaseCon.query(`INSERT INTO Del_PS_data SELECT * FROM ${user}_PS_data WHERE id ='${req.params.id}';DELETE FROM ${user}_PS_data WHERE 'id'='${req.params.id}'`, function (error, results, fields) {
         if (error) throw error;
         res.end('Client has been deleted!');
     });

@@ -4,7 +4,7 @@ const crudModel = require('../controllers/crud-API.js')
 
 
 //To Create or Add by Clients
-router.post('/add',crudModel.create);
+router.post('/add',crudModel.add);
 
 //To Create or Add by Patient
 router.post('/crt',crudModel.create);

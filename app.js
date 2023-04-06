@@ -23,7 +23,7 @@ app.use(session({
     saveUninitialized:true,
     cookie: { maxAge: athTime },
     resave: false 
-}));
+})); 
 
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));

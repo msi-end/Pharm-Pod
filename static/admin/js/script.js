@@ -65,8 +65,8 @@ let ReqHandler ={
 const userReq ={
     AddPs:function() {
       let val=document.getElementsByClassName('addPS')[0].children;
-      let ap_date = dSplit(val[9].value,'-',true)
-    let data ={name:val[3].value,OthInfo:val[5].value,doctor:val[7].value,date:ap_date}
+      let ap_date = dSplit(val[11].value,'-',true)
+    let data ={name:val[3].value,number:val[5].value,OthInfo:val[7].value,doctor:val[9].value,date:ap_date}
       ReqHandler.POST(ReqURI.AddPs,data).then((data)=>{
         userAction.flashMsg(data.msg)})
     },
