@@ -1,38 +1,21 @@
-// let berger = document.querySelector('.berger');
-// let nav = document.querySelector('.nav-links');
-// let searchIcon = document.querySelector('.searchIcon');
-// let searchBox = document.querySelector('.searchBox');
-// berger.onclick = function () { nav.classList.add('active')}
-
 let navMenu = document.getElementById('nav-menu');
 let navlist = document.getElementById('navlist');
-
 let a = true;
-
 navMenu.addEventListener('click', function() {
-
-    let navbar = document.getElementById('navbar');
-
-    console.log(a);
-    if (a === true) {
-        //navbar.classList.remove('hidden')
+    if (a) {
         navlist.style.left = 0;
         a = false;
     }else{
-        //navbar.classList.add('hidden') 
         navlist.style.left = '-100%';
         a = true;
     }
 })
-
 //slider js
 var slideIndex = 0;
 showSlides();
-
 function showSlides(){
-    var i;
     var slides = document.getElementsByClassName("mySlides");
-    for (i=0; i < slides.length ; i++){
+    for (var i=0; i < slides.length ; i++){
         slides[i].style.display = "none";
     }
     slideIndex++;
@@ -43,8 +26,7 @@ function showSlides(){
     setTimeout(showSlides, 3000);
 }
 
-
-
+// Obj and anim Flash
 let Obj = { flashMsg: function (h,p,e) {
         let msgBody = document.getElementById('msg_bx')
         let ctn = document.getElementById('msg_Ctn').children;
@@ -64,9 +46,8 @@ let Obj = { flashMsg: function (h,p,e) {
         let ndt =new Date(tdy.setDate(tdy.getDate()+parseInt(dtEm.dataset.max)+parseInt(dtEm.dataset.min))).toLocaleDateString({ month: "2-digit",year:"numeric",day:"2-digit"})
         dtEm.value=dSplit(tdyVal,'/',false);dtEm.min=dSplit(odt,'/',false); dtEm.max=dSplit(ndt,'/',false);}}
    dateFn('formDate');
-
-
-// USE  Obj.flashMsg('main message','second detailed message',true)
+// USE  
+Obj.flashMsg('main message','second detailed message',true)
 
 
 
