@@ -4,7 +4,7 @@ const databaseCon = require('../models/db.model');
 
 // patient application req
 exports.add = (req, res) => {
-    let user = req.params.user;
+    let user = req.query.user;
     databaseCon.query(`SELECT COUNT(p_aptDate) as count from ${user}_PS_data WHERE p_aptDate='${req.body.date}'; SELECT maxApply ,autoReqAppl from client_Info WHERE c_id='${user}'`, function (err, results, fields) {
         if (err) throw err;// console.log(results);
         if (results[1][0].maxApply >= results[0][0].count) {
