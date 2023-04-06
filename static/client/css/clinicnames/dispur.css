@@ -1,42 +1,49 @@
-:root {
-    --body-color: rgb(242, 242, 242);
+:root{
+    --body-color : rgb(242, 242, 242);
     --font-color: rgb(0, 0, 0);
     --background-color: rgb(255, 255, 255);
     --blue: rgb(0, 153, 255);
+    --gray: rgb(128, 128, 128);
 }
 
-.mainPage {
+.gallery{
+    height: 400px;
+    width: 700px;
+    background-color: rgb(245, 175, 175)
+}
+
+.mainPage{
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 1.1em;
 }
 
-.clinicInfo {
+.clinicInfo{
     display: flex;
     align-items: center;
     width: 65%;
 }
 
-.clinicLogo img {
+.clinicLogo img{
     width: 200px;
     height: 200px;
     object-fit: cover;
     cursor: pointer;
 }
 
-.clinicDetails {
+.clinicDetails{
     margin-left: 3em;
     line-height: 1.85em;
 }
 
-.clinicDetails h3 {
+.clinicDetails h3{
     text-transform: uppercase;
     font-weight: 800;
     font-size: 1.3em;
 }
 
-.clinicName span {
+.clinicName span{
     background: var(--blue);
     border-radius: 10px;
     padding: 0 0.3em;
@@ -46,35 +53,30 @@
     cursor: pointer;
 }
 
-.clinicName {
+.clinicName{
     display: flex;
     align-items: center;
 }
 
-.starRating {
+.starRating{
     display: flex;
     align-items: center;
     margin-left: 1em;
     justify-content: space-between;
     gap: 0.5em;
 }
-
-.clinicDetails p a,
-.clinicLocation p a {
+.clinicDetails p a, .clinicLocation p a{
     text-decoration: none;
     color: var(--font-color);
 }
 
-.clinicDetails p a:hover,
-.clinicLocation p a:hover {
+.clinicDetails p a:hover, .clinicLocation p a:hover{
     color: var(--blue);
 }
-
-.uil-check-circle {
+.uil-check-circle{
     color: var(--blue);
 }
-
-.appointmentBtns {
+.appointmentBtns{
     position: relative;
     display: flex;
     align-items: center;
@@ -83,7 +85,7 @@
     width: 100%;
 }
 
-.appbtn {
+.appbtn{
     display: inline-block;
     border: none;
     outline: none;
@@ -94,18 +96,18 @@
     color: var(--body-color);
     width: 45%;
     font-size: 0.85em;
-    transition: 0.3s ease;
+    border: 1px solid var(--font-color);
+    transition: all 0.3s ease;
 }
 
-.appbtn:hover {
+.appbtn:hover{
     background: var(--background-color);
     color: var(--font-color);
     border: 1px solid var(--font-color);
     font-weight: 600;
 }
-
 /* line  */
-#revert {
+#revert{
     height: 1px;
     background: var(--body-color);
     display: none;
@@ -113,59 +115,58 @@
 
 
 /* timings  */
-.clinicTimings {
+.clinicTimings{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
     width: 30%;
 }
 
-.clinicTimings p {
+.clinicTimings p{
     text-transform: uppercase;
     font-weight: 600;
     font-size: 1.1em;
 }
-
-.weekDays {
+.weekDays{
     display: flex;
     justify-content: space-between;
 }
 
-.weekDays ul li {
+.weekDays ul li{
     list-style: none;
 }
 
-.weekS {
+.weekS{
     font-weight: 600;
 }
 
 /* split sections */
 
-.splitSection {
+.splitSection{
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     margin-bottom: 5%;
     font-size: 1.1em;
-
 }
 
-.firstSplit {
+.firstSplit{
     width: 50%;
     background: var(--background-color);
     padding: 2em;
     border-radius: 0.5em;
     line-height: 1.9em;
+    height: fit-content;
 }
 
-.firstSplit-Heading {
+.firstSplit-Heading{
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
 }
 
-.firstSplit-Heading select {
+.firstSplit-Heading select{
     font-size: 0.9em;
     padding: 0.3em;
     border: 2px solid var(--font-color);
@@ -175,15 +176,14 @@
     cursor: pointer;
 }
 
-.firstSplit-main {
+.firstSplit-main{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row-reverse;
     margin: 1em auto;
 }
-
-.firstSplit-img img {
+.firstSplit-img img{
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -191,58 +191,54 @@
     border-radius: 1em;
 }
 
-.verify {
+.verify{
     font-size: 0.7em;
 }
 
 
-.firstSplit hr,
-.secondSplit hr,
-.reviewText hr {
+.firstSplit hr, .secondSplit hr, .reviewText hr{
     height: 1px;
     background: var(--body-color);
     margin-bottom: 1em;
 }
 
-.uil-award {
+.uil-award{
     background: var(--blue);
     border-radius: 15px;
     padding: 0 0.3em;
     color: var(--background-color);
 }
 
-.firstSplit-details details {
+.firstSplit-details details{
     cursor: pointer;
 }
 
-.videoContent {
+.videoContent{
     display: flex;
     justify-content: space-between;
     font-size: 0.9em;
     margin-top: 1em;
 }
 
-.videoContent iframe {
+.videoContent iframe{
     width: 50%;
     height: 225px;
 }
 
-.videoContent-desc {
+.videoContent-desc{
     width: 40%;
     line-height: 1.8em;
 }
 
-.videoContent-desc h5 {
+.videoContent-desc h5{
     font-size: 1.09em;
 }
-
-.videoContent-desc a {
+.videoContent-desc a{
     text-decoration: none;
 }
-
 /* second split  */
 
-.secondSplit {
+.secondSplit{
     width: 35%;
     background: var(--background-color);
     padding: 2em;
@@ -250,7 +246,7 @@
     height: 100%;
 }
 
-.clinicLocation iframe {
+.clinicLocation iframe{
     width: 100%;
     border: 0;
     height: 250px;
@@ -258,14 +254,14 @@
 }
 
 /* gallery */
-.galleryHeading {
+.galleryHeading{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1em;
 }
 
-.galleryPhotos {
+.galleryPhotos{
     background: var(--body-color);
     display: flex;
     align-items: center;
@@ -275,8 +271,7 @@
     padding: 1em;
     cursor: pointer;
 }
-
-.galleryPhotos img {
+.galleryPhotos img{
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -284,29 +279,27 @@
 
 }
 
-.clinicalEvents {
+.clinicalEvents{
     margin: 1em auto;
     position: relative;
 }
-
-.clinicalEvents ul {
+.clinicalEvents ul{
     display: flex;
     gap: 1.5em;
     align-items: center;
 }
 
-.clinicalEvents ul li {
+.clinicalEvents ul li{
     list-style: none;
 }
-
-.clinicalEvents ul li a {
+.clinicalEvents ul li a{
     position: relative;
     text-decoration: none;
     color: var(--font-color);
     font-weight: 600;
 }
 
-.clinicalEvents ul li a::after {
+.clinicalEvents ul li a::after{
     content: '';
     position: absolute;
     background-color: var(--font-color);
@@ -319,12 +312,12 @@
     transform-origin: right;
 }
 
-.clinicalEvents ul li a:hover::after {
+.clinicalEvents ul li a:hover::after{
     transform: scaleX(1);
     transform-origin: left;
 }
 
-.content-Events_img img {
+.content-Events_img img{
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -332,135 +325,99 @@
     border-radius: 0.8em;
 }
 
-.clinicalEvents-Content a {
+.clinicalEvents-Content a{
     text-decoration: none;
 }
 
-/* feedback container  */
-
-.feedback_Form {
-    margin-top: -2em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.feedback_Form input {
-    width: 75%;
-    border: none;
-    border-bottom: 1px solid var(--font-color);
-    background: var(--body-color);
-    padding: 0.7em 1em;
-    border-radius: 0.8em;
-    outline: none;
-    font-size: 0.9em;
-    transition: 0.5s ease;
-}
-
-.feedback_Form button {
-    width: 100%;
-    padding: 0.5em 1em;
-    border-radius: 0.8em;
-    background: var(--font-color);
-    color: var(--background-color);
-    font-size: 0.9em;
-    outline: none;
-    cursor: pointer;
-    transition: 0.5s ease;
-}
-
-.feedback_Form button:hover,
-.feedback_Form input:focus {
-    background: var(--background-color);
-    color: var(--font-color);
-    border: 1px solid var(--font-color);
-    font-weight: 600;
-}
-
 /* reviews  */
+.reviewSplit-section{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+.reviewSplit-section hr{
+    height: 1px;
+    background: var(--body-color);
+    margin-bottom: 1%;
 
-.clinicReview {
+}
+.first-reviewSplit{
+    width: 35%;
+    background: var(--background-color);
+    padding: 2em;
+    border-radius: 0.5em;
+    height: 100%;
+}
+.review-ad-section{
+    margin-top: 8%;
+}
+.review-ad-img{
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.review-ad-img img{
+    border: 1px solid var(--gray);
+    width: 100%;
+}
+.review-ad-img span{
+    border: 1px solid var(--gray);
+    font-size: 10px;
+    padding: 0 8px;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    color: var(--background-color);
+}
+/* second review split  */
+.second-reviewSplit{
+    width: 50%;
+    background: var(--background-color);
+    padding: 2em;
+    border-radius: 0.5em;
+}
+.customerReview-section{
+    height: 30em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.customerReview-profile{
+    padding: 0.5em;
+}
+.reviewProfile-name{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 1.1em;
+    gap: 0.5em;
 }
-
-.clinicReview .uilreview {
-    font-size: 3em;
+.reviewProfile-name .uil{
+    font-size: 1.4em;
 }
-
-.uil-star {
-    font-size: 1.5em;
+.reviewProfile-stars .uis{
     color: var(--blue);
 }
-
-.reviewSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--body-color);
-    padding: 2em;
-    border-radius: 0.8em;
+.reviewProfile-text p{
+    font-size: 0.9em;
 }
-
-.reviewText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.reviewText a {
+#writeReview{
+    display: block;
+    text-align: center;
     text-decoration: none;
     background: var(--blue);
     color: var(--background-color);
     padding: 0.3em 0.8em;
     border-radius: 0.3em;
-    transition: 0.5s ease;
+    transition: all 0.5s ease;
     margin-top: 1em;
+    border: 1px solid var(--blue);
 }
 
-.reviewText a:hover {
+#writeReview:hover{
     background: var(--background-color);
     color: var(--blue);
     border: 1px solid var(--blue);
-    font-weight: 600;
 }
 
 
-
-/* ///// Model Msg  */
-#msg_bx {
-    display: none;
-    width: 100%;
-    background-color: #ffffff00;
-    position: fixed;
-    top: 20%;
-}
-#msg_Ctn {
-    width: 400px;
-    height: 100px;
-    margin: auto;
-    display: flex;
-    padding: 30px;
-    border-radius: 13px;
-    z-index: 50;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.692);
-}
-#msg_Ctn #icon {
-    width: 20%;
-    height: 10vh;
-    border-radius: 50%;
-}
-#msg_Ctn .uil-exclamation-triangle::before ,#msg_Ctn .uil-check-circle::before {
-    font-size: 60px;
-    vertical-align: middle;
-    color: white;
-}
-#msg_Ctn #msg_k790 {
-    display: inline-block;
-    width: 80%;
-}
-@media (max-width:480px){
-    #msg_Ctn {width: 80%;}
-}
