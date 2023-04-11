@@ -43,14 +43,14 @@ dat.then(function(ress) {
 let d = {num : ell.cl_id};
 
 let opt = {
-  method: 'POST',
+  method: 'GET',
   body: JSON.stringify(d),
   headers: {
       'Content-Type': 'application/json'
   }
 }
 
-let rr = fetch("http://localhost:3000/eachclinic", opt);
+let rr = fetch("http://localhost:3000/apiV3/r/getAll?user=min01", opt);
 
 rr.then(function(res) {
   return res.json();
@@ -124,7 +124,7 @@ function getRatePoint() {
     }
   }
   
-  let data = fetch('/data', options);
+  let data = fetch('/apiV3/r/rv', options);
   
   data.then(function(res) {
      return res.json();
@@ -153,6 +153,16 @@ imgArray.forEach(function(el){
 document.getElementById('pclose').addEventListener('click',()=>{
   document.getElementById('photo-Box').classList.add('hide')
 })
+
+
+
+// POST Data :  http://localhost:8000/apiV3/r/rv 
+// GET All data: http://localhost:8000/apiV3/r/getAll?user=min01
+// GET Data By ID :http://localhost:8000/apiV3/r/fn/3
+
+
+
+
 
 
 //*-----*//
