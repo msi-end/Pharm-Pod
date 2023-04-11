@@ -39,9 +39,9 @@
           <p class="psDoctor"><%= data.p_doctor %></p>
       </div>
       <div class="psAction"> 
-          <a href="javascript:Complete()" class="done hover"><span
+          <a onclick="userAction.done(this)" class="done hover"><span
                   class="symbols-rounded">done</span>Done</a>
-          <a href="javascript:Complete()" class="del hover"><span
+          <a onclick="userAction.del(this)" class="del hover"><span
                   class="symbols-rounded">delete</span><br>Delete</a>
       </div>
   </div>
@@ -55,7 +55,7 @@
     <p>Patient Name:</p>
     <input type='text' name="PName" placeholder='Patient Name' required>
     <p>Patient Number :</p>
-    <input type='text' name="PNum" placeholder='9876543210' required>
+    <input type='number' name="PNum" placeholder='9876543210' required>
     <p>Additional Info :</p>
     <input type='text' name="PInfo" placeholder='Additional Info' required>
     <p>Select Doctor :</p>
@@ -69,10 +69,15 @@
     <p>Select Appointment Date :</p>
     <input type="date" data-min="0" data-max="1" value name="date" id="formDate">
     <br>
-    <button type="button" onclick="userReq.AddPs()" class="cgreen hover">Save </button>
+    <button type="button" onclick="userReq.AddPs(this)" class="cgreen hover">Save </button>
     <button onclick="Cls_addPS(this)" class="cred hover "> Cancel</button>
 </div>
 <br><br><br><br>
+<div id="panel" >
+<span type="cancel" onclick="userAction.panel_cls()">&#120;</span>
+<div>
+</div>
+</div>
     <!-- ////Bottom Manu -->
     <%- include('./partials/footer.ejs') %>
 <!-- <script  src="/admin/js/jsDataObject.js"></script> -->

@@ -1,31 +1,14 @@
-let navMenu = document.getElementById('nav-menu');
 let navlist = document.getElementById('navlist');
-let a = true;
-navMenu.addEventListener('click', function() {
-    if (a) {
+let navDisp = true;
+document.getElementById('nav-menu').addEventListener('click', function() {
+    if (navDisp) {
         navlist.style.left = 0;
-        a = false;
+        navDisp = false;
     }else{
         navlist.style.left = '-100%';
-        a = true;
+        navDisp = true;
     }
-})
-//slider js
-var slideIndex = 0;
-showSlides();
-function showSlides(){
-    var slides = document.getElementsByClassName("mySlides");
-    for (var i=0; i < slides.length ; i++){
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if(slideIndex > slides.length){
-        slideIndex = 1;
-    }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000);
-}
-
+});
 // Obj and anim Flash
 let Obj = { flashMsg: function (h,p,e) {
         let msgBody = document.getElementById('msg_bx')
@@ -47,9 +30,24 @@ let Obj = { flashMsg: function (h,p,e) {
         dtEm.value=dSplit(tdyVal,'/',false);dtEm.min=dSplit(odt,'/',false); dtEm.max=dSplit(ndt,'/',false);}}
    dateFn('formDate');
 // USE  
-Obj.flashMsg('main message','second detailed message',true)
 
 
+//slider js
+var slideIndex = 0;
+showSlides()
+function showSlides(){
+    var slides = document.getElementsByClassName("mySlides");
+    for (var i=0; i < slides.length ; i++){
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if(slideIndex > slides.length){
+        slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000);
+}
+if(location.pathname=='/'){showSlides();}
 
 
 

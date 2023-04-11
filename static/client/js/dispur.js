@@ -6,8 +6,7 @@ document.getElementById("saveReview").addEventListener("click", ()=>{
   console.log("SaveReview")
   document.getElementById('reviewPopup-NE').classList.remove('hide')
 
-} )
-
+})
 document.getElementById('clsX').addEventListener("click", ()=>{
   document.getElementById('cls-mainbox').classList.add('hide')
 })
@@ -16,6 +15,9 @@ document.getElementById('Xclse').addEventListener("click", ()=>{
   document.getElementById('reviewPopup-NE').classList.add('hide')
 })
 
+function Cl_opnForm(){
+  document.getElementsByClassName('registration-form')[0].style.display='none'
+}
 
 
 //2nd part------------------------------------------------------------
@@ -100,7 +102,6 @@ const submitReview = document.getElementById('submit-review');
 
 
 let valu;
-
 function getRatePoint() {
   document.getElementById('cls-mainbox').classList.add('hide')
   document.getElementById('reviewPopup-NE').classList.add('hide')
@@ -149,19 +150,34 @@ imgArray.forEach(function(el){
    
   })
 })
-
 document.getElementById('pclose').addEventListener('click',()=>{
   document.getElementById('photo-Box').classList.add('hide')
 })
 
 
-
-
-
-
-
-
-
-
-
-
+//*-----*//
+//*-------*//
+// Request Handler.js
+let doc=document.getElementsByClassName('user-details')[0].children
+let ReqURI ={FormSet:location.origin+'/apiV3/add?user='}
+let ReqHandler ={
+    GET: async function(url) {
+       const response = await fetch(url, {
+         method: "GET",
+         headers: {"Content-Type": "application/json; charset=UTF-8",}
+       });return response.json();},
+      POST: async function(url,data) {
+       const response = await fetch(url, {
+         method: "POST",
+         headers: {"Content-Type": "application/json; charset=UTF-8",},
+         body:JSON.stringify(data)
+       });return response.json();}}
+const userReq ={
+  FormSet:function() {
+      let val=document.getElementsByClassName('user-details')[0].children;
+      let ap_date = dSplit(doc[3].children[1].value,'-',true)
+    let data ={name:doc[0].children[1].value,number:doc[1].children[1].value,doctor:doc[2].children[1].value,date:ap_date,otherInfo:doc[4].children[1].value}
+      ReqHandler.POST(ReqURI.FormSet+location.pathname.split('/')[1],data).then((data)=>{
+        Cl_opnForm();if(data.status){Obj.flashMsg(data.msg,'',data.status)}
+      else{Obj.flashMsg(data.msg,'',data.status)}})
+    }}

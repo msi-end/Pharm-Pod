@@ -254,7 +254,7 @@
 
                 <div class="clinicalEvents-Content">
                     <div class="content-Events_img">
-                        <img src="/img/card-img/clinic-1.jpg" alt="">
+                        <img src="/client/img/card-img/clinic-1.jpg" alt="">
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quod totam expedita adipisci nostrum
                         quas eligendi. Excepturi asperiores dignissimos ducimus libero ratione, sapiente commodi
@@ -277,12 +277,12 @@
                 <h3>Review this Clinic</h3>
                 <hr>
                 <p>Share your thoughts with others</p>
-                <a href="#" id="writeReview">Write a review&rarr;</a>
+                <a  id="writeReview">Write a review&rarr;</a>
             </div>
             <hr>
             <div class="review-ad-section">
                 <div class="review-ad-img">
-                    <img src="/img/ads/ad.jpg" alt="ads">
+                    <img src="/client/img/ads/ad.jpg" alt="ads">
                     <span>Ad</span>
                 </div>
             </div>
@@ -305,7 +305,6 @@
         <div class="registration-details">
             <span id="closeX">&times;</span>
             <div class="title">Registration Form</div>
-            <form action="#">
                 <div class="user-details">
                     <div class="input-box">
                         <p class="details">Full Name:</p>
@@ -344,10 +343,9 @@
                     <p>I agree to the <a href="#">terms and condtions</a></p>
                 </div>
                 <div class="form-button">
-                    <input type="submit" value="Save">
-                    <input type="button" value="Cancel">
+                    <input type="submit" onclick="userReq.FormSet()" value="Save">
+                    <input type="button" onclick="Cl_opnForm()" value="Cancel">
                 </div>
-            </form>
         </div>
     </div>
     <!-- appointment form ends here -->

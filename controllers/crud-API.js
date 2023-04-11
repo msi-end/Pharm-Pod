@@ -29,7 +29,7 @@ exports.create = (req, res) => {
             if (err) throw err;
             res.status(201).send({ status: 'true', msg: 'Patient Created Sucessfully!' })
         })}else{
-            res.status(401).send({status:'false', msg: 'Somthing Wrong ! 401 Unauthorized' })
+            res.status(401).send({status:'false', msg: 'Something Wrong ! 401 Unauthorized' })
         }}
         
 exports.getAll = (req, res) => {
@@ -39,18 +39,19 @@ exports.getAll = (req, res) => {
         if (err) throw err;
         res.status(201).send({status:'true', msg: 'Sucessfully date retrived ! ' , data:results})
     })}else{
-        res.status(401).send({status:'false', msg: 'Somthing Wrong ! 401 Unauthorized' })
+        res.status(401).send({status:'false', msg: 'Something Wrong ! 401 Unauthorized' })
     }}
 
 
 exports.delete = (req, res) => {
     if (req.session.loggedin) {
-        let user = req.query.user;
-    databaseCon.query(`INSERT INTO Del_PS_data SELECT * FROM ${user}_PS_data WHERE id ='${req.params.id}';DELETE FROM ${user}_PS_data WHERE 'id'='${req.params.id}'`, function (error, results, fields) {
+        let user = req.session.user_id;
+    databaseCon.query(`INSERT INTO Del_PS_data(p_name, p_OthInfo, p_doctor,p_aptDate,p_number,c_id)  SELECT p_name, p_OthInfo, p_doctor,p_aptDate,p_number,'${user}' FROM ${user}_PS_data WHERE id ='${req.params.id}';DELETE FROM ${user}_PS_data WHERE id='${req.params.id}'`, function (error, results, fields) {
         if (error) throw error;
-        res.end('Client has been deleted!');
-    });
-}};
+        res.status(201).send({status:'true', msg: 'Sucessfully date Deleted ! ' })
+    })}else{
+        res.status(401).send({status:'false', msg: 'Something Wrong ! 401 Unauthorized' })
+    }}
 
 // /udt/7 with data , /udt?maxAp , /udt?autoAp, /udt?fState
 exports.update = (req, res) => {
@@ -81,6 +82,7 @@ exports.findOne = (req, res) => {
         res.end(JSON.stringify(results));
     });
 };
+
 
 
 exports.postpond = (req, res) => {
