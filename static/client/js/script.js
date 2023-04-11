@@ -9,6 +9,7 @@ document.getElementById('nav-menu').addEventListener('click', function() {
         navDisp = true;
     }
 });
+
 // Obj and anim Flash
 let Obj = { flashMsg: function (h,p,e) {
         let msgBody = document.getElementById('msg_bx')
@@ -20,7 +21,7 @@ let Obj = { flashMsg: function (h,p,e) {
         setTimeout(() => { this.Anim(msgBody, 'animate__backInUp', false)
             this.Anim(msgBody, 'animate__bounceOut', true)
             setTimeout(() => { msgBody.style.display = 'none';this.Anim(msgBody, 'animate__bounceOut', false)}, 1000);
-            ctn[0].children[0].classList.remove(e?'uil-check-circle':'uil-exclamation-triangle')},2000);},
+            ctn[0].children[0].classList.remove(e?'uil-check-circle':'uil-exclamation-triangle')},3000);},
     Anim: function (obj, animType, dpOpt) {dpOpt ?obj.classList.add(animType): obj.classList.remove(animType)}}
     function dSplit(val,p,t){let [d,m,y]=val.split(p);return t?`${y}/${m}/${d}`:`${y}-${m}-${d}`}
     function dateFn(e) {   let dtEm=document.getElementById(e);let tdy =new Date; if(dtEm){
@@ -34,7 +35,6 @@ let Obj = { flashMsg: function (h,p,e) {
 
 //slider js
 var slideIndex = 0;
-showSlides()
 function showSlides(){
     var slides = document.getElementsByClassName("mySlides");
     for (var i=0; i < slides.length ; i++){

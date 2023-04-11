@@ -12,8 +12,8 @@ exports.add = (req, res) => {
             let sql = `INSERT INTO ${user}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
             databaseCon.query(sql,[params], function (err, results, fields) {
                 if (err) throw err;
-                res.send({ status: 'true', msg: 'Application submited Sucessfully!' })
-            }) }else{ res.status(403).send({status: 'false', msg: 'Application Limite Exceeded!' }) }
+                res.send({ status: true, msg: 'Application submited Sucessfully!' })
+            }) }else{ res.status(403).send({status: false, msg: 'Application Limite Exceeded!' }) }
     })}
 
 
@@ -25,9 +25,9 @@ exports.create = (req, res) => {
         let sql = `INSERT INTO ${req.session.user_id}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
         databaseCon.query(sql,[params], function (err, results, fields) {
             if (err) throw err;
-            res.status(201).send({ status: 'true', msg: 'Patient Created Sucessfully!' })
+            res.status(201).send({ status: true, msg: 'Patient Created Sucessfully!' })
         })}else{
-            res.status(401).send({status:'false', msg: 'Something Wrong ! 401 Unauthorized' })
+            res.status(401).send({status:false, msg: 'Something Wrong ! 401 Unauthorized' })
         }}
         
 exports.getAll = (req, res) => {
