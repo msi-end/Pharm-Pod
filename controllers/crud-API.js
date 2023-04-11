@@ -6,9 +6,8 @@ const databaseCon = require('../models/db.model');
 exports.add = (req, res) => {
     let user = req.query.user;
     databaseCon.query(`SELECT COUNT(p_aptDate) as count from ${user}_PS_data WHERE p_aptDate='${req.body.date}'; SELECT maxApply ,autoReqAppl from client_Info WHERE c_id='${user}'`, function (err, results, fields) {
-        if (err) throw err;// console.log(results);
+        if (err) throw err;
         if (results[1][0].maxApply >= results[0][0].count) {
-            console.log(results[1][0].autoReqAppl);
             let params =[req.body.name,req.body.number,req.body.otherInfo,req.body.doctor,req.body.date];
             let sql = `INSERT INTO ${user}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
             databaseCon.query(sql,[params], function (err, results, fields) {
@@ -22,7 +21,6 @@ exports.add = (req, res) => {
 // Admin Side Crud 
 exports.create = (req, res) => {
     if (req.session.loggedin) {
-        console.log(req.body);
         let params =[req.body.name,req.body.number,req.body.OthInfo,req.body.doctor,req.body.date];
         let sql = `INSERT INTO ${req.session.user_id}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
         databaseCon.query(sql,[params], function (err, results, fields) {

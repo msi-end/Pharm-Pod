@@ -2,7 +2,7 @@
     <a href="javascript:userAction.modelBox_Opn('MaxChange')" title="Increase/Decrease Apply Quantity">Maximum Apply:<span> <%= sets.maxApply %>/Day</span></a>
     <a href="javascript:userAction.modelBox_Opn('AutoApv')"   title="Off/On Auto Approval">Auto Approval: <span><%= sets.autoReqAppl=='true'?'On':'Off' %></span></a>
     <a href="javascript:userAction.modelBox_Opn('ClsOpn')"   title="Off/On Submission Form">Apply Form: <span><%= sets.form_Status=='true'?'On':'Off' %></span></a>
-    <input type="date" data-min="10" data-max="0" onchange="userReq.dtBD_(this)" value name="date" id="reqDate">
+    <input type="date" data-min="10" data-max="1" onchange="userReq.dtBD_(this)" value name="date" id="reqDate">
     <!-- <span id="toggalOpt" onclick="taggleNav()">0</span> -->
 </nav>
 <br> 
