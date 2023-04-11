@@ -35,8 +35,9 @@
       </div>
       <div class="psDetail">
           <h4 class="psName"><%= data.p_name %></h4>
-          <p class="psOtherInf"><%= data.p_OthInfo %></p>
+          <p class="psOtherInf"><%= data.p_number %></p>
           <p class="psDoctor"><%= data.p_doctor %></p>
+          <p class="psDoctor"><%= data.p_OthInfo %></p>
       </div>
       <div class="psAction"> 
           <a onclick="userAction.done(this)" class="done hover"><span
@@ -53,9 +54,9 @@
 <div class="addPS">
     <span onclick="Opn_addPS(this)" > + </span><br>
     <p>Patient Name:</p>
-    <input type='text' name="PName" placeholder='Patient Name' required>
+    <input type='text' name="PName" minlength="6" maxlength="50" placeholder='Patient Name' required>
     <p>Patient Number :</p>
-    <input type='number' name="PNum" placeholder='9876543210' required>
+    <input type='number' name="PNum"  min='999999999' max="9999999999" placeholder='9876543210' required>
     <p>Additional Info :</p>
     <input type='text' name="PInfo" placeholder='Additional Info' required>
     <p>Select Doctor :</p>

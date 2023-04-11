@@ -27,9 +27,9 @@ exports.create = (req, res) => {
             if (err) throw err;
             res.status(201).send({ status: true, msg: 'Patient Created Sucessfully!' })
         })}else{
-            res.status(401).send({status:false, msg: 'Something Wrong ! 401 Unauthorized' })
-        }}
-        
+            res.status(401).send({status:false, msg: 'Something Wrong ! 401 Unauthorized' })}
+        }
+
 exports.getAll = (req, res) => {
     if (req.session.loggedin) {
     let user = req.session.user_id;
