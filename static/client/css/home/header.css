@@ -95,6 +95,7 @@ header{
         text-align: center;
         border-bottom-right-radius: 10em;
         transition: all 0.3s ease;
+        z-index: 5;
     }
     .nav-list li{
         margin: 40px 0;
