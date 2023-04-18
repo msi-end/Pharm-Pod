@@ -12,6 +12,11 @@ router.get('/getAll', reviewModel.getCls);
 // //To Find a Reviews
 router.get('/fn/:id', reviewModel.getClsID);
 
+
+router.get('/revv/:id', reviewModel.getRevID);
+
+
+
 // // //To delete a reviews
 // router.delete('/delete/:id', reviewModel.delete);
 

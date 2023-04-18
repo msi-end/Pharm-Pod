@@ -5,7 +5,7 @@
     --background-color: rgb(255, 255, 255);
     --blue: rgb(0, 153, 255);
 }
-@media(max-width: 960px){
+@media(max-width: 1024px){
     .mainPage{
         flex-direction: column;
     }
@@ -20,30 +20,25 @@
         display: block;
     }
 
-    .splitSection{
+    .splitSection, .reviewSplit-section{
         flex-direction: column;
         width: 100%;
     }
 
-    .firstSplit{
+    .firstSplit, .first-reviewSplit{
         width: 75%;
         margin: auto;
         margin-bottom: 3em;
     }
 
-    .secondSplit{
+    .secondSplit, .second-reviewSplit{
         width: 75%;
         margin: auto;
     }
+    .customerReview-section{
+        height: 20em;
+    }
 
-    .feedback_Form{
-        flex-direction: column;
-        margin: 2em auto;
-        gap: 2em;
-    }
-    .feedback_Form input{
-        width: 100%;
-    }
 }
 
 @media(max-width: 800px){
@@ -89,18 +84,6 @@
         width: 100%;
         margin-bottom: 1em;
     }
-    .uilreview{
-        font-size: 2em;
-    }
-    .uil-star{
-        font-size: 1.1em;
-    }
-    .reviewSection{
-        padding: 1em;
-    }
-    .reviewText a{
-        font-size: 0.9em;
-    }
 
 }
 
@@ -127,15 +110,5 @@
     .clinicLocation iframe, .content-Events_img img{
         height: 200px;
     }
-    .clinicReview{
-        padding: 0;
-        width: 90%;
-        margin: auto;
-    }
-    .reviewSection{
-        margin: 2em auto;
-    }
-    .reviewText{
-        font-size: 0.9em;
-    }
+
 }
