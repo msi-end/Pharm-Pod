@@ -1,3 +1,5 @@
+
+
 document.getElementById("writeReview").addEventListener("click", ()=>{
   document.getElementById('cls-mainbox').classList.remove('hide')
 } )
@@ -21,22 +23,23 @@ function Cl_opnForm(){
 
 
 //2nd part------------------------------------------------------------
-
-let dat = fetch('/clinics');
+let i_d = sessionStorage.getItem("dataV");
+let dat = fetch(`http://localhost:8000/apiV3/r/fn/${i_d}`);
 
 dat.then(function(ress) {
     return ress.json();
  }).then(function(re){
+    console.log(re);
     re.forEach(ell => {
     let n = ell.star.toFixed(1)
-    let clinicid = document.getElementById('clinicid');
+    //let clinicid = document.getElementById('clinicid');
     let clinicname = document.getElementById('clinicName');
     let clinicrating = document.getElementById('clinicRating');
     let clinicrev = document.getElementById('clinicRev');
-    clinicname.innerHTML = ell.Name;
+    clinicname.innerHTML = ell.c_name;
     clinicrating.innerHTML = `${n}&#9733;`;
-    clinicrev.innerHTML = `(${ell.total_rev}+ Ratings)`
-    clinicid.dataset.valuguti = ell.cl_id;
+    clinicrev.innerHTML = `(${ell.total_review}+ Ratings)`
+    //clinicid.dataset.valuguti = ell.cl_id;
 
     //2nd part of the function================================================================
 
@@ -50,17 +53,17 @@ let opt = {
   }
 }
 
-let rr = fetch("http://localhost:3000/apiV3/r/getAll?user=min01", opt);
+let rr = fetch(`http://localhost:8000/apiV3/r/revv/${i_d}`);
 
 rr.then(function(res) {
   return res.json();
 }).then(function(res){
-  //console.log(res);
+  console.log(res);
     res.forEach((el)=>{
       let html = ` <div class="customerReview-profile">
       <div class="reviewProfile-name">
           <i class="uil uil-user-square "></i>
-          <p>${el.user_name}</p>
+          <p>${el.userName}</p>
       </div>
       <div class="reviewProfile-stars">
           <label for="5" class="uis uis-star"></label>
@@ -70,12 +73,12 @@ rr.then(function(res) {
           <label for="5" class="uis uis-star"></label>
       </div>
       <div class="reviewProfile-text">
-          <p>${el.rev}</p>
+          <p>${el.review}</p>
       </div>
   </div>
   <hr>`
       let box = document.getElementById('review')
-      if (el.rev != null) {
+      if (el.review != null) {
         box.insertAdjacentHTML('afterbegin', html); 
       }
       
@@ -101,18 +104,21 @@ star.forEach(function(el) {
 const submitReview = document.getElementById('submit-review');
 
 
-let valu;
+
 function getRatePoint() {
   document.getElementById('cls-mainbox').classList.add('hide')
   document.getElementById('reviewPopup-NE').classList.add('hide')
   let name =  document.getElementById('cus-name').value;
   let review = document.getElementById('cus-review').value;
-  let idnumber = Number(document.getElementById('clinicid').dataset.valuguti);
+  let idnumber = i_d; //document.getElementById('clinicid').dataset.guti;
+  let email_id = document.getElementById('emails').value;
+  console.log(idnumber)
   let valu = {
     idNum: idnumber,
-    rating: a || '',
+    rating:  4,// a || '',
     review: review,
-    u_name: name 
+    u_name: name,
+    mail: email_id
   };
    console.log(valu);
 

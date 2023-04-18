@@ -29,7 +29,7 @@ route.get('/p/clinics', (req, res) => {
     AVG(rr_data.rating) AS star FROM client_Info INNER JOIN rr_data ON rr_data.c_id = client_Info.c_id
     GROUP BY c_id;`, function (err, results, fields) {
         if (err) {console.log('Clinic Route Error' + err)
-        } else { res.status(200).render(`../views/client/page/allclinics.ejs`,{data:results})}});
+        } else {res.status(200).render(`../views/client/page/allclinics.ejs`,{data:results})}});
 }) 
 route.get('/p/privacy-policy', (req, res) => {
     res.render('../views/client/page/privacypolicy.ejs')
