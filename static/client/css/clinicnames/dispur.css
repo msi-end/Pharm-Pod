@@ -30,6 +30,7 @@
     height: 200px;
     object-fit: cover;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .clinicDetails{
@@ -208,8 +209,14 @@
     padding: 0 0.3em;
     color: var(--background-color);
 }
-
-.firstSplit-details details{
+.firstSplit-details .details .detailsText{
+    display: none;
+}
+.firstSplit-details .details .detailsText--show{
+    display: block;
+}
+.firstSplit-details .details .detailsMore-btn{
+    color: rgb(6, 6, 246);
     cursor: pointer;
 }
 
