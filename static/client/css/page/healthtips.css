@@ -180,6 +180,7 @@ article p .readMore-text--show{
 }
 .sideContent ul li{
     text-align: right;
+    list-style: none;
     width: 100%;
 }
 .sideContent ul li a{
