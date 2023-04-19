@@ -68,7 +68,7 @@
     display: flex;
     align-items: center;
     padding: 2em;
-    background: var(--event-color);
+    background: gray;
     color: var(--shadow-color-2);
 }
 
