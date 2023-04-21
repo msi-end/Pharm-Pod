@@ -128,6 +128,7 @@ form .user-details .input-box{
 
 
 
+
 /* review */
 .reviewPopup{
     position: fixed;
@@ -137,7 +138,7 @@ form .user-details .input-box{
     background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
     width: 100%;
     height: 100%;
-    z-index: 12;
+    z-index: 10;
 }
 
 .reviewPopup-box{
@@ -153,12 +154,25 @@ form .user-details .input-box{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-direction: row-reverse;
 }
-.review-stars .star{
+.review-details .review-stars .uis-star{
+    color: gray;
+    font-size: 3em;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.review-stars input{
+    display: none;
+}
+.review-stars input:not(:checked) ~ .uis-star:hover,
+.review-stars input:not(:checked) ~ .uis-star:hover ~ .uis-star{ 
     color: var(--blue);
-    font-weight: 700;
-    font-size: 2em;
 }
+.review-stars input:checked ~ .uis-star{
+    color: var(--blue);
+}
+
 .review-box{
     width: 100%;
 }
@@ -204,10 +218,6 @@ form .user-details .input-box{
     width: 100%;
     height: 100%;
     z-index: 15;
-<<<<<<< HEAD
-  
-=======
->>>>>>> 029fcb9bf737d098e2d8a581e5401c22a2e1af76
 }
 
 .review-form-details{

@@ -35,8 +35,8 @@
     <div class="mainPage mainContainer shadowBox">
         
         <div class="clinicInfo">
-            <div class="clinicLogo shadowBox">
-                <img src="/client/img/Clinics/Dispur/doctor.png" alt="Logo">
+            <div class="clinicLogo">
+                <img src="/client/img/Clinics/default/doctorDefault.png" alt="Logo">
             </div>
             <div class="clinicDetails">
                 <div class="clinicName" id="clinicid" data-guti ="min01">
@@ -53,7 +53,7 @@
                 <p>
                     <i class="uil uil-map-marker-plus"></i>
                     <a href="#">
-                    H.No.6A, Juripar, Panjabari, SixMile, Guwahati
+                    Panjabari, SixMile, Guwahati
                     </a>
                     
                 </p>
@@ -104,15 +104,11 @@
             <div class="firstSplit-Heading">
                 <h3>DOCTORS IN THE CLINIC</h3>
                 <select name="doctors" id="doctors" onchange="getValu()">
-                    <optgroup label="Physiotherapist">
-                        <option value="0">Dr Kankan Jyoti Nath</option>
-                        <option value="1">Dr Panchanan Deka</option>
-                    </optgroup>
-
-                    <optgroup label="Radiologist">
-                        <option value="mint">Dr Mintu Sharma</option>
-                        <option value="mohi">Dr Mohibul Hoque</option>
-                    </optgroup>
+                    <option value="SelectDoctor">Select a Doctor</option>
+                        <option value="0">Dr Bhaba Jyoti Sharma</option>
+                        <option value="1">Dr R.N Kalita</option>
+                        <option value="mint">Dr Gopeswar Bhuyan</option>
+                        <option value="mohi">Dr P.K Das</option>
                 </select>
             </div>
             
@@ -123,7 +119,7 @@
                         <i class="uil uil-award"></i>
                         Certification verified
                     </p>
-                    <img src="doctor.JPG" alt="Dr Kankan">
+                    <img src="/client/img/Clinics/default/doctorDefault.png" alt="doctor">
                 </div>
                 <div class="firstSplit-Content">
                     <h3 id="dname">Dr Kankan Jyoti Nath</h3>
@@ -182,12 +178,15 @@
 
             <div class="firstSplit-details">
                 <h4>About</h4>
-                <details>
-                    <summary id="aboutsum">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi impedit nihil veritatis omnis nemo, illo qui facere minima magnam tenetur, ex, aliquam doloribus. Ea tempora quo dolorem dolore vero eum...
-                    </summary>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos officiis officia dolores veniam dicta repellat magnam? Vel suscipit nobis repudiandae iusto voluptatibus maxime cum a, sit unde. Corrupti, deserunt culpa!</p>
-                </details>
+                <div class="details">
+                    <p id="aboutsum">
+                        Plenty of medical students have questions when they're first starting out — like what are all of the physician subspecialties, and what the most common doctor specialty is in your field? But with so many paths to choose from, and so many stops along the way, there might be times you need to know even more.
+                        <span class="detailsText">
+                            Anatomical pathology is one of those medical doctor specialties that study the morphologic aspects of a disease. An anatomical pathologist's key specialization is to diagnose diseased tissue and investigate the mechanisms and development of the disease. They do this by examining the tissues removed by needle aspiration, surgical procedures, or autopsy. Anatomical is one of the better medical specialties for doctors who like working alone, in a lab setting, or in a more academic environment. 
+                        </span>
+                    </p>
+                    <span class="detailsMore-btn">Know More....</span>
+                </div>
                 <hr>
                 <h4>What the Doctor has to say?</h4>
                 <div class="videoContent">
@@ -214,7 +213,7 @@
                 <p>
                     <i class="uil uil-map-marker-plus"></i>
                     <a href="https://goo.gl/maps/HQTXd1E5jWW7xeEWA">
-                        H.No.6A, Juripar, Panjabari, SixMile, Guwahati
+                        Dispur, Guwahati
                     </a>
                 </p>
                 <iframe
@@ -231,13 +230,13 @@
                     <!-- <button class="btn">View All</button> -->
                 </div>
                 <div class="galleryPhotos">
-                    <img src="cover-image.jpg" alt="">
-                    <img src="logo.png" alt="">
-                    <img src="logo.png" alt="">
-                    <img src="logo.png" alt="">
-                    <img src="doctor.jpg" alt="">
-                    <img src="doctor.jpg" alt="">
-                    <img src="doctor.jpg" alt="">
+                    <img src="/client/img/Clinics/default/default-home-1.jpg" alt="">
+                    <img src="/client/img/Clinics/default/default-home-2.jpg" alt="">
+                    <img src="/client/img/Clinics/default/default-home-3.jpg" alt="">
+                    <img src="/client/img/Clinics/default/medical.jpg" alt="">
+                    <img src="/client/img/Clinics/default/doctors-office.jpg" alt="">
+                    <img src="/client/img/Clinics/default/equipment.jpg" alt="">
+                    <img src="/client/img/Clinics/default/medical-equipment.jpg" alt="">
                 </div>
             </div>
 
@@ -247,19 +246,17 @@
             <hr>
             <div class="clinicalEvents">
                 <ul>
-                    <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Articles</a></li>
-                    <li><a href="#">Blogs</a></li>
+                    <li><a href="/p/health-tips">News & Events</a></li>
+                    <li><a href="/p/health-tips">Articles</a></li>
+                    <li><a href="/p/health-tips">Blogs</a></li>
                 </ul>
 
                 <div class="clinicalEvents-Content">
                     <div class="content-Events_img">
-                        <img src="/client/img/card-img/clinic-1.jpg" alt="">
+                        <img src="/client/img/main/event-img.jpg" alt="News">
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quod totam expedita adipisci nostrum
-                        quas eligendi. Excepturi asperiores dignissimos ducimus libero ratione, sapiente commodi
-                        adipisci perferendis laudantium dolor et odio?</p>
-                    <a href="#">Know More &rarr;</a>
+                    <p>Plenty of medical students have questions when they're first starting out — like what are all of the physician subspecialties, and what the most common doctor specialty is in your field? But with so many paths to choose from, and so many stops along the way, there might be times you need to know even more.</p>
+                    <a href="/p/health-tips">Know More &rarr;</a>
                 </div>
                 <hr>
             </div>
@@ -282,7 +279,7 @@
             <hr>
             <div class="review-ad-section">
                 <div class="review-ad-img">
-                    <img src="/client/img/ads/ad.jpg" alt="ads">
+                    <img src="/client/img/main/ad.jpg" alt="ads">
                     <span>Ad</span>
                 </div>
             </div>
@@ -318,14 +315,10 @@
                     <div class="input-box">
                         <p class="details">Select your doctor:</p>
                         <select name="regnDoctor" id="regnDoctor">
-                            <optgroup label="Physiotherapist">
-                                <option value="kank">Dr Kankan Jyoti Nath</option>
-                                <option value="panc">Dr Panchanan Deka</option>
-                            </optgroup>
-                            <optgroup label="Radiologist">
-                                <option value="mint">Dr Mintu Sharma</option>
-                                <option value="mohi">Dr Mohibul Hoque</option>
-                            </optgroup>
+                            <option value="kank">Dr Bhaba Jyoti Sharma</option>
+                            <option value="panc">Dr Bhaskar Neog</option>
+                            <option value="mint">Dr Utpal Kr. Deka</option>
+                            <option value="mohi">Dr P.K. Das</option>
                         </select>
 
                     </div>
