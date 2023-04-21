@@ -30,7 +30,7 @@
     <div class="gridBox">
         <% if(data){ %>
             <% data.forEach(function(data){ %>
-        <div class="grid-item u-u-u-u-u shadowBox" >
+        <div class="grid-item u-u-u-u-u shadowBox" data-clinicidentity="<%= data.c_id %>">
             <a href="/<%= data.c_id %>">
                 <div class="grid-img img-1">
                     <h3><%= data.c_name %></h3>
