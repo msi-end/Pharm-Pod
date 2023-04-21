@@ -1,4 +1,3 @@
-//
 
 let dname = document.getElementById('dname');
 let dspec = document.getElementById('dspec');
@@ -57,4 +56,3 @@ document.getElementById("bookAppo").addEventListener("click", function(){
     })
 
 
-   
