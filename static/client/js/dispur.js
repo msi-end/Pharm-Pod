@@ -49,9 +49,7 @@ let opt = {
   method: 'GET',
   body: JSON.stringify(d),
   headers: {
-      'Content-Type': 'application/json'
-  }
-}
+      'Content-Type': 'application/json'}}
 
 let rr = fetch(`http://localhost:8000/apiV3/r/revv/${i_d}`);
 
@@ -176,8 +174,7 @@ document.getElementById('pclose').addEventListener('click',()=>{
 // Request Handler.js
 let doc=document.getElementsByClassName('user-details')[0].children
 let ReqURI ={FormSet:location.origin+'/apiV3/add?user='}
-let ReqHandler ={
-    GET: async function(url) {
+let ReqHandler ={ GET: async function(url) {
        const response = await fetch(url, {
          method: "GET",
          headers: {"Content-Type": "application/json; charset=UTF-8",}

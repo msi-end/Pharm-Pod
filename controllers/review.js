@@ -13,16 +13,16 @@ exports.pushData = (req, res) => {
     res.send('sended succesfully');
 }
 
-exports.getCls = (req, res) => {
-    let q = `SELECT client_Info.c_id, client_Info.Name, client_Info.location, COUNT(rr_data.rev) AS total_review,
-             AVG(rr_data.rating) AS star FROM client_Info INNER JOIN rr_data ON rr_data.c_id = client_Info.c_id
-             GROUP BY c_id;`;
-    databaseCon.query(q, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-        console.log("sended all data");
-    })
-}
+// exports.getCls = (req, res) => {
+//     let q = `SELECT client_Info.c_id, client_Info.Name, client_Info.location, COUNT(rr_data.rev) AS total_review,
+//              AVG(rr_data.rating) AS star FROM client_Info INNER JOIN rr_data ON rr_data.c_id = client_Info.c_id
+//              GROUP BY c_id;`;
+//     databaseCon.query(q, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//         console.log("sended all data");
+//     })
+// }
 
 exports.getClsID = (req, res) => {
     //console.log(req.body)
