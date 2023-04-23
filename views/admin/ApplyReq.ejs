@@ -13,8 +13,8 @@
 
 <body>
     <!-- ///// nav  -->
-            <!-- Mdl and flashMsg -->
-        <div id="mdl_bx">
+    <!-- Mdl and flashMsg -->
+     <div id="mdl_bx">
             <div id="mdl_body" style="margin: auto;"></div>
             <div id="btnCotn">
                 <button type="button" id="btnSave" class="cgreen hover">Save </button>
@@ -26,11 +26,45 @@
         </div>
         <!-- ////Main Content -->
         <main id="mainContent">
-        </main>
+            <% if(ps_data.length>0){ %>
+                <% ps_data.forEach(function(data){ %>
+        <div class="psInfo" clientId='<%= data.id %>''>
+      <div class="psNum">
+          <span class="symbols-rounded">clinical_notes</span>
+          <br><span>No:</span> 
+          <span><%= data.id %></span> 
+      </div>
+      <div class="psDetail">
+          <h4 class="psName"><%= data.p_name %></h4>
+          <p class="psOtherInf"><%= data.p_number %></p>
+          <p class="psDoctor"><%= data.p_doctor %></p>
+          <p class="psDoctor"><%= data.p_OthInfo %></p>
+      </div>
+      <div class="psAction"> 
+          <a onclick="userAction.Acpt(this)" class="done hover"><span
+                  class="symbols-rounded">done</span>Accept</a>
+          <a onclick="userAction.rejt(this)" class="del hover"><span
+                  class="symbols-rounded">delete</span><br>Reject</a>
+      </div>
+  </div>
+   <% }) %>
+<% } else { %>
+     <h2 data-val="nl"> No Data Available !!!</h2> 
+      <% } %> 
+</main>
+
+<br><br><br><br>
 
 
-        <!-- ////Bottom Manu -->
-        <%- include('./partials/footer.ejs') %>
+
+<!-- ////Bottom Manu -->
+<footer>
+    <nav id="bottomNav">
+        <a  data-n="ApplyRequest" ><span class="symbols-rounded">mark_email_read</span><br>Apply request</a>
+        <a  data-n="" action><span class="symbols-rounded">home</span><br>Home </a>
+        <a  data-n="settings"><span class="symbols-rounded">settings</span><br>Settings</a>
+    </nav>
+</footer>
 
 <script src="/admin/js/script.js"></script>
 
