@@ -62,7 +62,6 @@ const userAction = {
 // ReqHandler Data  
 let ReqURI={AddPs:location.origin+'/apiV3/crt',GetA_ps:location.origin+'/apiV3/fnO/',upd:{MaxApply:location.origin+'/apiV3/upd?maxAp=',AutoApv:location.origin+'/apiV3/upd?autoAp=',ClsOpn:location.origin+'/apiV3/upd?fState='},dtBD_:location.origin+'/apiV3/get?dt=',del:location.origin+'/apiV3/del/'}
 // User Requestes To API
-
 let ReqHandler ={
     GET: async function(url) {
       console.log(url)

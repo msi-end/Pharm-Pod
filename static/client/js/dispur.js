@@ -23,7 +23,7 @@ function Cl_opnForm(){
 
 
 //2nd part------------------------------------------------------------
-let i_d = sessionStorage.getItem("dataV");
+let i_d = location.pathname.split('/')[1];
 let dat = fetch(`http://localhost:8000/apiV3/r/fn/${i_d}`);
 
 dat.then(function(ress) {
@@ -48,8 +48,7 @@ let d = {num : ell.cl_id};
 let opt = {
   method: 'GET',
   body: JSON.stringify(d),
-  headers: {
-      'Content-Type': 'application/json'}}
+  headers: {'Content-Type': 'application/json'}}
 
 let rr = fetch(`http://localhost:8000/apiV3/r/revv/${i_d}`);
 
