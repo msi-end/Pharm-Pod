@@ -234,7 +234,7 @@ let valid = {
     pat1: /^[A-Za-z. ]+$/, pat3:/^[A-Za-z.@0-9 ]+$/, pat4: /[@]/g, pat5: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, pat6 : /^\+?[1-9][0-9]{9,11}$/
   },
   regTextBox: function (val) {
-    if (val === '' || this.pat.pat3.test(val)) {return true;}else{return 'The character is Invalid'}
+    if (val === '' || this.pat.pat3.test(val)) {return true;}else{return 'Character are invalid!'}
   }, regEmail: function (val) {
     if (this.pat.pat5.test(val)) { return true; } else { return 'Invalid Email'; }
   }, regNumber: function (val) {
@@ -250,7 +250,7 @@ let valid = {
     if (fieldEmpty.reEmptya === true && fieldEmpty.reEmptyc === true && fieldEmpty.reEmptyd === true) {
       if (result.reName != true) { return result.reName;} 
     else if (result.reNumber != true) {return result.reNumber;} else if (result.reText != true) {return result.reText;
-      } else { return true; }} else { return 'field cant be empty'; }
+      } else { return true; }} else { return 'Field cant be empty!'; }
   }
 }
 

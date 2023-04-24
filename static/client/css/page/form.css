@@ -27,7 +27,19 @@
     width: 50%;
     transform: translate(-50%, -50%);
 }
-
+.error{
+    display: flex;
+}
+#err-msg{
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
+    background: #e6e6e6;
+    margin-top: 13px;
+    border-radius: 6px;
+    width: 100%;
+}
 .registration-details #closeX, .reviewPopup-box #clsX, .review-form-details #Xclse, .photo-box #pclose{
     background: var(--font-color);
     color: var(--background-color);
@@ -45,7 +57,7 @@
     font-size: 1.5em;
     position: relative;
 }
-.registration-details .title::before{
+/* .registration-details .title::before{
     content: '';
     position: absolute;
     left: 0;
@@ -53,7 +65,7 @@
     height: 3px;
     width: 30px;
     background: linear-gradient(to bottom right, #cccccc 0%, #808080 100%);
-}
+} */
 
 .registration-details form .user-details{
     display: flex;
