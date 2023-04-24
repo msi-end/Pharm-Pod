@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
     z-index: 12;
-    /* display: none; */
+    display: none;
     
 }
 .registration-details, .reviewPopup-box, .review-form-details, .zoomPhoto{
