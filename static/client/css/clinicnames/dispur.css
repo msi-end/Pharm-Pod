@@ -209,10 +209,10 @@
     padding: 0 0.3em;
     color: var(--background-color);
 }
-.detailsMore{
+.detailsText{
     display: none;
 }
-.detailsMore.show {
+.detailsText.show {
     display: block;
 }
   

@@ -6,7 +6,7 @@ let dexp = document.getElementById('dexp');
 let dlang = document.getElementById('dlang');
 let drat = document.getElementById('drat');
 let dasum = document.getElementById('aboutsum');
-
+let dblog = document.getElementById('blog');
 
 const doctor1 = {did: 0, Name: 'Mr. senthur nambi', deg: 'MBBS', specific : 'radiology', exp: 12,
  Lang: ['assamese', 'hindi'], rating: "2500+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: 'lghurhgorhogho'};
@@ -56,26 +56,3 @@ document.getElementById("bookAppo").addEventListener("click", function(){
         document.querySelector(".registration-form").style. display = "none";
     })
 
-
-    const moreBtn = document.querySelector('.detailsMore-btn');
-    const lessBtn = document.querySelector('.detailsLess-btn');
-    const moreDetails = document.querySelector('.detailsMore');
-    
-    moreBtn.addEventListener('click', () => {
-      moreDetails.classList.add('show');
-      moreBtn.classList.add('hide');
-    });
-    
-    lessBtn.addEventListener('click', () => {
-      moreDetails.classList.remove('show');
-      moreBtn.classList.remove('hide');
-    });
-    
-    moreDetails.addEventListener('transitionend', () => {
-      if (!moreDetails.classList.contains('show')) {
-        moreBtn.classList.remove('hide');
-      }
-    });
-    
-    
-    
