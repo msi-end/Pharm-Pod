@@ -194,21 +194,3 @@ const userReq ={
       else{Obj.flashMsg(data.msg,'',data.status)}})
     }}
 
-
-    // ABout Know More Text 
-    const detailContainer = document.querySelector('.details');
-
-    detailContainer.addEventListener('click', event=>{
-      const detail = event.target;
-      const isDetailsmoreBtn = detail.className.includes('detailsMore-btn');
-
-      if(!isDetailsmoreBtn) return;
-
-      const detailText = event.target.parentNode.querySelector('.detailsText');
-
-      detailText.classList.toggle('detailsText--show');
-
-      detail.textContent = detail.textContent.includes('Know More') ?
-      "Know Less...." : "Know More...."
-      
-    })
