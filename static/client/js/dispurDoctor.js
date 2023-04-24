@@ -6,7 +6,7 @@ let dexp = document.getElementById('dexp');
 let dlang = document.getElementById('dlang');
 let drat = document.getElementById('drat');
 let dasum = document.getElementById('aboutsum');
-let dblog = document.getElementById('blog');
+let dblog = document.getElementById('blog');  
 
 const doctor1 = {did: 0, Name: 'Mr. senthur nambi', deg: 'MBBS', specific : 'radiology', exp: 12,
  Lang: ['assamese', 'hindi'], rating: "2500+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: 'lghurhgorhogho'};
