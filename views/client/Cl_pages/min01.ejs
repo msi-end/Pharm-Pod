@@ -27,6 +27,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
+    <style>
+        #err-msg{
+            color: red;
+            font-size: 14px;
+        }
+    </style>
 
 </head>
 
@@ -386,6 +392,7 @@
     <div class="review-form hide" id="reviewPopup-NE">
         <div class="review-form-details">
             <span id="Xclse">&times;</span>
+            <div class="error"><p id="err-Msg" class="err-msg"></p></div>
             <div class="review-input">
                 <p class="details">Full Name:</p>
                 <input type="text" placeholder="Enter your name" name="name" id="cus-name" required>

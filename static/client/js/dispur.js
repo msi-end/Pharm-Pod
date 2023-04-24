@@ -106,13 +106,17 @@ const submitReview = document.getElementById('submit-review');
 
 
 function getRatePoint() {
-  document.getElementById('cls-mainbox').classList.add('hide')
-  document.getElementById('reviewPopup-NE').classList.add('hide')
+ 
   let name = document.getElementById('cus-name').value;
   let review = document.getElementById('cus-review').value;
   let idnumber = i_d; //document.getElementById('clinicid').dataset.guti;
   let email_id = document.getElementById('emails').value;
-  console.log(idnumber)
+
+  let validationRes = {nValid: valid.regName(name), eValid: valid.regEmail(email_id)};
+  //console.log(validationRes);
+if (validationRes.nValid === true && validationRes.eValid === true) {
+  document.getElementById('cls-mainbox').classList.add('hide')
+  document.getElementById('reviewPopup-NE').classList.add('hide')
   let valu = {
     idNum: idnumber,
     rating: 4,// a || '',
@@ -120,7 +124,6 @@ function getRatePoint() {
     u_name: name,
     mail: email_id
   };
-  console.log(valu);
 
   let options = {
     method: 'POST',
@@ -131,14 +134,14 @@ function getRatePoint() {
   }
 
   let data = fetch('/apiV3/r/rv', options);
-
   data.then(function (res) {
     return res.json();
   }).then(function (res) {
     console.log(res);
   })
-
-
+}else{
+  document.getElementById('err-Msg').innerHTML = 'Name and Email is required properly!'
+}
 
 }
 submitReview.addEventListener('click', getRatePoint);
