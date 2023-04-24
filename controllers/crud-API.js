@@ -5,16 +5,18 @@ const databaseCon = require('../models/db.model');
 // patient application req
 exports.add = (req, res) => {
     let user = req.query.user;
-    databaseCon.query(`SELECT COUNT(p_aptDate) as count from ${user}_PS_data WHERE p_aptDate='${req.body.date}'; SELECT maxApply ,autoReqAppl from client_Info WHERE c_id='${user}'`, function (err, results, fields) {
+    databaseCon.query(`SELECT COUNT(p_aptDate) as count from ${user}_PS_data WHERE p_aptDate='${req.body.date}'; SELECT maxApply ,autoReqAppl,form_Status from client_Info WHERE c_id='${user}'`, function (err, results, fields) {
         if (err) throw err;
+        if(results[1][0].form_Status=='true'){
         if (results[1][0].maxApply >= results[0][0].count) {
-            let params =[req.body.name,req.body.number,req.body.otherInfo,req.body.doctor,req.body.date];
-            let sql = `INSERT INTO ${user}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate) VALUES (?) `;
+            let params =[req.body.name,req.body.number,req.body.otherInfo,req.body.doctor,req.body.date,results[1][0].autoReqAppl];
+            let sql = `INSERT INTO ${user}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate,p_aptStatus) VALUES (?) `;
             databaseCon.query(sql,[params], function (err, results, fields) {
                 if (err) throw err;
                 res.send({ status: true, msg: 'Application submited Sucessfully!' })
-            }) }else{ res.status(403).send({status: false, msg: 'Application Limite Exceeded!' }) }
-    })}
+            }) }else{ res.status(403).send({status: false, msg: 'Application Limite Exceeded!' }) }}else{
+                res.send({ status: false, msg: 'Application Submission is temporarily Closed!' })
+            }})}
 
 
 // ADMIN CRUD 

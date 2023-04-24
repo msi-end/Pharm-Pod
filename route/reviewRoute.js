@@ -7,7 +7,7 @@ const reviewModel = require('../controllers/review.js')
 router.post('/rv',reviewModel.pushData);
 
 // // To get all Reviews
-router.get('/getAll', reviewModel.getCls);
+// router.get('/getAll', reviewModel.getCls);
 
 // //To Find a Reviews
 router.get('/fn/:id', reviewModel.getClsID);

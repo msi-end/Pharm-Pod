@@ -23,7 +23,7 @@ function Cl_opnForm() {
 
 
 //2nd part------------------------------------------------------------
-let i_d = sessionStorage.getItem("dataV");
+let i_d = location.pathname.split('/')[1];
 let dat = fetch(`http://localhost:8000/apiV3/r/fn/${i_d}`);
 
 dat.then(function (ress) {
@@ -206,23 +206,23 @@ const userReq = {
 
 
 
-// ABout Know More Text 
-const detailContainer = document.querySelector('.details');
+    // ABout Know More Text 
+    const detailContainer = document.querySelector('.details');
 
-detailContainer.addEventListener('click', event => {
-  const detail = event.target;
-  const isDetailsmoreBtn = detail.className.includes('detailsMore-btn');
+    detailContainer.addEventListener('click', event=>{
+      const detail = event.target;
+      const isDetailsmoreBtn = detail.className.includes('detailsMore-btn');
 
-  if (!isDetailsmoreBtn) return;
+      if(!isDetailsmoreBtn) return;
 
-  const detailText = event.target.parentNode.querySelector('.detailsText');
+      const detailText = event.target.parentNode.querySelector('.detailsText');
 
-  detailText.classList.toggle('detailsText--show');
+      detailText.classList.toggle('detailsText--show');
 
-  detail.textContent = detail.textContent.includes('Know More') ?
-    "Know Less...." : "Know More...."
-
-})
+      detail.textContent = detail.textContent.includes('Know More') ?
+      "Know Less...." : "Know More...."
+      
+    })
 
 //validation form--------------------------------
 

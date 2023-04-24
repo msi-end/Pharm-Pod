@@ -6,15 +6,14 @@ let dexp = document.getElementById('dexp');
 let dlang = document.getElementById('dlang');
 let drat = document.getElementById('drat');
 let dasum = document.getElementById('aboutsum');
-let dblog = document.querySelector('#blog');
 
 
 const doctor1 = {did: 0, Name: 'Mr. senthur nambi', deg: 'MBBS', specific : 'radiology', exp: 12,
- Lang: ['assamese', 'hindi'], rating: "2500+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: `Anatomical pathology is one of those medical doctor specialties that study the morphologic aspects of a disease. An anatomical pathologist's key specialization is to diagnose diseased tissue and investigate the mechanisms and development of the disease. They do this by examining the tissues removed by needle aspiration, surgical procedures, or autopsy. Anatomical is one of the better medical specialties for doctors who like working alone, in a lab setting, or in a more academic environment.`};
+ Lang: ['assamese', 'hindi'], rating: "2500+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: 'lghurhgorhogho'};
 
-const doctor2 = {did: 1, Name: 'Dr. Bala', deg: 'MBBS', specific : 'radiology', exp: 12,
- Lang: ['assamese', 'hindi', 'Tamil'], rating: "300+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: 'lghurhgorhogho'};
-
+const doctor2 = {did: 1, Name: 'Dr R.N Kalita', deg: 'MBBS', specific : 'General Physician', exp: '5 Years Experience',
+ Lang: ['Assamese', 'Hindi', 'English'], rating: "179+ Ratings", time: {sun: 12, mon: 14},  about : "Dr. R.N. Kalita is a highly skilled doctor with over five years of experience in the medical field. During his career, he has helped over 500 patients from all walks of life, providing them with the highest standard of care and support.", blog: 'lghurhgorhogho'};
+ 
 let doctors = [doctor1, doctor2];
 
 dname.innerHTML = doctors[0].Name;
@@ -38,7 +37,7 @@ for (let i = 0; i <= 1; i++) {
         ddeg.innerHTML = doctors[i].deg;
         dexp.innerHTML = doctors[i].exp;
         dlang.innerHTML = doctors[i].Lang;
-        drat.innerHTML = doctors[i].rating;
+        drat.innerHTML = doctors[i].rating;  
     }
   }    
 }
@@ -58,3 +57,25 @@ document.getElementById("bookAppo").addEventListener("click", function(){
     })
 
 
+    const moreBtn = document.querySelector('.detailsMore-btn');
+    const lessBtn = document.querySelector('.detailsLess-btn');
+    const moreDetails = document.querySelector('.detailsMore');
+    
+    moreBtn.addEventListener('click', () => {
+      moreDetails.classList.add('show');
+      moreBtn.classList.add('hide');
+    });
+    
+    lessBtn.addEventListener('click', () => {
+      moreDetails.classList.remove('show');
+      moreBtn.classList.remove('hide');
+    });
+    
+    moreDetails.addEventListener('transitionend', () => {
+      if (!moreDetails.classList.contains('show')) {
+        moreBtn.classList.remove('hide');
+      }
+    });
+    
+    
+    
