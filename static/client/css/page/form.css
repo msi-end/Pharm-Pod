@@ -30,7 +30,7 @@
 .error{
     display: flex;
 }
-#err-msg{
+#err-msg, .err-msg{
     color: red;
     font-size: 16px;
     text-align: center;
