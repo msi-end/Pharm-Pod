@@ -209,13 +209,14 @@
     padding: 0 0.3em;
     color: var(--background-color);
 }
-.firstSplit-details .details .detailsText{
+.detailsText{
     display: none;
 }
-.firstSplit-details .details .detailsText--show{
+.detailsText.show {
     display: block;
 }
-.firstSplit-details .details .detailsMore-btn{
+  
+.firstSplit-details .details :is(.detailsMore-btn,.detailsLess-btn){
     color: rgb(6, 6, 246);
     cursor: pointer;
 }
