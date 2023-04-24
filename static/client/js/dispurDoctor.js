@@ -6,10 +6,11 @@ let dexp = document.getElementById('dexp');
 let dlang = document.getElementById('dlang');
 let drat = document.getElementById('drat');
 let dasum = document.getElementById('aboutsum');
+let dblog = document.querySelector('#blog');
 
 
 const doctor1 = {did: 0, Name: 'Mr. senthur nambi', deg: 'MBBS', specific : 'radiology', exp: 12,
- Lang: ['assamese', 'hindi'], rating: "2500+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: 'lghurhgorhogho'};
+ Lang: ['assamese', 'hindi'], rating: "2500+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: `Anatomical pathology is one of those medical doctor specialties that study the morphologic aspects of a disease. An anatomical pathologist's key specialization is to diagnose diseased tissue and investigate the mechanisms and development of the disease. They do this by examining the tissues removed by needle aspiration, surgical procedures, or autopsy. Anatomical is one of the better medical specialties for doctors who like working alone, in a lab setting, or in a more academic environment.`};
 
 const doctor2 = {did: 1, Name: 'Dr. Bala', deg: 'MBBS', specific : 'radiology', exp: 12,
  Lang: ['assamese', 'hindi', 'Tamil'], rating: "300+", time: {sun: 12, mon: 14},  about : "welcome to profile", blog: 'lghurhgorhogho'};
@@ -23,6 +24,7 @@ dexp.innerHTML = doctors[0].exp;
 dlang.innerHTML = doctors[0].Lang;
 drat.innerHTML = doctors[0].rating;
 dasum.innerHTML = doctors[0].about
+dblog.innerHTML = doctors[0].blog;
 
 
 function getValu() {
