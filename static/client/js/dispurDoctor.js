@@ -6,7 +6,7 @@ let dexp = document.getElementById('dexp');
 let dlang = document.getElementById('dlang');
 let drat = document.getElementById('drat');
 let dasum = document.getElementById('aboutsum');
-let dblog = document.getElementById('blog');
+let dblog = document.getElementById('blog');  
 
 const doctor1 = {did: 0, Name: 'Dr. Bhaba Jyoti Sharma', deg: 'BDS', specific : 'Dentist', exp: '12 Years Experience',
  Lang: ['Assamese', 'Hindi', 'English'], rating: "250+ Ratings", time: {sun: 12, mon: 14},  about : "Dr. Bhaba Jyoti Sharma is a highly experienced and skilled dentist with over 12 years of experience in the field of dentistry. He has served more than 1000+ patients and has helped them achieve their dental health goals.", blog: `Dr. Sharma uses the latest dental technology and techniques to provide his patients with the best possible care. He stays up-to-date with the latest advancements in dentistry by attending various continuing education courses and seminars. This allows him to provide his patients with the most effective and efficient dental treatments available.
