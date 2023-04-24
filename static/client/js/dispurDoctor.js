@@ -23,7 +23,7 @@ dexp.innerHTML = doctors[0].exp;
 dlang.innerHTML = doctors[0].Lang;
 drat.innerHTML = doctors[0].rating;
 dasum.innerHTML = doctors[0].about
-dblog.innerHTML = doctors[0].blog;
+
 
 
 function getValu() {
@@ -37,7 +37,8 @@ for (let i = 0; i <= 1; i++) {
         ddeg.innerHTML = doctors[i].deg;
         dexp.innerHTML = doctors[i].exp;
         dlang.innerHTML = doctors[i].Lang;
-        drat.innerHTML = doctors[i].rating;  
+        drat.innerHTML = doctors[i].rating; 
+        dblog.innerHTML = doctors[i].blog; 
     }
   }    
 }

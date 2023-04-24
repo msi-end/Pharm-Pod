@@ -212,7 +212,7 @@
 .detailsText{
     display: none;
 }
-.detailsText.show {
+.detailsText--show {
     display: block;
 }
   
