@@ -60,7 +60,7 @@ const userAction = {
         }else if(dpOpt === 'rm'){ obj.classList.remove(animType)} else { obj.classList.add(animType)} }
 }
 // ReqHandler Data  
-let ReqURI={AddPs:location.origin+'/apiV3/crt',GetA_ps:location.origin+'/apiV3/fnO/',upd:{MaxApply:location.origin+'/apiV3/upd?maxAp=',AutoApv:location.origin+'/apiV3/upd?autoAp=',ClsOpn:location.origin+'/apiV3/upd?fState='},dtBD_:location.origin+'/apiV3/get?dt=',del:location.origin+'/apiV3/del/'}
+let ReqURI={AddPs:location.origin+'/apiV3/crt',GetA_ps:location.origin+'/apiV3/fnO/',upd:{MaxApply:location.origin+'/apiV3/upd?maxAp=',AutoApv:location.origin+'/apiV3/upd?autoAp=',ClsOpn:location.origin+'/apiV3/upd?fState='},dtBD_:location.origin+'/apiV3/get?dt=',del:location.origin+'/apiV3/del/',updApvl:location.origin+'/apiV3/updApvl'}
 // User Requestes To API
 let ReqHandler ={
     GET: async function(url) {
@@ -78,6 +78,7 @@ let ReqHandler ={
          body:JSON.stringify(data) });
        return response.json();
      } , PUT: async function(url,data) {
+      console.log(url);
        const response = await fetch(url, {
          method: "PUT",
          headers: {"Content-Type": "application/json; charset=UTF-8",},
@@ -106,24 +107,28 @@ const userReq ={
      userAction.flashMsg(data.msg)})},
     ClsOpn:function() {
       let val=document.getElementById('mdl_body').children[1].value;
-      ReqHandler.PUT(ReqURI.upd.ClsOpn+val,'').then((data)=>{
+      ReqHandler.PUT(ReqURI.upd.ClsOpn+val,val).then((data)=>{
      userAction.flashMsg(data.msg)})
     },dtBD_:function(e) {
-    let val=dSplit(e.value,'-',true)
-    ReqHandler.GET(ReqURI.dtBD_+val).then((data)=>{
-   userAction.flashMsg(data.msg)
-   userAction.panel_Exp(data)})
-    },del:function(e,s) {
+    let val=dSplit(e.value,'-',true);ReqHandler.GET(ReqURI.dtBD_+val).then((data)=>{
+   userAction.flashMsg(data.msg);userAction.panel_Exp(data)})
+    },del:function(e) {
       ReqHandler.DEL(ReqURI.del+e).then((data)=>{
-     userAction.flashMsg(data.msg)
-     s.remove()}) }}
+     userAction.flashMsg(data.msg); s.remove()}) },
+     Acpt:function(e) {
+      let val= e.parentElement.parentElement.attributes[1].value;
+      ReqHandler.PUT(ReqURI.updApvl+'?Acpt='+val,'').then((data)=>{userAction.flashMsg(data.msg)
+        e.parentElement.parentElement.remove();
+      }) },rejt:function(e) {
+      let val= e.parentElement.parentElement.attributes[1].value
+      ReqHandler.DEL(ReqURI.updApvl+'?Rejt='+val).then((data)=>{userAction.flashMsg(data.msg)
+        e.parentElement.parentElement.remove();}) }}
 var addPS = document.getElementsByClassName('addPS')[0];
 function Opn_addPS(e){ e.parentElement.classList.toggle('addPSpan'); }
 function Cls_addPS(e){ e.parentElement.classList.remove('addPSpan');
 setTimeout(() => {userAction.Anim(e.parentElement, 'animate__bounceOut', false) },.5);}
 var _0x2c1a19=_0x13e9;function _0x13e9(_0xa1444,_0xea74e8){var _0x224885=_0x2248();return _0x13e9=function(_0x13e981,_0x51af28){_0x13e981=_0x13e981-0x7c;var _0x4223b1=_0x224885[_0x13e981];return _0x4223b1;},_0x13e9(_0xa1444,_0xea74e8);}function _0x2248(){var _0x4adf47=['<select\x20name=\x22autoReq\x22><option\x20value=\x22true\x22\x20selected>On</option><option\x20value=\x22false\x22>Off</option></select>','5332968TBNtUP','<input\x20type=\x22number\x22\x20name=\x22maxApl\x22\x20placeholder=\x224,7,9,20,\x20etc.\x22>','10oUWmZR','1377368LJDBsa','userReq.AutoApv()','userReq.ClsOpn()','4144376Ruswbc','3347183ncCYWQ','<p>Auto\x20Request(On/Off\x20auto\x20Approval)</p>','3169052unYCCo','9xZXlaI','<select\x20name=\x22formStatus\x22><option\x20value=\x22true\x22\x20selected>On</option><option\x20value=\x22false\x22>Off</option></select>','1098626XMFrka','2895726JzDNak','<p>Enter\x20here\x20Max\x20Request(Number\x20of\x20Per\x20day\x20Apply)</p>'];_0x2248=function(){return _0x4adf47;};return _0x2248();}(function(_0x4c0dde,_0x1d0c90){var _0x267a7=_0x13e9,_0x3af70b=_0x4c0dde();while(!![]){try{var _0x5384e0=-parseInt(_0x267a7(0x81))/0x1+parseInt(_0x267a7(0x8a))/0x2+parseInt(_0x267a7(0x8b))/0x3+-parseInt(_0x267a7(0x87))/0x4*(-parseInt(_0x267a7(0x80))/0x5)+-parseInt(_0x267a7(0x7e))/0x6+-parseInt(_0x267a7(0x85))/0x7+parseInt(_0x267a7(0x84))/0x8*(parseInt(_0x267a7(0x88))/0x9);if(_0x5384e0===_0x1d0c90)break;else _0x3af70b['push'](_0x3af70b['shift']());}catch(_0x3031cf){_0x3af70b['push'](_0x3af70b['shift']());}}}(_0x2248,0xd513b));var inputObjects={'MaxChange':{'title':_0x2c1a19(0x7c),'input':_0x2c1a19(0x7f),'saveFn':'userReq.MaxApply()'},'AutoApv':{'title':_0x2c1a19(0x86),'input':_0x2c1a19(0x7d),'saveFn':_0x2c1a19(0x82)},'ClsOpn':{'title':'<p>Close/Open\x20site\x20Apply\x20Form</p>','input':_0x2c1a19(0x89),'saveFn':_0x2c1a19(0x83)}};
-function modelData(e){
-    let doc=mdlBox.children[0]
+function modelData(e){let doc=mdlBox.children[0];
     doc.innerHTML+=inputObjects[e].title; doc.innerHTML+=inputObjects[e].input;
     mdlBox.children[1].children[0].setAttribute('onclick', `${inputObjects[e].saveFn}`);return  mdlOpn=false}
     function dSplit(val,p,t){let [d,m,y]=val.split(p);return t?`${y}/${m}/${d}`:`${y}-${m}-${d}`}

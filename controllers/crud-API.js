@@ -42,11 +42,11 @@ exports.getAll = (req, res) => {
         res.status(401).send({status:'false', msg: 'Something Wrong ! 401 Unauthorized' })
     }}
 
-
+//del/
 exports.delete = (req, res) => {
     if (req.session.loggedin) {
         let user = req.session.user_id;
-    databaseCon.query(`INSERT INTO Del_PS_data(p_name, p_OthInfo, p_doctor,p_aptDate,p_number,c_id)  SELECT p_name, p_OthInfo, p_doctor,p_aptDate,p_number,'${user}' FROM ${user}_PS_data WHERE id ='${req.params.id}';DELETE FROM ${user}_PS_data WHERE id='${req.params.id}'`, function (error, results, fields) {
+    databaseCon.query(`INSERT INTO SU_Del_PSData(p_name, p_OthInfo, p_doctor,p_aptDate,p_number,c_id)  SELECT p_name, p_OthInfo, p_doctor,p_aptDate,p_number,'${user}' FROM ${user}_PS_data WHERE id ='${req.params.id}';DELETE FROM ${user}_PS_data WHERE id='${req.params.id}'`, function (error, results, fields) {
         if (error) throw error;
         res.status(201).send({status:'true', msg: 'Sucessfully date Deleted ! ' })
     })}else{
@@ -60,7 +60,7 @@ exports.update = (req, res) => {
         return res.status(400).send({status:'false', msg:'Enter value Correctly'});}
     else if(req.params.id){
     let user = req.session.user_id;
-    databaseCon.query(`UPDATE '${user}_PS_data SET' 'clientName'=?,'clientInfo'=? where 'id'=?`, [req.body.clientName, req.body.clientInfo, req.session.user_id],
+    databaseCon.query(`UPDATE '${user}_PS_data' SET 'clientName'=?,'clientInfo'=? where 'id'=?`, [req.body.clientName, req.body.clientInfo, req.session.user_id],
         function (error, results, fields) { 
             if (error) throw error;
             res.end(JSON.stringify(results));
@@ -85,12 +85,15 @@ exports.findOne = (req, res) => {
 
 
 
-exports.postpond = (req, res) => {
-    if (!(req.body)) {
-        res.status(400).send(' selet Date');
+exports.updateApvl = (req, res) => {
+    if ((req.body)&& req.session.loggedin) {
+        let obj={Acpt:`UPDATE ${req.session.user_id}_PS_data SET p_aptStatus=? WHERE id='${req.query.Acpt}'`,
+        Rejt:`INSERT INTO SU_Rej_PSData(p_name, p_OthInfo, p_doctor,p_aptDate,p_number,c_id)  SELECT p_name, p_OthInfo, p_doctor,p_aptDate,p_number,'${req.session.user_id}' FROM ${req.session.user_id}_PS_data WHERE id ='${req.query.Rejt}';DELETE FROM ${req.session.user_id}_PS_data WHERE id='${req.query.Rejt}'`}
+        if(Object.keys(req.query) in obj){
+            console.log(obj[Object.keys(req.query)]);
+            databaseCon.query(obj[Object.keys(req.query)],['true'],(err,results)=>{
+             if (err){res.status(400).send({status:'false', msg: 'Setting Updated Unsucessful!'})}else{
+             res.status(200).send({status:'true', msg: 'Setting Updated Sucessfully! , Refresh the Page' })}
+            })}
+        }
     }
-    databaseCon.query('INSERT INTO Client_Details SET ?', [x], function (err, results, fields) {
-        if (err) throw err;
-        return res.send('added' + results.status)
-    })
-}

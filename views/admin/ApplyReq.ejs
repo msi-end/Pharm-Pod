@@ -28,7 +28,7 @@
         <main id="mainContent">
             <% if(ps_data.length>0){ %>
                 <% ps_data.forEach(function(data){ %>
-        <div class="psInfo" clientId='<%= data.id %>''>
+    <div class="psInfo" clientId='<%= data.id %>''>
       <div class="psNum">
           <span class="symbols-rounded">clinical_notes</span>
           <br><span>No:</span> 
@@ -41,9 +41,9 @@
           <p class="psDoctor"><%= data.p_OthInfo %></p>
       </div>
       <div class="psAction"> 
-          <a onclick="userAction.Acpt(this)" class="done hover"><span
+          <a onclick="userReq.Acpt(this)" class="done hover"><span
                   class="symbols-rounded">done</span>Accept</a>
-          <a onclick="userAction.rejt(this)" class="del hover"><span
+          <a onclick="userReq.rejt(this)" class="del hover"><span
                   class="symbols-rounded">delete</span><br>Reject</a>
       </div>
   </div>

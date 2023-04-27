@@ -19,6 +19,7 @@ router.put('/upd', crudModel.update);
 // //To delete a Clients
 router.delete('/del/:id', crudModel.delete);
 // //To schedule Clients
-router.post('/postpond', crudModel.postpond);
+router.put('/updApvl', crudModel.updateApvl);
+router.delete('/updApvl', crudModel.updateApvl);
 
 module.exports = router;
