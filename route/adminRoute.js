@@ -23,14 +23,11 @@ route.get('/:user/admin/ApplyRequest', (req, res) => {
         databaseCon.query(`SELECT * from ${req.session.user_id}_PS_data WHERE p_aptDate='${tdt}' AND p_aptStatus='false'  ;`, function (err, results, fields) {
             if (err) {console.log('Admin Route Error' + err)}
         res.status(200).render('../views/admin/ApplyReq.ejs',{ps_data:results})
-    })
-    }else{
-        res.render('../views/admin/userError.ejs')
-    }})
+    })}else{res.render('../views/admin/userError.ejs') }})
 
 route.get('/:user/admin/settings', (req, res) => {
      if (req.session.loggedin) {
-    res.render('../views/admin/settings.ejs')
+    res.render('../views/admin/settings.ejs',{aplReq:[{cout:false}]})
      }else{
         res.render('../views/admin/userError.ejs')
      }})
