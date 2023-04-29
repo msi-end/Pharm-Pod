@@ -122,7 +122,7 @@ const userReq ={
       }) },rejt:function(e) {
       let val= e.parentElement.parentElement.attributes[1].value
       ReqHandler.DEL(ReqURI.updApvl+'?Rejt='+val).then((data)=>{userAction.flashMsg(data.msg)
-        e.parentElement.parentElement.remove();}) }}
+        e.parentElement.parentElement.remove();}) }, }
 var addPS = document.getElementsByClassName('addPS')[0];
 function Opn_addPS(e){ e.parentElement.classList.toggle('addPSpan'); }
 function Cls_addPS(e){ e.parentElement.classList.remove('addPSpan');

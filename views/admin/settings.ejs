@@ -8,9 +8,10 @@
     <title>Admin - Settings</title>
     <link rel="stylesheet" href="/admin/css/css.css">
     <link rel="stylesheet" href="/icons/iconsRoot.css" />
-
 </head>
-
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@300&display=swap');
+</style>
 <body>
     <!-- ///// nav  -->
 
@@ -26,16 +27,19 @@
             <p id="text"> </p>
         </div>
         <!-- ////Main Content -->
-        <main id="mainContent">
+<main id="mainContent">
 
-        </main>
+<div id="log-Container" onclick="location.href='logOut'">
+<p class="efont">LogOut</p>
+<span class="symbols-rounded">logout</span>
+</div>
 
+</main>
 
-         <!-- ////Bottom Manu -->
-         <%- include('./partials/footer.ejs') %>
+<!-- ////Bottom Manu -->
+<%- include('./partials/footer.ejs') %>
 
-            <!-- <script  src="/admin/js/jsDataObject.js"></script> -->
-            <script src="/admin/js/script.js"></script>
+<script src="/admin/js/script.js"></script>
 </body>
 
 </html>
