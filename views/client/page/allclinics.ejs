@@ -27,6 +27,12 @@
     <!-- header -->
     <%- include('../partials/indexHeader.ejs') %>
 
+    <!-- searchBOx -->
+    <section class="searchBox shadowBox">
+        <input type="text" name="search" id="searchBOX" placeholder="Search for clinics...">
+        <i class="uil uil-multiply"></i>
+    </section>
+
     <div class="gridBox">
         <% if(data){ %>
             <% data.forEach(function(data){ %>
