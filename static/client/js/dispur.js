@@ -133,12 +133,14 @@ if (validationRes.nValid === true && validationRes.eValid === true) {
     }
   }
 
-  let data = fetch('/apiV3/r/rv', options);
-  data.then(function (res) {
-    return res.json();
-  }).then(function (res) {
-    console.log(res);
-  })
+ fetch('/apiV3/r/rv', options).then(function (response) {
+  return response.json();}).then(function (respond) {
+    //console.log(respond);
+    Obj.flashMsg(respond.msg, '', 200);
+  });
+  
+ 
+  
 }else{
   document.getElementById('err-Msg').innerHTML = 'Name and Email is required properly!'
 }
@@ -231,12 +233,13 @@ const userReq = {
 
 let valid = {
   pat: {
-    pat1: /^[A-Za-z. ]+$/, pat3:/^[A-Za-z.@0-9 ]+$/, pat4: /[@]/g, pat5: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, pat6 : /^\+?[1-9][0-9]{9,11}$/
+    pat1: /^[A-Za-z. ]+$/, pat3:/^[A-Za-z.@0-9 ]+$/, pat4: /[@]/g, pat5: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, pat6 : /^\+?[1-9][0-9]{9}$/
   },
   regTextBox: function (val) {
     if (val === '' || this.pat.pat3.test(val)) {return true;}else{return 'Character are invalid!'}
   }, regEmail: function (val) {
-    if (this.pat.pat5.test(val)) { return true; } else { return 'Invalid Email'; }
+    let v = val.replace(/\s/g,"")
+    if (this.pat.pat5.test(v)) { return true; } else { return 'Invalid Email'; }
   }, regNumber: function (val) {
     if (this.pat.pat6.test(val)) {return true;}else{return 'Invalid Number'}
   }, regName: function (val) {

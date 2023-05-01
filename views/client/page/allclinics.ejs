@@ -29,8 +29,8 @@
 
     <!-- searchBOx -->
     <section class="searchBox shadowBox">
-        <input type="text" name="search" id="searchBOX" placeholder="Search for clinics...">
-        <i class="uil uil-multiply"></i>
+        <input type="text" name="search" id="searchBOX" placeholder="Search for clinics..." onkeyup="filter_fun('searchBOX', 'cil-name')">
+        <i class="uil uil-multiply" id="closeSearchValue"></i>
     </section>
 
     <div class="gridBox">
@@ -39,7 +39,7 @@
         <div class="grid-item u-u-u-u-u shadowBox" data-clinicidentity="<%= data.c_id %>">
             <a href="/<%= data.c_id %>">
                 <div class="grid-img img-1">
-                    <h3><%= data.c_name %></h3>
+                    <h3 class="cil-name"><%= data.c_name %></h3>
                     <div class="grid-img-content">
                         <p><i class="uil uil-user-md uil-color"></i></p>
                         <span><%= data.star %>&#9733;</span>

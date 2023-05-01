@@ -10,7 +10,7 @@ exports.pushData = (req, res) => {
     databaseCon.query(query, (err, res) => {
         if (err) throw err;
     })
-    res.send('sended succesfully');
+    res.send({msg:'sended succesfully'});  
 }
 
 // exports.getCls = (req, res) => {
