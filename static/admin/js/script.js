@@ -107,7 +107,7 @@ const userReq ={
      userAction.flashMsg(data.msg)})},
     ClsOpn:function() {
       let val=document.getElementById('mdl_body').children[1].value;
-      ReqHandler.PUT(ReqURI.upd.ClsOpn+val,val).then((data)=>{
+      ReqHandler.PUT(ReqURI.upd.ClsOpn+val,'').then((data)=>{
      userAction.flashMsg(data.msg)})
     },dtBD_:function(e) {
     let val=dSplit(e.value,'-',true);ReqHandler.GET(ReqURI.dtBD_+val).then((data)=>{

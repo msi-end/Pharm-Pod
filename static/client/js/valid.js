@@ -1,72 +1,20 @@
-
-const validator = new JustValidate('#basic_form', {
-  validateBeforeSubmitting: true,
-});
-console.log(validator);
-validator.addField('#name', [
-  {
-    rule: 'required',
-  },
-  {
-    rule: 'customRegexp',
-    value: /[a-z]/gi,
-  },
-  {
-    rule: 'minLength',
-    value: 10,
-  },
-  {
-    rule: 'maxLength',
-    value: 15,
-  },
-
-]).addField('#number', [
-  {
-    rule: 'required',
-  },
-  {
-    rule: 'number',
-  },
-  {
-    rule: 'minNumber',
-    value: 10,
-  },
-  {
-    rule: 'maxLength',
-    value: 12,
-  }
-
-]).addField('#regnDoctor', [
-  {
-    rule: 'required',
-  }
-
-]).addField('#regnDoctor', [
-  {
-    rule: 'required',
-  }
-
-]).addField('#formDate', [
-  {
-    rule: 'required',
-  }
-
-]).addField('#checkMe', [
-  {
-    rule: 'required',
-  }
-
-]).addField('#info', [
-  {
-    rule: 'customRegexp',
-    value: /[a-z]/gi,
-  }
-
-  
-
-])
-
-console.log(validator.onValidate())
+// let today = new Date();
+// let dd = today.getDate();
+// let dd2 = today.getDate()+1;
+// let mm = today.getMonth()+1; 
+// let yyyy = today.getFullYear();
+// if(dd<10) {dd='0'+dd;} 
+// if(mm<10) {mm='0'+mm;} 
+// let todayDate = yyyy+'-'+mm+'-'+dd;
 
 
+// let tomo = new Date("Feb 28, 2023 01:15:00");
 
+// tomo.setDate(tomo.getDate() + 1);
+
+
+// document.getElementById('formDat').defaultValue = todayDate;
+// document.getElementById('formDat').min = todayDate;
+
+
+// console.log(tomo.toLocaleString());

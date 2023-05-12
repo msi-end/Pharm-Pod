@@ -14,6 +14,42 @@
     <link rel="stylesheet" href="/client/css/home/aboutUs.css">
     <link rel="stylesheet" href="/client/css/home/events.css">
     <link rel="stylesheet" href="/client/css/home/footer.css">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+      </style>
+    <style>
+        .alertContainer{
+            text-align: center;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+            line-height: 1.9em;
+            padding: 1.9em;
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+        .alertContainer .uil{
+            font-size: 5.5em;
+        }
+        .alertContainer .uil-check-circle{
+            color: rgb(6, 201, 6);
+        }
+        .alertContainer .uil-times-circle{
+            color: rgb(230, 11, 11);
+        }
+        #smsConfirm{
+            border: none;
+            outline: none;
+            color: rgb(255 255 255);
+            padding: 4px 24px;
+            font-size: 20px;
+            font-weight: 600;
+            background: green;
+            border-radius: 6px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
     
 
     <link rel="stylesheet" href="/client/css/clinicnames/dispur.css">
@@ -326,7 +362,7 @@
                     </div>
                     <div class="input-box">
                         <p class="details">Select the date:</p>
-                        <input id="formDate" type="date" data-min="0" data-max="1" value name="date">
+                        <input id="formDate" type="date" data-min="0" data-max="1" name="date">
                     </div>
                     <div class="input-box">
                         <p class="details">Additional Info(Optional):</p>
@@ -415,6 +451,19 @@
         <div id="msg_k790"><h3></h3><p></p></div>
     </div>
     </div>
+    <!-- <div class="booked-msg hide">
+        <img src="" alt="Success">
+        <p>Success</p>
+        <p>You got a msg</p>
+        <button id="ok-btn" onclick="closeWindow()">OK</button>
+    </div> -->
+    <div class="alertContainer hide booked-msg">
+        <span class="uil uil-check-circle"></span>
+        <!-- <span class="uil uil-times-circle"></span> -->
+        <h2>Confirmed</h2>
+        <p>You will receive a confirmation sms on your number</p>
+        <button id="smsConfirm" onclick="closeWindow()">OK</button>
+    </div>
     
     <!-- Footer  -->
     <%- include('../partials/indexFooter.ejs') %>
@@ -422,5 +471,6 @@
  
     <script src="/client/js/dispur.js"></script>
     <script src="/client/js/dispurDoctor.js"></script>
+    <script src="/client/js/valid.js"></script>
 </body>
 </html>

@@ -8,9 +8,9 @@ req.headers({
 });
 req.form({
   "sender_id": "TXTIND",
-  "message": "This is a test message",
+  "message": msg,
   "route": "v3",
-  "numbers": "7779885160",
+  "numbers": numbers,
 });
 req.end(function (res) {
   if (res.error) throw new Error(res.error);

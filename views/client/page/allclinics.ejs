@@ -21,7 +21,6 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
- 
 </head>
 <body>
     <!-- header -->
@@ -42,7 +41,7 @@
                     <h3 class="cil-name"><%= data.c_name %></h3>
                     <div class="grid-img-content">
                         <p><i class="uil uil-user-md uil-color"></i></p>
-                        <span><%= data.star %>&#9733;</span>
+                        <span><%= data.star.toFixed(1) %>&#9733;</span>
                     </div>
                 </div>
                 <div class="grid-content">
@@ -57,6 +56,8 @@
         <% }) %>
 <% } %>
     </div>
+
+   
     <%- include('../partials/indexFooter.ejs') %>
 
     <script src="/client/js/localvar.js"></script>

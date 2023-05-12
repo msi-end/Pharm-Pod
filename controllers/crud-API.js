@@ -1,6 +1,9 @@
 const { query } = require('express');
 const session = require('express-session');
 const databaseCon = require('../models/db.model');
+const sms = require('./smsApi');
+
+
 
 // patient application req
 exports.add = (req, res) => {
@@ -13,9 +16,11 @@ exports.add = (req, res) => {
             let sql = `INSERT INTO ${user}_PS_data (p_name,p_number,p_OthInfo,p_doctor,p_aptDate,p_aptStatus) VALUES (?) `;
             databaseCon.query(sql,[params], function (err, results, fields) {
                 if (err) throw err;
-                res.send({ status: true, msg: 'Application submited Sucessfully!' })
+                res.send({ status: true, msg: 'Application submited Sucessfully!' });
+                sms.smsAPI(req.body.number, `Dear ${req.body.name}, Your booking on Cipmedic is Successfull.`);
             }) }else{ res.status(403).send({status: false, msg: 'Application Limite Exceeded!' }) }}else{
-                res.send({ status: false, msg: 'Application Submission is temporarily Closed!' })
+                res.send({ status: false, msg: 'Application Submission is temporarily Closed!' });
+                sms.smsAPI(req.body.number, `Dear ${req.body.name}, Your booking is Unsuccessfull!`);
             }})}
 
 
