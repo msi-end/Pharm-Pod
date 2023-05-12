@@ -327,13 +327,72 @@ form .user-details .input-box{
     width: 80%;
 }
 
-
-
-
+/* Sms Confirmation box  */
+.alertBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    z-index: 100;
+}
+.alertContainer{
+    transform: translate(-50%, -50%);
+    text-align: center;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    line-height: 1.9em;
+    width: 400px;
+    height: 335px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: var(--background-color);
+}
+.alertContainer h2{
+    font-size: 1.9rem;
+}
+.alertContainer span{
+    font-size: 5.5em;
+}
+.alert{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+}
+.alert .uil{
+    color: rgb(255, 255, 255);
+}
+.Correct{
+    background: rgb(0, 204, 68);
+}
+.Wrong{
+    background: rgb(255, 0, 0);
+}
+.alertText{
+    padding: 16px 20px;
+}
+.alertText p{
+    font-size: 1.1rem;
+}
+#smsConfirm{
+    border: none;
+    outline: none;
+    color: rgb(255 255 255);
+    padding: 4px 24px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+}
 /* responsive  */
 
 @media (max-width:480px){
     #msg_Ctn {width: 80%;}
+    .alertContainer{
+        width: 90%;
+    }
 }
 
 @media(max-width: 572px){
