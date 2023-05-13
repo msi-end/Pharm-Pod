@@ -17,10 +17,10 @@ exports.add = (req, res) => {
             databaseCon.query(sql,[params], function (err, results, fields) {
                 if (err) throw err;
                 res.send({ status: true, msg: 'Application submited Sucessfully!' });
-                sms.smsAPI(req.body.number, `Dear ${req.body.name}, Your booking on Cipmedic is Successful.`);
+                //sms.smsAPI(req.body.number, `Dear ${req.body.name}, Your booking on Cipmedic is Successful.`);
             }) }else{ res.status(403).send({status: false, msg: 'Application Limit Exceeded!' }) }}else{
                 res.send({ status: false, msg: 'Application Submission is temporarily Closed!' });
-                sms.smsAPI(req.body.number, `Dear ${req.body.name}, Your booking is Unsuccessful!`);
+                //sms.smsAPI(req.body.number, `Dear ${req.body.name}, Your booking is Unsuccessful!`);
             }})}
 
 
