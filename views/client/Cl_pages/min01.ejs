@@ -420,15 +420,15 @@
         <p>You got a msg</p>
         <button id="ok-btn" onclick="closeWindow()">OK</button>
     </div> -->
-    <div class="alertBox hide booked-msg">
+    <div class="alertBox hide booked-msg" id="AL">
         <div class="alertContainer">
             <div class="alert Correct Wrong">
-                <span class="uil uil-check-circle"></span>
-                <!-- <span class="uil uil-times-circle"></span> -->
+                <span class="uil uil-check-circle" id="check-circle"></span>
+                <span class="uil uil-times-circle" id="check-circle-2nd"></span>
             </div>
             <div class="alertText">
-                <h2>Confirmed</h2>
-                <p>You will receive a confirmation sms on your number</p>
+                <h2 id="cancel-highlight">Confirmed</h2>
+                <p id="cancel-msg">You will receive a confirmation sms on your number</p>
                 <button id="smsConfirm" class="Correct Wrong" onclick="closeWindow()">Okay</button>
             </div>
         </div>

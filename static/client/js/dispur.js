@@ -193,13 +193,18 @@ document.getElementById('btnn').addEventListener('click', formSubmit)
 function closeWindow(){
   document.querySelector('.booked-msg').classList.add('hide');
 }
+
 function correctAlert() {
   document.querySelector('.booked-msg').classList.remove('hide')
+  document.querySelector('#check-circle-2nd').classList.add('hide')
   document.querySelector('.alert').classList.remove('Wrong');
   document.querySelector('#smsConfirm').classList.remove('Wrong');
 }
 function wrongAlert() {
   document.querySelector('.booked-msg').classList.remove('hide')
+  document.querySelector('#check-circle').classList.add('hide')
+  document.querySelector('#cancel-highlight').innerHTML = "Not Confirmed";
+  document.querySelector('#cancel-msg').innerHTML = "Appointment slot is not available for the particular date";
   document.querySelector('.alert').classList.remove('Correct');
   document.querySelector('#smsConfirm').classList.remove('Correct');
 }
