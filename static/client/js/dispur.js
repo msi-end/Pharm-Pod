@@ -1,23 +1,12 @@
 document.getElementById("writeReview").addEventListener("click", () => {
-  document.getElementById('cls-mainbox').classList.remove('hide')
-})
-
+  document.getElementById('cls-mainbox').classList.remove('hide')})
 document.getElementById("saveReview").addEventListener("click", () => {
-  console.log("SaveReview")
-  document.getElementById('reviewPopup-NE').classList.remove('hide')
-
-})
+  document.getElementById('reviewPopup-NE').classList.remove('hide')})
 document.getElementById('clsX').addEventListener("click", () => {
-  document.getElementById('cls-mainbox').classList.add('hide')
-})
-
+  document.getElementById('cls-mainbox').classList.add('hide')})
 document.getElementById('Xclse').addEventListener("click", () => {
-  document.getElementById('reviewPopup-NE').classList.add('hide')
-})
-
-function Cl_opnForm() {
-  document.getElementsByClassName('registration-form')[0].style.display = 'none'
-}
+  document.getElementById('reviewPopup-NE').classList.add('hide')})
+function Cl_opnForm() {document.getElementsByClassName('registration-form')[0].style.display = 'none'}
 //2nd part-------------------------------------------------
 let i_d = location.pathname.split('/')[1];
 let dat = fetch(`http://localhost:8000/apiV3/r/fn/${i_d}`);
@@ -35,14 +24,6 @@ dat.then(function (ress) {
     clinicrev.innerHTML = `(${ell.total_review}+ Ratings)`
 
     //2nd part of the same function================================================================
-    // let d = { num: ell.cl_id };
-    // let opt = {
-    //   method: 'GET',
-    //   body: JSON.stringify(d),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
     let rr = fetch(`http://localhost:8000/apiV3/r/revv/${i_d}`);
     rr.then(function (res) {
       return res.json();
@@ -129,10 +110,6 @@ document.getElementById('pclose').addEventListener('click', () => {
   document.getElementById('photo-Box').classList.add('hide')
 })
 
-// POST Data :  http://localhost:8000/apiV3/r/rv 
-// GET All data: http://localhost:8000/apiV3/r/getAll?user=min01
-// GET Data By ID :http://localhost:8000/apiV3/r/fn/3
-
 // Request Handler.js
 let doc = document.getElementsByClassName('user-details')[0].children
 let ReqURI = { FormSet: location.origin + '/apiV3/add?user=' }
@@ -158,15 +135,13 @@ const userReq = {
     let data = { name: doc[0].children[1].value, number: doc[1].children[1].value, doctor: doc[2].children[1].value, date: ap_date, otherInfo: doc[4].children[1].value }
     ReqHandler.POST(ReqURI.FormSet + location.pathname.split('/')[1], data).then((data) => {
       Cl_opnForm();if (data.status) { 
-        document.querySelector('.booked-msg').classList.remove('hide')
-        Obj.flashMsg(data.msg, '', data.status) }
-      else { Obj.flashMsg(data.msg, '', data.status) }
+        correctAlert() ;//Obj.flashMsg(data.msg, '', data.status)
+       }else { wrongAlert();}
     })
   }
 }
   // ABout Know More Text 
     const detailContainer = document.querySelector('.details');
-
     detailContainer.addEventListener('click', event=>{
       const detail = event.target;
       const isDetailsmoreBtn = detail.className.includes('detailsMore-btn');
@@ -178,7 +153,6 @@ const userReq = {
     })
 
 //validation form--------------------------------
-
 let valid = {
   pat: {
     pat1: /^[A-Za-z. ]+$/, pat3:/^[A-Za-z.@0-9 ]+$/, pat4: /[@]/g, pat5: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, pat6 : /^\+?[1-9][0-9]{9}$/
@@ -216,10 +190,17 @@ function formSubmit() {
    console.log(data);
 }
 document.getElementById('btnn').addEventListener('click', formSubmit)
-
 function closeWindow(){
   document.querySelector('.booked-msg').classList.add('hide');
 }
-
-
+function correctAlert() {
+  document.querySelector('.booked-msg').classList.remove('hide')
+  document.querySelector('.alert').classList.remove('Wrong');
+  document.querySelector('#smsConfirm').classList.remove('Wrong');
+}
+function wrongAlert() {
+  document.querySelector('.booked-msg').classList.remove('hide')
+  document.querySelector('.alert').classList.remove('Correct');
+  document.querySelector('#smsConfirm').classList.remove('Correct');
+}
 

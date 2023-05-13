@@ -49,7 +49,7 @@ const userAction = {
         mdlOpn= true;setTimeout(() => { mdlBox.style.display = 'none';
         this.Anim(mdlBox,'animate__bounceOutUp','rm');
         document.getElementById('mdl_bx').children[0].innerHTML=''}, 700);},
-    flashMsg: function (msg) {
+    flashMsg: function (msg) {  
         let msgBody = document.getElementById('flashMsg')
         msgBody.style.display = 'block';msgBody.children[0].innerHTML = `${msg}`;
         this.Anim(msgBody, 'animate__backInDown', 'show')
