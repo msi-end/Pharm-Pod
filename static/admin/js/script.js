@@ -62,6 +62,7 @@ const userAction = {
 // ReqHandler Data  
 let ReqURI={AddPs:location.origin+'/apiV3/crt',GetA_ps:location.origin+'/apiV3/fnO/',upd:{MaxApply:location.origin+'/apiV3/upd?maxAp=',AutoApv:location.origin+'/apiV3/upd?autoAp=',ClsOpn:location.origin+'/apiV3/upd?fState='},dtBD_:location.origin+'/apiV3/get?dt=',del:location.origin+'/apiV3/del/',updApvl:location.origin+'/apiV3/updApvl'}
 // User Requestes To API
+console.log(ReqURI.dtBD_);
 let ReqHandler ={
     GET: async function(url) {
       console.log(url)
@@ -143,3 +144,23 @@ for (let i = 0; i < e.length; i++) {
   let val =localStorage.getItem(`user${e[i].attributes[1].value}`)
   if(val){e[i].classList.add('itm_done')}}}
 dn_ck()
+
+
+function filter_fun(SearchValueId, AllDataClassName) {
+  let data = document.getElementById(SearchValueId).value;
+  let allData = document.querySelectorAll(`.${AllDataClassName}`);
+  allData.forEach(function (ata) {
+   if (ata.innerHTML.search(data) > -1) {
+     ata.parentElement.parentElement.style.display = '';
+   }else{
+    ata.parentElement.parentElement.style.display = 'none';
+   }
+  })
+  return;
+}
+// document.querySelector('#closeSearchValue').addEventListener('click', function(){
+//   document.getElementById('searchBOX').value = '';
+//   document.querySelectorAll('.u-u-u-u-u').forEach(function(value){
+//       value.style.display = '';
+//   })
+// })

@@ -18,3 +18,23 @@
 
 
 // console.log(tomo.toLocaleString());
+
+async function getdata() {
+    const get = await fetch('http://localhost:8000/apiV3/r/revv/min01');
+    const json = await get.json();
+    let headers = Object.keys(json[0]).join(',');
+    let maindata = json.map((el)=>{
+        return Object.keys(json[0]).map((key) => el[key]);})
+    let AllData = `${headers}\n${maindata.join('\n')}`;
+//download(AllData) ; 
+}
+const download = function (data) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.setAttribute('href', url)
+    a.setAttribute('download', 'pateintData.csv');
+    a.click()
+}
+
+getdata();

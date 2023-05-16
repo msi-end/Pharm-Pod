@@ -39,7 +39,9 @@ for (let i = 0; i <= 1; i++) {
         ddeg.innerHTML = doctors[i].deg;
         dexp.innerHTML = doctors[i].exp;
         dlang.innerHTML = doctors[i].Lang;
-        drat.innerHTML = doctors[i].rating;  
+        drat.innerHTML = doctors[i].rating;
+        dasum.innerHTML = doctors[i].about
+        dblog.innerHTML = doctors[i].blog;  
     }
   }    
 }

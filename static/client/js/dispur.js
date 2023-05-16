@@ -9,7 +9,7 @@ document.getElementById('Xclse').addEventListener("click", () => {
 function Cl_opnForm() {document.getElementsByClassName('registration-form')[0].style.display = 'none'}
 //2nd part-------------------------------------------------
 let i_d = location.pathname.split('/')[1];
-let dat = fetch(`http://localhost:8000/apiV3/r/fn/${i_d}`);
+let dat = fetch(`${location.origin}/apiV3/r/fn/${i_d}`);
 
 dat.then(function (ress) {
   return ress.json();
@@ -24,7 +24,7 @@ dat.then(function (ress) {
     clinicrev.innerHTML = `(${ell.total_review}+ Ratings)`
 
     //2nd part of the same function================================================================
-    let rr = fetch(`http://localhost:8000/apiV3/r/revv/${i_d}`);
+    let rr = fetch(`${location.origin}/apiV3/r/revv/${i_d}`);
     rr.then(function (res) {
       return res.json();
     }).then(function (res) {

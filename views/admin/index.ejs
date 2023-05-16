@@ -27,7 +27,7 @@
         <main id="mainContent">
             <% if(ps_data.length>0){ %>
                 <% ps_data.forEach(function(data){ %>
-        <div class="psInfo" clientId='<%= data.id %>''>
+        <div class="psInfo" clientId='<%= data.id %>''  id="divpa">
       <div class="psNum">
           <span class="symbols-rounded">clinical_notes</span>
           <br><span>No:</span> 
@@ -35,7 +35,7 @@
       </div>
       <div class="psDetail">
           <h4 class="psName"><%= data.p_name %></h4>
-          <p class="psOtherInf"><%= data.p_number %></p>
+          <p class="psOtherInf psnum"><%= data.p_number %></p>
           <p class="psDoctor"><%= data.p_doctor %></p>
           <p class="psDoctor"><%= data.p_OthInfo %></p>
       </div>
