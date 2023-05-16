@@ -36,5 +36,3 @@ const download = function (data) {
     a.setAttribute('download', 'pateintData.csv');
     a.click()
 }
-
-getdata();

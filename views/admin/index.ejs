@@ -76,11 +76,13 @@
 <br><br><br><br>
 <div id="panel" >
 <span type="cancel" onclick="userAction.panel_cls()">&#120;</span>
+<span><input type="text" class="datesearch" id="datesearch" placeholder="search for phone number" onkeyup="filter_fun('datesearch', 'psOtherInf')"></span>
+<button id="downloadbtn" onclick="userReq.downldsheet()">Download</button>
 <div>
 </div>
 </div>
     <!-- ////Bottom Manu -->
-    <%- include('./partials/footer.ejs') %>
+<%- include('./partials/footer.ejs') %>
 <!-- <script  src="/admin/js/jsDataObject.js"></script> -->
 <script src="/admin/js/script.js"></script>
 
