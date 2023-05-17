@@ -149,11 +149,14 @@ const userReq = {
     let val = dSplit(document.getElementById("reqDate").value, '-', true);
     ReqHandler.GET(ReqURI.dtBD_ + val).then((data) => {
       let reqData = data.data;
-      let headers = Object.keys(reqData[0]).join(',');
+      let headers = Object.keys(reqData[0]);
+      headers.splice(4, 1)
+      let mainheaders = ["Patient Name", "informantion",  "Doctor", "Appointment Date", "Id Number", "Ph. Number"].join(',');
       let patdata = reqData.map((el) => {
-        return Object.keys(reqData[0]).map((key) => el[key]);
+        return headers.map((key) => el[key]);
       })
-      let AllData = `${headers}\n${patdata.join('\n')}`;
+      console.log(patdata);
+      let AllData = `${mainheaders}\n${patdata.join('\n')}`;
     const blob = new Blob([AllData], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob)
     const a = document.createElement('a')
