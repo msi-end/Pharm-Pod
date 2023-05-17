@@ -8,11 +8,18 @@
     <title>Admin -Main</title>
     <link rel="stylesheet" href="/admin/css/css.css">
     <link rel="stylesheet" href="/icons/iconsRoot.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 
 <body>
 <!-- ///// nav  -->
 <%- include('./partials/header.ejs') %>
+
+<div class="admin-search-tool">
+    <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'psnum' )">
+    <a href="#" onclick="userReq.downldsheet()"">Download</a>
+
+</div>
 
 <!-- Mdl and flashMsg -->
         <div id="mdl_bx">
@@ -24,28 +31,30 @@
         <div id="flashMsg"><p id="text"></p></div>
 
 <!-- ////Main Content -->
-        <main id="mainContent">
+    <main id="mainContent">
             <% if(ps_data.length>0){ %>
                 <% ps_data.forEach(function(data){ %>
-        <div class="psInfo" clientId='<%= data.id %>''  id="divpa">
-      <div class="psNum">
-          <span class="symbols-rounded">clinical_notes</span>
-          <br><span>No:</span> 
-          <span><%= data.id %></span> 
-      </div>
-      <div class="psDetail">
-          <h4 class="psName"><%= data.p_name %></h4>
-          <p class="psOtherInf psnum"><%= data.p_number %></p>
-          <p class="psDoctor"><%= data.p_doctor %></p>
-          <p class="psDoctor"><%= data.p_OthInfo %></p>
-      </div>
-      <div class="psAction"> 
-          <a onclick="userAction.done(this)" class="done hover"><span
-                  class="symbols-rounded">done</span>Done</a>
-          <a onclick="userAction.del(this)" class="del hover"><span
-                  class="symbols-rounded">delete</span><br>Delete</a>
-      </div>
-  </div>
+        <div class="psInfo item_done" clientId='<%= data.id %>''  id="divpa">
+            <div class="psNum">
+                <span class="uil uil-user-square"></span>
+                <br><span>No:</span> 
+                <span><%= data.id %></span> 
+            </div>
+            <div class="psDetail">
+                <h4 class="psName"><%= data.p_name %></h4>
+                <p class="psOtherInf psnum"><%= data.p_number %></p>
+                <p class="psDoctor"><%= data.p_doctor %></p>
+                <p class="psDoctor"><%= data.p_OthInfo %></p>
+                <p class="psDoctor"><%= data.p_aptDate %></p>
+            </div>
+            <div class="psAction"> 
+                <a onclick="userAction.done(this)" class="done hover">
+                    <span class="uil uil-check"></span>
+                    <br>Done</a>
+                <a onclick="userAction.del(this)" class="del hover">
+                    <span class="uil uil-trash-alt"></span><br>Delete</a>
+            </div>
+        </div>
    <% }) %>
 <% } else { %>
      <h2 data-val="nl" class="efont"> No Data Available !!!</h2> 
@@ -74,12 +83,13 @@
     <button onclick="Cls_addPS(this)" class="cred hover "> Cancel</button>
 </div>
 <br><br><br><br>
-<div id="panel" >
-<span type="cancel" onclick="userAction.panel_cls()">&#120;</span>
-<span><input type="text" class="datesearch" id="datesearch" placeholder="search for phone number" onkeyup="filter_fun('datesearch', 'psOtherInf')"></span>
-<button id="downloadbtn" onclick="userReq.downldsheet()">Download</button>
-<div>
-</div>
+<div id="panel">
+ <div class="panelInfo">
+    <input type="text" id="datesearch" placeholder="Search by number" onkeyup="filter_fun('datesearch', 'ps-num')">
+    <span id="cross" onclick="userAction.panel_cls()">Close</span>
+    <a href="#" onclick="userReq.downldsheet()"">Download Data</a>
+ </div>
+ <div class="marchgin"></div>
 </div>
     <!-- ////Bottom Manu -->
 <%- include('./partials/footer.ejs') %>

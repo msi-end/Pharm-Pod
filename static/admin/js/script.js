@@ -20,11 +20,28 @@ const userAction = {
     this.Anim(pnlbx, 'animate__slideInUp', true)
     if (!e.data >= 0) {
       for (let o = 0; o < e.data.length; o++) {
-        let list = `<div class="psInfo"><div class="psNum">
-       <span class="symbols-rounded">clinical_notes</span>
-       <br><span>No:</span> <span>${e.data[o].id}</span> </div><div class="psDetail">
-   <h4 class="psName">${e.data[o].p_name}</h4><p class="psOtherInf">${e.data[o].p_number}</p>
-       <p class="psDoctor">${e.data[o].p_doctor}</p></div></div>`
+        let list = `<div class="patientInfo">
+        <div class="psNum">
+            <span class="uil uil-user-square"></span>
+            <span>No:${e.data[o].id}</span>
+        </div>
+
+        <div class="psDetail">
+            <h3>${e.data[o].p_name}</h3>
+            <p id="numb" class="ps-num">${e.data[o].p_number}</p>
+            <b>Doctor:</b> <span>${e.data[o].p_doctor}</span>
+            <p>
+                <b>Add. Info:</b>
+                ${e.data[o].p_OthInfo
+                }
+            </p>
+            <p>
+                <b>DOA:</b>
+                ${e.data[o].p_aptDate
+                }
+            </p>
+        </div>
+    </div>`
         pnlbx.children[1].innerHTML += list
           ;
       }
@@ -34,9 +51,11 @@ const userAction = {
     pnlbx.style.display = 'none';
     pnlbx.children[1].innerHTML = '';
     this.Anim(pnlbx, 'animate__slideInUp', 'rm')
-  }, del: function (e) {
+  },
+   del: function (e) {
     let data = e.parentElement.parentElement;
-    userReq.del(data.attributes[1].value, data)
+    userReq.del(data.attributes[1].value, data);
+    location.reload();
   },
   done: function (e) {
     let val = e.parentElement.parentElement.attributes[1].value;
