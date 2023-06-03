@@ -43,7 +43,7 @@
           
                 <a href="javascript:userAction.modelBox_Opn('MaxChange')">
                     <span class="uil uil-pen"></span>
-                    <h3>Maximum Apply :<%= sets.maxApply %>/Day</h3>
+                    <h3>Max Apply:<%= sets.maxApply %>/Day</h3>
                 </a>
                 <a href="javascript:userAction.modelBox_Opn('AutoApv')" id="approveOpen">
                     <span class="uil uil-comment-alt-check"></span>
@@ -143,9 +143,11 @@
                     <span class="uil uil-moon"></span>
                 </div> -->
                 <div class="applyRequest">
-                    <a href="#">
+                    <a class="url" data-n="ApplyRequest">
                         <span class="uil uil-envelope-check"></span>
-                        <span class="apply-count">26+</span>
+                        <span class="apply-count">
+                            <%= aplReq[0].cout>=1?'+'+aplReq[0].cout:'' %>
+                        </span>
                     </a>
                 </div>
                 <div class="profile">
@@ -154,7 +156,7 @@
                         <small>Welcome</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="/img/doctor.jpg" alt="">
+                        <img src="/client/img/main/about-img.jpg" alt="">
                     </div>
                 </div>
             </div>

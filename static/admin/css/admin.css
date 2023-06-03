@@ -242,10 +242,10 @@ main .insights .insightsContainer .uil{
     font-size: 1.08rem;
     line-height: 1.8rem;
 }
-.psDetail p span{
+.insightsContainer .patientInfo .psDetail p span{
     color: var(--red-color);
 }
-.psDetail h4{
+.insightsContainer .patientInfo .psDetail h4{
     text-transform: uppercase;
 }
 .insightsContainer .patientInfo .psAction{
@@ -272,12 +272,14 @@ main .insights .insightsContainer .uil{
     box-shadow: var(--box-shadow-1);
 }
 .patientInfo .psAction a.done{
+    cursor: pointer;
     background: var(--green-color);
 }
 .patientInfo .psAction a.done:hover{
     background: var(--greenlight-color);
 }
 .patientInfo .psAction a.cancel{
+    cursor: pointer;
     background: var(--red-color);
 }
 .patientInfo .psAction a.cancel:hover{
