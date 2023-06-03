@@ -82,7 +82,7 @@
             <div class="insights">
                 <div class="insightsSearch">
                     <h2>Patient Information</h2>
-                    <input type="text" placeholder="Search by phone number">
+                    <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'patientInfo' )">
                 </div>
 
                 <div class="insightsContainer">
@@ -262,6 +262,8 @@
     <!-- ----------------------------- -->
     <!-- Flash MSGF -->
     <div id="flashMsg"><p id="text"></p></div>
+    
+    <!-- Patient by Date  -->
     <div id="panel">
         <div class="panelInfo">
            <input type="text" id="datesearch" placeholder="Search by ID OR Name" onkeyup="filter_fun('datesearch', 'ps-num')">
