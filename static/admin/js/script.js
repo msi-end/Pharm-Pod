@@ -1,9 +1,13 @@
 
-const _0x58ec88 = _0x48b3; (function (_0x2f90f6, _0x111d1f) { const _0x1c9f22 = _0x48b3, _0x89679d = _0x2f90f6(); while (!![]) { try { const _0x46df63 = -parseInt(_0x1c9f22(0x188)) / 0x1 * (parseInt(_0x1c9f22(0x18a)) / 0x2) + parseInt(_0x1c9f22(0x189)) / 0x3 + -parseInt(_0x1c9f22(0x186)) / 0x4 + parseInt(_0x1c9f22(0x18d)) / 0x5 + -parseInt(_0x1c9f22(0x187)) / 0x6 + -parseInt(_0x1c9f22(0x18b)) / 0x7 + parseInt(_0x1c9f22(0x184)) / 0x8; if (_0x46df63 === _0x111d1f) break; else _0x89679d['push'](_0x89679d['shift']()); } catch (_0x1cceda) { _0x89679d['push'](_0x89679d['shift']()); } } }(_0x1eaf, 0x46ea9)); function _0x48b3(_0x556f0c, _0x2cb638) { const _0x1eaf50 = _0x1eaf(); return _0x48b3 = function (_0x48b331, _0x372258) { _0x48b331 = _0x48b331 - 0x182; let _0x4c1909 = _0x1eaf50[_0x48b331]; return _0x4c1909; }, _0x48b3(_0x556f0c, _0x2cb638); } function _0x1eaf() { const _0x40b09c = ['dataset', '3167168rFnQHp', 'action', '550304hwwiXX', '2596338InlUwa', '249091ksHNGA', '1572135ChBpJK', '2wCGNYN', '1142372OHkELr', 'bottomNav', '1765590ktyhQJ', 'children', 'pathname', 'removeAttribute', 'split']; _0x1eaf = function () { return _0x40b09c; }; return _0x1eaf(); } let path = window['location'][_0x58ec88(0x18f)][_0x58ec88(0x182)]('/'), bottomNav = document['getElementById'](_0x58ec88(0x18c)); if (path['length'] == 0x4) for (let i = 0x0; i < bottomNav[_0x58ec88(0x18e)]['length']; i++) { bottomNav[_0x58ec88(0x18e)][i][_0x58ec88(0x190)](_0x58ec88(0x185)), path[0x3] == bottomNav[_0x58ec88(0x18e)][i][_0x58ec88(0x183)]['n'] && bottomNav['children'][i]['setAttribute']('action', ''); }
-
+// const _0x58ec88 = _0x48b3; (function (_0x2f90f6, _0x111d1f) { const _0x1c9f22 = _0x48b3, _0x89679d = _0x2f90f6(); while (!![]) { try { const _0x46df63 = -parseInt(_0x1c9f22(0x188)) / 0x1 * (parseInt(_0x1c9f22(0x18a)) / 0x2) + parseInt(_0x1c9f22(0x189)) / 0x3 + -parseInt(_0x1c9f22(0x186)) / 0x4 + parseInt(_0x1c9f22(0x18d)) / 0x5 + -parseInt(_0x1c9f22(0x187)) / 0x6 + -parseInt(_0x1c9f22(0x18b)) / 0x7 + parseInt(_0x1c9f22(0x184)) / 0x8; if (_0x46df63 === _0x111d1f) break; else _0x89679d['push'](_0x89679d['shift']()); } catch (_0x1cceda) { _0x89679d['push'](_0x89679d['shift']()); } } }(_0x1eaf, 0x46ea9)); function _0x48b3(_0x556f0c, _0x2cb638) { const _0x1eaf50 = _0x1eaf(); return _0x48b3 = function (_0x48b331, _0x372258) { _0x48b331 = _0x48b331 - 0x182; let _0x4c1909 = _0x1eaf50[_0x48b331]; return _0x4c1909; }, _0x48b3(_0x556f0c, _0x2cb638); } function _0x1eaf() { const _0x40b09c = ['dataset', '3167168rFnQHp', 'action', '550304hwwiXX', '2596338InlUwa', '249091ksHNGA', '1572135ChBpJK', '2wCGNYN', '1142372OHkELr', 'bottomNav', '1765590ktyhQJ', 'children', 'pathname', 'removeAttribute', 'split']; _0x1eaf = function () { return _0x40b09c; }; return _0x1eaf(); } let path = window['location'][_0x58ec88(0x18f)][_0x58ec88(0x182)]('/'), bottomNav = document['getElementById'](_0x58ec88(0x18c)); if (path['length'] == 0x4) for (let i = 0x0; i < bottomNav[_0x58ec88(0x18e)]['length']; i++) { bottomNav[_0x58ec88(0x18e)][i][_0x58ec88(0x190)](_0x58ec88(0x185)), path[0x3] == bottomNav[_0x58ec88(0x18e)][i][_0x58ec88(0x183)]['n'] && bottomNav['children'][i]['setAttribute']('action', ''); }
+let path=(window.location.pathname).split('/');
+let bottomNav =document.getElementById('url');
+if(path.length==4){for (let i = 0; i < bottomNav.children.length; i++) { 
+   bottomNav.children[i].removeAttribute('action');if(path[3]==bottomNav.children[i].dataset.n){
+   bottomNav.children[i].setAttribute('action','')}}}
 // function EventHandler(element, eventType, fn) {const event = document.querySelector(`[${element}]`)
 //     event.addEventListener(eventType, fn);}
-let navL = document.getElementById('bottomNav').getElementsByTagName('a');
+let navL = document.getElementById('url').getElementsByClassName('url');
 for (const e of navL) {
   e.addEventListener('click', function () {
     let l3e = location.pathname.split('/'); location.pathname = `/${l3e[1]}/${l3e[2]}/${this.dataset.n}`
@@ -45,14 +49,12 @@ pnlbx.children[1].innerHTML += list;}
   },
   modelBox_Opn: function (e) {
     globalThis.mdlBox = document.getElementById('mdl_bx');
-    this.navCls()
     mdlBox.style.display = 'block';
-    document.getElementById('mainContent').style.opacity = '.3'
+    // document.getElementById('mainContent').style.opacity = '.3'
     globalThis.mdlBox; this.Anim(mdlBox, 'animate__backInDown', true)
     if (mdlOpn) { modelData(e) }
   },
   modelBox_Cls: function () {
-    document.getElementById('mainContent').style.opacity = '1'
     this.Anim(mdlBox, 'animate__bounceOutUp', false);
     mdlOpn = true; setTimeout(() => {
       mdlBox.style.display = 'none';
@@ -130,9 +132,9 @@ let ReqHandler = {
 }
 const userReq = {
   AddPs: function (e) {
-    let val = document.getElementsByClassName('addPS')[0].children[1].children;
-    let ap_date = dSplit(val[9].value, '-', true)
-    let data = { name: val[1].value, number: val[3].value, OthInfo: val[5].value, doctor: val[7].value, date: ap_date }
+    let val = document.getElementsByClassName('addPS')[0].children
+    let ap_date = dSplit(val[3].children[1].value, '-', true)
+    let data = { name: val[0].children[1].value, number: val[1].children[1].value, OthInfo: val[4].children[1].value, doctor: val[2].children[1].value, date: ap_date }
     ReqHandler.POST(ReqURI.AddPs, data).then((data) => {
      userAction.flashMsg(data.msg); Cls_addPS(e); location.reload()
     })

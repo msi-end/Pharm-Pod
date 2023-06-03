@@ -5,95 +5,275 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin -Main</title>
-    <link rel="stylesheet" href="/icons/iconsRoot.css" />
-    <link rel="stylesheet" href="/admin/css/css.css">
+    <title>Admin | Cipmedic</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <!-- icons css -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
+
 </head>
+
 <body>
-<!-- ///// nav  -->
-<%- include('./partials/header.ejs') %>
-<!-- Mdl and flashMsg -->
-        <div id="mdl_bx">
-            <div id="mdl_body" style="margin: auto;"></div>
-            <div id="btnCotn">
-                <button type="button" id="btnSave" class="cgreen hover">Save </button>
-                <button onclick="userAction.modelBox_Cls()" class="cred hover "> Cancel</button>
-            </div></div>
-        <div id="flashMsg"><p id="text"></p></div>
+    <div class="adminContainer">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2>CIPMEDIC</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="uil uil-times"></span>
+                </div>
+            </div>
 
-<!-- ////Main Content -->
-<main id="mainContent">
-        <div class="admin-search-tool">
-            <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'psnum' )">
+            <div class="sideBar" id="url" >
+                <!-- <div id="bottomNav"> -->
+                <a   class="active url" data-n="">
+                    <span class="uil uil-apps"></span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a class="url" data-n="ApplyRequest">
+                    <span class="uil uil-envelope-check"></span>
+                    <h3>Apply Request </h3>
+                    <span class="apply-count">
+                        <%= aplReq[0].cout>=1?'+'+aplReq[0].cout:'' %>
+                    </span>
+                </a>
+          
+                <a href="javascript:userAction.modelBox_Opn('MaxChange')">
+                    <span class="uil uil-pen"></span>
+                    <h3>Maximum Apply :<%= sets.maxApply %>/Day</h3>
+                </a>
+                <a href="javascript:userAction.modelBox_Opn('AutoApv')" id="approveOpen">
+                    <span class="uil uil-comment-alt-check"></span>
+                    <h3>Auto Approval :<%= sets.autoReqAppl=='true' ?'On':'Off' %>
+                    </h3>
+                </a>
+                <a href="javascript:userAction.modelBox_Opn('ClsOpn')">
+                    <span class="uil uil-file"></span>
+                    <h3>Apply Form :<%= sets.form_Status=='true' ?'On':'Off' %>
+                    </h3>
+                </a>
+                <a href="#" id="openBook">
+                    <span class="uil uil-book"></span>
+                    <h3>Book Appointment</h3>
+                </a>
+                <a href="#" class="url" data-n="settings">
+                    <span class="uil uil-setting"></span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="uil uil-sign-out-alt"></span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- --------------END OF ASIDE--------------- -->
+
+        <main>
+            <h2>Dashboard</h2>
+
+            <div class="date">
+                <input type="date" id="reqDate" onchange="userReq.dtBD_(this)">
+                <a href="javascript:userReq.downldsheet()">Download<i class="uil uil-import"></i></a>
+            </div>
+
+            <div class="insights">
+                <div class="insightsSearch">
+                    <h2>Patient Information</h2>
+                    <input type="text" placeholder="Search by phone number">
+                </div>
+
+                <div class="insightsContainer">
+                    <div class="insightsScroll">
+                        <% if(ps_data.length>0){ %>
+                            <% ps_data.forEach(function(data){ %>
+                                <div class="patientInfo" clientId='<%= data.id %>'>
+                                    <div class="psNum">
+                                        <span class="uil uil-user-square"></span>
+                                        <span>
+                                            <%= data.id %>
+                                        </span>
+                                    </div>
+
+                                    <div class="psDetail">
+                                        <h4>
+                                            <%= data.p_name %>
+                                        </h4>
+                                        <p>
+                                            <%= data.p_number %></p>
+                                                <p>
+                                                    <%= data.p_doctor %>
+                                                </p>
+                                                <p>
+                                                    <span>Add. Info:</span>
+                                                    <%= data.p_OthInfo %>
+                                                </p>
+                                                <p>
+                                                    <span>DOA:</span>
+                                                    <%= data.p_aptDate %> </p>
+                                    </div>
+
+                                    <div class="psAction">
+                                        <a onclick="userAction.done(this)" class="done"><i
+                                                class="uil uil-check"></i>Done</a>
+                                        <a onclick="userAction.del(this)" class="cancel"><i
+                                                class="uil uil-trash-alt"></i>Delete</a>
+                                    </div>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <h2 data-val="nl" class="efont"> No Data Available !!!</h2>
+                                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- --------------END OF MAIN---------------- -->
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="uil uil-bars"></span>
+                </button>
+
+                <!-- <div class="theme-toggler">
+                    <span class="uil uil-sun active"></span>
+                    <span class="uil uil-moon"></span>
+                </div> -->
+                <div class="applyRequest">
+                    <a href="#">
+                        <span class="uil uil-envelope-check"></span>
+                        <span class="apply-count">26+</span>
+                    </a>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Howdy, <b>Admin</b></p>
+                        <small>Welcome</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="/img/doctor.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- ------END OF TOP-------- -->
+            <div class="adminHelp">
+                <h2>FAQs</h2>
+                <div class="accordion">
+                    <div class="accordion-content">
+                        <header>
+                            <span class="title">What do you mean by Kankan?</span>
+                            <i class="uil uil-plus"></i>
+                        </header>
+                        <p class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, officia? Aliquid ipsum
+                            debitis facilis magni esse aut atque dolorum quidem explicabo voluptates id sed tempore
+                            aperiam veniam, similique optio ab?
+                        </p>
+                    </div>
+                    <div class="accordion-content">
+                        <header>
+                            <span class="title">What do you mean by Kankan?</span>
+                            <i class="uil uil-plus"></i>
+                        </header>
+                        <p class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, officia? Aliquid ipsum
+                            debitis facilis magni esse aut atque dolorum quidem explicabo voluptates id sed tempore
+                            aperiam veniam, similique optio ab?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- ------END OF ADMINHELP--------- -->
+            <div class="adminSupport">
+                <h2>Support</h2>
+                <div class="adminQuery">
+                    <div class="user-input">
+                        <input type="text" placeholder="Enter your name" required>
+                    </div>
+                    <div class="user-input">
+                        <input type="text" placeholder="Enter your number" required>
+                    </div>
+                    <div class="user-input">
+                        <!-- <p class="feature">Message:</p> -->
+                        <textarea name="textArea" id="TextArea" placeholder="Type your query here" required></textarea>
+                    </div>
+                    <div class="user-input">
+                        <a href="#">Send&rarr;</a>
+                    </div>
+                    <hr>
+                    <div class="supportText">
+                        <p>*Our support team will contact you within 24hours</p>
+                    </div>
+                </div>
+            </div>
         </div>
-            <% if(ps_data.length>0){ %>
-                <% ps_data.forEach(function(data){ %>
-        <div class="psInfo item_done" clientId='<%= data.id %>''  id="divpa">
-            <div class="psNum">
-                <span class="uil uil-user-square"></span>
-                <br><span>No:</span> 
-                <span><%= data.id %></span> 
-            </div>
-            <div class="psDetail">
-                <h4 class="psName"><%= data.p_name %></h4>
-                <p class="psOtherInf psnum"><%= data.p_number %></p>
-                <p class="psDoctor"><%= data.p_doctor %></p>
-                <p class="psDoctor"><%= data.p_aptDate %></p>
-                <p class="psDoctor"><%= data.p_OthInfo %></p>
-            </div>
-            <div class="psAction"> 
-                <a onclick="userAction.done(this)" class="done hover">
-                    <span class="uil uil-check"></span>
-                    <br>Done</a>
-                <a onclick="userAction.del(this)" class="del hover">
-                    <span class="uil uil-trash-alt"></span><br>Delete</a>
-            </div>
+    </div>
+    <!-- ============Admin Container Ends here================= -->
+
+    <!-- ==========FORM=============== -->
+    <div class="addPs addPS">
+        <div class="user form">
+            <p>Full Name:</p>
+            <input type="text"  name="PName" placeholder="Enter your name">
         </div>
-   <% }) %>
-<% } else { %>
-     <h2 data-val="nl" class="efont"> No Data Available !!!</h2> 
-      <% } %> 
-</main>
-<div class="addPS">
-    <span onclick="Opn_addPS(this)" > + </span>
-    <div class="addPS_ctn">
-    <p>Patient Name:</p>
-    <input type='text' name="PName" minlength="6" maxlength="50" placeholder='Patient Name' required>
-    <p>Patient Number :</p>
-    <input type='number' name="PNum"  min='999999999' max="9999999999" placeholder='9876543210' required>
-    <p>Additional Info :</p>
-    <input type='text' name="PInfo" placeholder='Additional Info' required>
-    <p>Select Doctor :</p>
-    <select name="PDoc" id='psDoctor' required>
-        <% if(doc){ %>
-            <% doc.forEach(function(e){ %>
-        <option value='<%= e.d_name %>'>Dr. <%= e.d_name %></option>
-        <% }) %>
-        <% } %> 
-    </select>
-    <p>Select Appointment Date :</p>
-    <input type="date" data-min="0" data-max="1" value name="date" id="formDate">
-    <br>
-    <button type="button" onclick="userReq.AddPs(this)" class="cgreen hover">Save </button>
-    <button onclick="Cls_addPS(this)" class="cred hover "> Cancel</button>
-</div>
-</div>
-<br><br><br><br>
-<div id="panel">
- <div class="panelInfo">
-    <input type="text" id="datesearch" placeholder="Search by ID OR Name" onkeyup="filter_fun('datesearch', 'ps-num')">
-    <span id="cross" onclick="userAction.panel_cls()">X</span>
-</div>
-<div class="marchgin"></div>
-</div>
-    <!-- ////Bottom Manu -->
-<%- include('./partials/footer.ejs') %>
+        <div class="user form">
+            <p>Phone Number:</p>
+            <input type="text" name="PNum" placeholder="Enter your number">
+        </div>
+        <div class="user form">
+            <p>Select your doctor:</p>
+            <select name="PDoc" id='psDoctor'>
+                <option value="kank">Dr Bhaba Jyoti Sharma</option>
+                <option value="panc">Dr Bhaskar Neog</option>
+                <option value="mint">Dr Utpal Kr. Deka</option>
+                <option value="mohi">Dr P.K. Das</option>
+            </select>
+        </div>
+        <div class="user form">
+            <p>Select the date:</p>
+            <input type="date" data-min="0" data-max="1" value name="date" id="formDate">
+        </div>
+        <div class="user form">
+            <p>Additional Info(Optional):</p>
+            <input type="text" name="PInfo" placeholder="Enter about any query" name="info" id="info">
 
-<script src="/admin/js/script.js"></script>
+        </div>
+        <div class="user button">
+            <input type="button" value="Save" onclick="userReq.AddPs(this)" class="save">
+            <input type="button" onclick="Cl_opnForm()" value="Cancel" class="cancel" id="canCel">
+        </div>
+    </div>
+    <!-- ----------FORM OPEN BUTTON--------- -->
+    <div class="formOpen">
+        <span id="openPs">&plus;</span>
+    </div>
+    <!-- ------------------------------------------------ -->
+    <!-- POPUP -->
+    <div class="popupBox" id="mdl_bx">
+        <div class="user" id="mdl_body"></div>
+        <div class="user button" id="btnCotn">
+            <input type="button" id="btnSave" value="Save" class="save">
+            <input type="button" value="Cancel" onclick="userAction.modelBox_Cls()" class="cancel" id="cancelPopup">
+        </div>
+    </div>
+    <!-- ----------------------------- -->
+    <!-- Flash MSGF -->
+    <div id="flashMsg"><p id="text"></p></div>
+    <div id="panel">
+        <div class="panelInfo">
+           <input type="text" id="datesearch" placeholder="Search by ID OR Name" onkeyup="filter_fun('datesearch', 'ps-num')">
+           <span id="cross" onclick="userAction.panel_cls()">X</span>
+       </div>
+       <div class="marchgin"></div>
+       </div>
 
-<script>
-</script>
+
+    <!-- javascript -->
+    <script src="/admin/js/admin.js"></script>
+    <script src="/admin/js/script.js"></script>
 </body>
 
 </html>
