@@ -6,21 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin -Main</title>
-    <link rel="stylesheet" href="/admin/css/css.css">
     <link rel="stylesheet" href="/icons/iconsRoot.css" />
+    <link rel="stylesheet" href="/admin/css/css.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
-
 <body>
 <!-- ///// nav  -->
 <%- include('./partials/header.ejs') %>
-
-<div class="admin-search-tool">
-    <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'psnum' )">
-    <a href="#" onclick="userReq.downldsheet()"">Download</a>
-
-</div>
-
 <!-- Mdl and flashMsg -->
         <div id="mdl_bx">
             <div id="mdl_body" style="margin: auto;"></div>
@@ -31,7 +23,10 @@
         <div id="flashMsg"><p id="text"></p></div>
 
 <!-- ////Main Content -->
-    <main id="mainContent">
+<main id="mainContent">
+        <div class="admin-search-tool">
+            <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'psnum' )">
+        </div>
             <% if(ps_data.length>0){ %>
                 <% ps_data.forEach(function(data){ %>
         <div class="psInfo item_done" clientId='<%= data.id %>''  id="divpa">
@@ -44,8 +39,8 @@
                 <h4 class="psName"><%= data.p_name %></h4>
                 <p class="psOtherInf psnum"><%= data.p_number %></p>
                 <p class="psDoctor"><%= data.p_doctor %></p>
-                <p class="psDoctor"><%= data.p_OthInfo %></p>
                 <p class="psDoctor"><%= data.p_aptDate %></p>
+                <p class="psDoctor"><%= data.p_OthInfo %></p>
             </div>
             <div class="psAction"> 
                 <a onclick="userAction.done(this)" class="done hover">
@@ -61,7 +56,8 @@
       <% } %> 
 </main>
 <div class="addPS">
-    <span onclick="Opn_addPS(this)" > + </span><br>
+    <span onclick="Opn_addPS(this)" > + </span>
+    <div class="addPS_ctn">
     <p>Patient Name:</p>
     <input type='text' name="PName" minlength="6" maxlength="50" placeholder='Patient Name' required>
     <p>Patient Number :</p>
@@ -82,18 +78,18 @@
     <button type="button" onclick="userReq.AddPs(this)" class="cgreen hover">Save </button>
     <button onclick="Cls_addPS(this)" class="cred hover "> Cancel</button>
 </div>
+</div>
 <br><br><br><br>
 <div id="panel">
  <div class="panelInfo">
-    <input type="text" id="datesearch" placeholder="Search by number" onkeyup="filter_fun('datesearch', 'ps-num')">
-    <span id="cross" onclick="userAction.panel_cls()">Close</span>
-    <a href="#" onclick="userReq.downldsheet()"">Download Data</a>
- </div>
- <div class="marchgin"></div>
+    <input type="text" id="datesearch" placeholder="Search by ID OR Name" onkeyup="filter_fun('datesearch', 'ps-num')">
+    <span id="cross" onclick="userAction.panel_cls()">X</span>
+</div>
+<div class="marchgin"></div>
 </div>
     <!-- ////Bottom Manu -->
 <%- include('./partials/footer.ejs') %>
-<!-- <script  src="/admin/js/jsDataObject.js"></script> -->
+
 <script src="/admin/js/script.js"></script>
 
 <script>
