@@ -536,7 +536,29 @@ main .insights .insightsContainer .uil{
     font-size: 18px;
     margin-bottom: 15px;
 }
-
+/* ======Flash Msg========= */
+#flashMsg{
+    display: none;
+    width: 80%;
+    margin: auto;
+    padding: 1.5rem;
+    background: var(--blue-color);
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: var(--border-radius-0);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: showMsg 400ms ease forwards;
+}
+@keyframes showMsg{
+    to{
+        top: 30%;
+    }
+}
 /* ==========MEDIA QUERIES=========== */
 @media screen and (max-width: 1200px) {
     .adminContainer{

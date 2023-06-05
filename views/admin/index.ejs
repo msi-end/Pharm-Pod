@@ -27,13 +27,13 @@
                 </div>
             </div>
 
-            <div class="sideBar" id="url" >
+            <div class="sideBar nav-links" id="url" >
                 <!-- <div id="bottomNav"> -->
                 <a   class="active url" data-n="">
                     <span class="uil uil-apps"></span>
                     <h3>Dashboard</h3>
                 </a>
-                <a class="url" data-n="ApplyRequest">
+                <a class="url nav-links" data-n="ApplyRequest">
                     <span class="uil uil-envelope-check"></span>
                     <h3>Apply Request </h3>
                     <span class="apply-count">
@@ -41,28 +41,28 @@
                     </span>
                 </a>
           
-                <a href="javascript:userAction.modelBox_Opn('MaxChange')">
+                <a class="nav-links" href="javascript:userAction.modelBox_Opn('MaxChange')">
                     <span class="uil uil-pen"></span>
                     <h3>Max Apply:<%= sets.maxApply %>/Day</h3>
                 </a>
-                <a href="javascript:userAction.modelBox_Opn('AutoApv')" id="approveOpen">
+                <a class="nav-links" href="javascript:userAction.modelBox_Opn('AutoApv')" id="approveOpen">
                     <span class="uil uil-comment-alt-check"></span>
                     <h3>Auto Approval :<%= sets.autoReqAppl=='true' ?'On':'Off' %>
                     </h3>
                 </a>
-                <a href="javascript:userAction.modelBox_Opn('ClsOpn')">
+                <a class="nav-links" href="javascript:userAction.modelBox_Opn('ClsOpn')">
                     <span class="uil uil-file"></span>
                     <h3>Apply Form :<%= sets.form_Status=='true' ?'On':'Off' %>
                     </h3>
                 </a>
-                <a href="#" id="openBook">
+                <a class="nav-links" id="openBook">
                     <span class="uil uil-book"></span>
                     <h3>Book Appointment</h3>
                 </a>
-                <a href="#" class="url" data-n="settings">
+                <!-- <a href="#" class="url nav-links" data-n="settings">
                     <span class="uil uil-setting"></span>
                     <h3>Settings</h3>
-                </a>
+                </a> -->
                 <a href="#">
                     <span class="uil uil-sign-out-alt"></span>
                     <h3>Logout</h3>
@@ -156,7 +156,7 @@
                         <small>Welcome</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="/client/img/main/about-img.jpg" alt="">
+                        <img src="/client/img/main/profile.png" alt="">
                     </div>
                 </div>
             </div>

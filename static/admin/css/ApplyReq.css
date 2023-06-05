@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+::-webkit-scrollbar { 
+    width: 0 !important; 
+}
+:root{
+    --background-color: rgb(242, 242, 242);
+    --white-color: rgb(255, 255, 255);
+    --black-color: rgb(0, 0, 0);
+    --blue-color: rgb(0, 170, 255);
+    --red-color: rgb(255, 0, 0);
+    --redlight-color: rgb(255, 119, 0);
+    --green-color: rgb(0, 128, 0);
+    --greenlight-color: rgb(51, 255, 51);
+
+    --border-radius: 5px;
+    --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+}
+body{
+    user-select: none;
+    background: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+}
+.uil{
+    font-size: 1.5rem;
+}
+.infoBox{
+    width: 80%;
+    margin: 1.5rem auto;
+}
+.infoBox .patientInfo{
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    font-size: 18px;
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 1rem;
+}
+.infoBox .patientInfo .psNum{
+    background: var(--blue-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+}
+.infoBox .patientInfo .psDetail{
+    line-height: 1.8rem;
+}
+.infoBox .patientInfo .psDetail h4{
+    text-transform: uppercase;
+}
+.infoBox .patientInfo .psAction{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+}
+.patientInfo .psAction a{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white-color);
+    padding: 0 1rem;
+    border-radius: var(--border-radius);
+    transition: all 300ms ease;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.patientInfo .psAction a:hover{
+    cursor: pointer;
+    box-shadow: var(--box-shadow-1);
+}
+.patientInfo .psAction a.done{
+    background: var(--green-color);
+}
+.patientInfo .psAction a.done:hover{
+    background: var(--greenlight-color);
+}
+.patientInfo .psAction a.cancel{
+    background: var(--red-color);
+}
+.patientInfo .psAction a.cancel:hover{
+    background: var(--redlight-color);
+}
+#flashMsg{
+    display: none;
+    width: 80%;
+    margin: auto;
+    padding: 1.5rem;
+    background: var(--blue-color);
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: var(--border-radius-0);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: showMsg 400ms ease forwards;
+}
+@keyframes showMsg{
+    to{
+        top: 30%;
+    }
+}
+@media screen and (max-width: 560px){
+    .infoBox{
+        width: 90%;
+    }
+    .infoBox .patientInfo{
+        grid-template-columns: 1fr;
+    }
+    .infoBox .patientInfo .psAction{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .infoBox .patientInfo .psNum{
+        width: 80%;
+        margin: auto;
+        padding: 1rem 0;
+    }
+}
