@@ -17,9 +17,11 @@ menuBtn.addEventListener('click', () =>{
 closeBtn.addEventListener('click', () =>{
     sideMenu.style.display = 'none';
 })
-document.querySelectorAll(`.nav-links`).forEach(n => n.addEventListener('click', ()=>{
-    sideMenu.style.display = 'none';
-}))
+if(matchMedia(`only screen and (max-width :480px)`).matches){
+    document.querySelectorAll(`.nav-links`).forEach(n => n.addEventListener('click', ()=>{
+        sideMenu.style.display = 'none';
+    }))
+}
 // ===Form===
 openForm.addEventListener ('click', ()=>{
     appForm.style.display = 'block';

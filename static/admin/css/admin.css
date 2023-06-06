@@ -467,6 +467,7 @@ main .insights .insightsContainer .uil, #panel .marchgin .uil{
     left: 50%;
     transform: translate(-50%, -50%);
     animation: showForm 400ms ease forwards;
+    z-index: 20;
 }
 @keyframes showForm {
     to{
@@ -533,6 +534,7 @@ main .insights .insightsContainer .uil, #panel .marchgin .uil{
     left: 50%;
     transform: translate(-50%, -50%);
     animation: showPopup 400ms ease forwards;
+    z-index: 6;
 }
 @keyframes showPopup {
     to{

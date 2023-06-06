@@ -46,6 +46,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 .infoBox .patientInfo .psNum{
     background: var(--blue-color);
@@ -130,8 +131,11 @@ body{
         justify-content: space-around;
     }
     .infoBox .patientInfo .psNum{
-        width: 80%;
+        width: 60%;
         margin: auto;
         padding: 1rem 0;
+    }
+    .patientInfo .psAction a{
+        width: 100%;
     }
 }
