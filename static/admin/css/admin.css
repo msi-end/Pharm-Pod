@@ -215,10 +215,10 @@ main .insights .insightsContainer{
     /* border-radius: var(--border-radius-2); */
 
 }
-main .insights .insightsContainer .uil{
+main .insights .insightsContainer .uil, #panel .marchgin .uil{
     font-size: 1.5rem;
 }
-.insights .insightsContainer .patientInfo{
+.insights .insightsContainer .patientInfo,#panel .marchgin .patientInfo{
     padding: var(--padding-1);
     border-radius: var(--border-radius-1);
     display: grid;
@@ -228,7 +228,11 @@ main .insights .insightsContainer .uil{
     margin: 1.2rem auto;
     box-shadow: var(--boxgrid-shadow);
 }
-.insightsContainer .patientInfo .psNum{
+.insightsContainer .itm_done{
+    background: var(--gray-color);
+    color: var(--white-color);
+}
+:is(.insightsContainer, #panel) .patientInfo .psNum{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -238,24 +242,28 @@ main .insights .insightsContainer .uil{
     padding: 1.4rem 3rem;
     border-radius: var(--border-radius-0);
 }
-.insightsContainer .patientInfo .psDetail{
+#numun{
+    font-size: 17px;
+    font-weight: 600;
+}
+:is(.insightsContainer, #panel) .patientInfo .psDetail{
     font-size: 1.08rem;
     line-height: 1.8rem;
 }
-.insightsContainer .patientInfo .psDetail p span{
+:is(.insightsContainer, #panel) .patientInfo .psDetail p span{
     color: var(--red-color);
 }
-.insightsContainer .patientInfo .psDetail h4{
+:is(.insightsContainer, #panel) .patientInfo .psDetail h4{
     text-transform: uppercase;
 }
-.insightsContainer .patientInfo .psAction{
+:is(.insightsContainer, #panel) .patientInfo .psAction{
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: auto;
     gap: 2rem;
 }
-.patientInfo .psAction a{
+:is(.insightsContainer, #panel) .patientInfo .psAction a{
     text-align: center;
     font-size: 12px;
     font-weight: 500;
@@ -268,21 +276,21 @@ main .insights .insightsContainer .uil{
     justify-content: center;
     flex-direction: column;
 }
-.patientInfo .psAction a:hover{
+:is(.insightsContainer, #panel) .patientInfo .psAction a:hover{
     box-shadow: var(--box-shadow-1);
 }
-.patientInfo .psAction a.done{
+:is(.insightsContainer, #panel) .patientInfo .psAction a.done{
     cursor: pointer;
     background: var(--green-color);
 }
-.patientInfo .psAction a.done:hover{
+:is(.insightsContainer, #panel) .patientInfo .psAction a.done:hover{
     background: var(--greenlight-color);
 }
-.patientInfo .psAction a.cancel{
+:is(.insightsContainer, #panel) .patientInfo .psAction a.cancel{
     cursor: pointer;
     background: var(--red-color);
 }
-.patientInfo .psAction a.cancel:hover{
+:is(.insightsContainer, #panel) .patientInfo .psAction a.cancel:hover{
     background: var(--redlight-color);
 }
 /* ==========MAIN SECTION ENDS HERE============= */
@@ -553,11 +561,34 @@ main .insights .insightsContainer .uil{
     left: 50%;
     transform: translate(-50%, -50%);
     animation: showMsg 400ms ease forwards;
+    z-index: 15;
 }
 @keyframes showMsg{
     to{
         top: 30%;
     }
+}
+/* ----------Patient by date---------- */
+#panel {
+    display: none;
+    width: calc(100% - 44.5rem);
+    margin: auto;
+    padding: var(--padding-1);
+    z-index: 2;
+    position: absolute;
+    top: 24.5%;
+    left: 18.5%;
+    border-radius: var(--border-radius-1);
+    background: var(--white-color);
+}
+#panel #cross{
+    cursor: pointer;
+    font-size: 25px;
+}
+#panel .marchgin{
+    overflow-y: scroll;
+    height: 70vh;
+
 }
 /* ==========MEDIA QUERIES=========== */
 @media screen and (max-width: 1200px) {
@@ -578,15 +609,24 @@ main .insights .insightsContainer .uil{
     main .insights .insightsSearch input{
         width: 50%;
     } 
-    .insights .insightsContainer .patientInfo{
+    .insights .insightsContainer .patientInfo,#panel .marchgin .patientInfo{
         grid-template-columns: 5rem auto 5rem;
     }
-    .insightsContainer .patientInfo .psNum{
+    #panel{
+        width: calc(100% - 37.5rem);
+        left: 16%;
+    }
+    :is(.insightsContainer, #panel) .patientInfo .psNum{
         padding: 0.5rem 1rem;
     }
 }
 
 @media screen and (max-width: 768px){
+    #panel{
+        width: 95%;
+        left: 2.5%;
+        top: 35%;
+    }
     .adminContainer{
         width: 100%;
         grid-template-columns: 1fr;
@@ -596,7 +636,7 @@ main .insights .insightsContainer .uil{
         left: -100%;
         background: var(--white-color);
         width: 18rem;
-        z-index: 3;
+        z-index: 5;
         box-shadow: var(--box-shadow);
         height: 100vh;
         padding-right: var(--card-padding);
@@ -692,6 +732,10 @@ main .insights .insightsContainer .uil{
     .addPs{
         width: 100%;
     }
+    #panel .marchgin .patientInfo{
+        width: 90%;
+        margin: 1rem auto;
+    }
 }
 @media screen and (max-width: 480px){
     .insights .insightsSearch h2{
@@ -705,15 +749,15 @@ main .insights .insightsContainer .uil{
         display: inline;
         flex-direction: column;
     }
-    .insights .insightsContainer .patientInfo{
+    .insights .insightsContainer .patientInfo, #panel .marchgin .patientInfo{
         display: flex;
-        align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 1rem;
     }
-    .insightsContainer .patientInfo .psAction{
+    :is(.insightsContainer, #panel) .patientInfo .psAction{
         flex-direction: row;
+        justify-content: space-between;
         width: 100%;
     }
     .patientInfo .psAction a{
@@ -721,5 +765,10 @@ main .insights .insightsContainer .uil{
     }
     .insightsContainer .patientInfo .psNum{
         width: 70%;
+    }
+    #panel{
+        width: 92%;
+        left: 4%;
+        top: 41%;
     }
 }

@@ -92,7 +92,7 @@
                                 <div class="patientInfo" clientId='<%= data.id %>'>
                                     <div class="psNum">
                                         <span class="uil uil-user-square"></span>
-                                        <span>
+                                        <span id="numun">
                                             <%= data.id %>
                                         </span>
                                     </div>
@@ -228,10 +228,10 @@
         <div class="user form">
             <p>Select your doctor:</p>
             <select name="PDoc" id='psDoctor'>
-                <option value="kank">Dr Bhaba Jyoti Sharma</option>
-                <option value="panc">Dr Bhaskar Neog</option>
-                <option value="mint">Dr Utpal Kr. Deka</option>
-                <option value="mohi">Dr P.K. Das</option>
+                <option value="Dr Bhaba Jyoti Sharma">Dr Bhaba Jyoti Sharma</option>
+                <option value="Dr Bhaskar Neog">Dr Bhaskar Neog</option>
+                <option value="Dr Utpal Kr. Deka">Dr Utpal Kr. Deka</option>
+                <option value="Dr P.K. Das">Dr P.K. Das</option>
             </select>
         </div>
         <div class="user form">
@@ -267,10 +267,7 @@
     
     <!-- Patient by Date  -->
     <div id="panel">
-        <div class="panelInfo">
-           <input type="text" id="datesearch" placeholder="Search by ID OR Name" onkeyup="filter_fun('datesearch', 'ps-num')">
-           <span id="cross" onclick="userAction.panel_cls()">X</span>
-       </div>
+           <!-- <span id="cross" onclick="userAction.panel_cls()">&times;</span> -->
        <div class="marchgin"></div>
        </div>
 

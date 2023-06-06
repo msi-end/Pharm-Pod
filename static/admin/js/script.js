@@ -23,11 +23,11 @@ const userAction = {
     if (!e.data >= 0) {
       for (let o = 0; o < e.data.length; o++) {
         let list = `<div class="patientInfo">
-        <div class="psNum"><span class="uil uil-user-square"></span><span>No:${e.data[o].id}</span></div>
-<div class="psDetail"><h3>${e.data[o].p_name}</h3><p id="numb" class="ps-num">${e.data[o].p_number}</p>
+        <div class="psNum"><span class="uil uil-user-square"></span><span>${e.data[o].id}</span></div>
+<div class="psDetail"><h4>${e.data[o].p_name}</h4><p id="numb" class="ps-num">${e.data[o].p_number}</p>
 <b>Doctor:</b> <span>${e.data[o].p_doctor}</span><p><b>Add. Info:</b>${e.data[o].p_OthInfo}</p><p>
 <b>DOA:</b>${e.data[o].p_aptDate}</p></div></div>`
-pnlbx.children[1].innerHTML += list;}
+pnlbx.children[0].innerHTML += list;}
     } else { let list = `<p>No Data Found!<p>` }
   },
   panel_cls: function (e) {
