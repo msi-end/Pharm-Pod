@@ -82,7 +82,7 @@
             <div class="insights">
                 <div class="insightsSearch">
                     <h2>Patient Information</h2>
-                    <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'patientInfo' )">
+                    <input type="text" id="adminsearch" placeholder="Search by number" onkeyup="filter_fun('adminsearch', 'insightsNUm' )">
                 </div>
 
                 <div class="insightsContainer">
@@ -101,7 +101,7 @@
                                         <h4>
                                             <%= data.p_name %>
                                         </h4>
-                                        <p>
+                                        <p class="insightsNUm">
                                             <%= data.p_number %></p>
                                                 <p>
                                                     <%= data.p_doctor %>

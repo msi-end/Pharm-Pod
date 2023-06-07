@@ -227,13 +227,13 @@ function dn_ck() {
     if (val) { e[i].classList.add('itm_done') } }}
 dn_ck()
 
-
+// search bar 
 function filter_fun(SearchValueId, AllDataClassName) {
   let data = document.getElementById(SearchValueId).value;
   let allData = document.querySelectorAll(`.${AllDataClassName}`);
   allData.forEach(function (ata) {
     if (ata.innerHTML.search(data) > -1) {
-      ata.parentElement.parentElement.style.display = '';
+      ata.parentElement.parentElementstyle.display = '';
     } else {
       ata.parentElement.parentElement.style.display = 'none';
     }
