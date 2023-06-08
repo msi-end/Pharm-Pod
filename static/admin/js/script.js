@@ -240,3 +240,12 @@ function filter_fun(SearchValueId, AllDataClassName) {
   })
   return;
 }
+
+
+		// var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		// var element = document.getElementById('menu-btn');
+		// if (isMobile) {
+  	// 		element.innerHTML = "You are using Mobile";
+		// } else {
+		// 	element.innerHTML = "You are using Desktop";
+		// }
