@@ -43,7 +43,7 @@ a {
     margin: 5px;
     display: block;
 }
-#NavContainer input[type="date"]{
+/* #NavContainer input[type="date"]{
     border: none;
     outline: none;
     display: inline-block;
@@ -56,7 +56,7 @@ a {
 input::-webkit-calendar-picker-indicator{
     cursor: pointer;
     padding: 5px;
-}
+} */
 /* ///// navBottom  */
 .addPS {
     background-color: var(--p-color);

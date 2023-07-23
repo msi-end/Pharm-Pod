@@ -84,18 +84,18 @@ if (validationRes.nValid === true && validationRes.eValid === true) {
   let options = {
     method: 'POST',
     body: JSON.stringify(valu),
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    headers: {'Content-Type': 'application/json'}
+  }
+
+  async function FETchData(link, Method, data) {
+    let res = await fetch(`/${link}`);
+    return await res.json(); 
   }
  fetch('/apiV3/r/rv', options).then(function (response) {
   return response.json();}).then(function (respond) {
-    //console.log(respond);
     Obj.flashMsg(respond.msg, '', 200);
   });  
-}else{
-  document.getElementById('err-Msg').innerHTML = 'Name and Email is required properly!'
-}}
+}else{document.getElementById('err-Msg').innerHTML = 'Name and Email is required properly!'}} 
 submitReview.addEventListener('click', getRatePoint);
 
 //Zoom photo effects===========================================================
@@ -184,9 +184,7 @@ function formSubmit() {
   let data = { name: doc[0].children[1].value, number: doc[1].children[1].value, doctor: doc[2].children[1].value,
    date: ap_date, otherInfo: doc[4].children[1].value }
    let res = valid.ValResult(data.name, data.number, data.date, data.otherInfo);
-   if (res === true) {userReq.FormSet();}else{
-    document.getElementById('err-msg').innerHTML = res;
-   }
+   if (res === true) {userReq.FormSet();}else{document.getElementById('err-msg').innerHTML = res;}
    console.log(data);
 }
 document.getElementById('btnn').addEventListener('click', formSubmit)
