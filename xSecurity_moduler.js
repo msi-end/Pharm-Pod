@@ -1,6 +1,6 @@
 // Cls17_10  ln 1-2
 let path=(window.location.pathname).split('/');
-let bottomNav =document.getElementById('bottomNav');
+let bottomNav =document.getElementById('url');
 if(path.length==4){for (let i = 0; i < bottomNav.children.length; i++) { 
    bottomNav.children[i].removeAttribute('action');if(path[3]==bottomNav.children[i].dataset.n){
    bottomNav.children[i].setAttribute('action','')}}}

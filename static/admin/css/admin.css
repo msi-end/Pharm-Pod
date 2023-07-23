@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root{
+    --white-color: rgb(255, 255, 255);
+    --black-color: rgb(0, 0, 0);
+    --blacklight-color: rgb(51, 51, 51);
+    --gray-color: rgb(128, 128, 128);
+    --blue-color: rgb(0, 170, 255);
+    --bluelight-color: rgb(230, 247, 255);
+    --red-color: rgb(255, 0, 0);
+    --redlight-color: rgb(255, 149, 0);
+    --green-color: rgb(0, 128, 0);
+    --greenlight-color: rgb(51, 255, 51);
+    --background-color: rgb(242, 242, 242);
+    
+    --card-border-radius: 1rem;
+    --border-radius-0: 0.2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    --card-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    --boxgrid-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    --box-shadow-1: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+::-webkit-scrollbar { 
+    width: 0 !important; 
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    user-select: none;
+    overflow-x: hidden;
+    background: var(--background-color);
+    position: relative;
+}
+a{
+    color: var(--blacklight-color);
+}
+img{
+    display: block;
+    width: 100%;
+}
+h3{
+    font-size: 0.88rem;
+}
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+.adminContainer{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+aside{
+    height: 100%;
+}
+aside .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+aside .close{
+    display: none;
+}
+/* =========Sidebar============= */
+aside .sideBar{
+    /* background: var(--white-color); */
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    position: relative;
+    top: 3rem;
+}
+aside h3{
+    font-weight: 500;
+}
+aside .sideBar a{
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    gap: 1rem;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+aside .sideBar a span{
+    font-size: 1.4rem;
+    transition: all 300ms ease;
+}
+
+aside .sideBar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+aside .sideBar a.active{
+    background: var(--bluelight-color);
+    color: var(--blue-color);
+    margin-left: 0;
+}
+aside .sideBar a.active:before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: var(--blue-color);
+}
+aside .sideBar a.active span{
+    color: var(--blue-color);
+    margin-left: calc(1rem - 3px);
+}
+aside .sideBar a:hover{
+    color: var(--blue-color);
+}
+aside .sideBar a:hover span{
+    margin-left: 1rem;
+}
+aside .sideBar .apply-count{
+    background: var(--red-color);
+    color: var(--white-color);
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: var(--border-radius-1);
+}
+/* ================MAIN================ */
+main{
+    margin-top: 1.4rem;
+}
+main .date{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background: red; */
+    margin-top: 1rem;
+    /* padding: 0 1rem; */
+}
+main .date input[type='date']{
+    cursor: pointer;
+    background: var(--white-color);
+    color: var(--black-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--boxgrid-shadow);
+}
+main .date a{
+    border-radius: var(--border-radius-1);
+    padding: 0.5rem 1rem;
+    background: var(--black-color);
+    color: var(--white-color);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    transition: all 300ms ease;
+}
+main .date a:hover{
+    background: var(--gray-color);
+}
+main .insights{
+    margin-top: 1rem;
+}
+main .insights .insightsSearch{
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .insights .insightsSearch input{
+    padding: 0.7rem 1rem;
+    border-radius: var(--border-radius-0);
+    box-shadow: var(--boxgrid-shadow);
+    display: inline-block;
+    width: 70%;
+    font-size: 16px;
+}
+main .insights .insightsSearch input:hover:focus{
+    box-shadow: var(--box-shadow);
+}
+main .insights .insightsContainer{
+    background: var(--white-color);
+    width: 100%;
+    border-radius: var(--border-radius-1);
+    padding: var(--padding-1);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    font-size: 1rem;
+    height: 75vh;
+}
+.insights .insightsContainer .insightsScroll{
+    height: 70vh;
+    overflow-y: scroll;
+    /* box-shadow: var(--card-box-shadow); */
+    /* border-radius: var(--border-radius-2); */
+
+}
+main .insights .insightsContainer .uil, #panel .marchgin .uil{
+    font-size: 1.5rem;
+}
+.insights .insightsContainer .patientInfo,#panel .marchgin .patientInfo{
+    padding: var(--padding-1);
+    border-radius: var(--border-radius-1);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 10rem auto 10rem;
+    width: 96%;
+    margin: 1.2rem auto;
+    box-shadow: var(--boxgrid-shadow);
+}
+.insightsContainer .itm_done{
+    background: var(--gray-color);
+    color: var(--white-color);
+}
+:is(.insightsContainer, #panel) .patientInfo .psNum{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: var(--blue-color);
+    color: var(--black-color);
+    margin: auto;
+    padding: 1.4rem 3rem;
+    border-radius: var(--border-radius-0);
+}
+#numun{
+    font-size: 17px;
+    font-weight: 600;
+}
+:is(.insightsContainer, #panel) .patientInfo .psDetail{
+    font-size: 1.08rem;
+    line-height: 1.8rem;
+}
+:is(.insightsContainer, #panel) .patientInfo .psDetail p span{
+    color: var(--red-color);
+}
+:is(.insightsContainer, #panel) .patientInfo .psDetail h4{
+    text-transform: uppercase;
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    gap: 2rem;
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction a{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white-color);
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: var(--border-radius-0);
+    transition: all 300ms ease;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction a:hover{
+    box-shadow: var(--box-shadow-1);
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction a.done{
+    cursor: pointer;
+    background: var(--green-color);
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction a.done:hover{
+    background: var(--greenlight-color);
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction a.cancel{
+    cursor: pointer;
+    background: var(--red-color);
+}
+:is(.insightsContainer, #panel) .patientInfo .psAction a.cancel:hover{
+    background: var(--redlight-color);
+}
+/* ==========MAIN SECTION ENDS HERE============= */
+.right{
+    margin-top: 1.4rem;
+}
+.right .top{
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+.right .top button{
+    display: none;
+}
+.right .theme-toggler{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    background: var(--black-color);
+    color: var(--white-color);
+    border-radius: var(--border-radius-0);
+}
+.right .theme-toggler span{
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right .theme-toggler span.active{
+    background: var(--white-color);
+    color: var(--red-color);
+    border-radius: var(--border-radius-0);
+}
+.right .top .applyRequest{
+    display: none;
+    position: relative;
+    /* box-shadow: var(--box-shadow); */
+    padding: 0 25px;
+    border-radius: var(--border-radius-1);
+}
+.right .top .applyRequest:hover{
+    box-shadow: var(--box-shadow-1);
+}
+.right .top .applyRequest .uil{
+    font-size: 1.6rem;
+}
+.right .top .apply-count{
+    color: var(--red-color);
+    font-weight: 600;
+    font-size: 13px;
+    position: absolute;
+}
+.right .top .profile{
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+.top small{
+    font-size: 0.77rem;
+}
+/* FAQs */
+.right .adminHelp{
+    margin-top: 1rem;
+}
+.right .adminHelp .accordion, .right .adminSupport .adminQuery{
+    width: 100%;
+    background: var(--white-color);
+    margin: auto;
+    padding: 15px;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    margin-top: 10px;
+}
+.adminHelp .accordion .accordion-content{
+    border: 1px solid var(--gray-color);
+    border-radius: var(--border-radius-0);
+    margin: 10px 0;
+    overflow: hidden;
+}
+.accordion-content.open{
+    padding-bottom: 10px;
+}
+.accordion-content header{
+    display: flex;
+    padding: 0 15px;
+    background: var(--gray-color);
+    min-height: 45px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.accordion-content.open header{
+    min-height: 35px;
+} 
+.accordion-content header .title{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white-color);
+}
+.accordion-content header .uil{
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white-color);
+
+}
+.accordion-content .description{
+    height: 0px;
+    font-size: 13px;
+    padding: 0 15px;
+    transition: all 0.2s linear;
+}
+/* ===========FAQs ENDS HERE=============== */
+
+.right .adminSupport{
+    margin-top: 20px;
+}
+.adminSupport .adminQuery .user-input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.adminQuery .user-input input{
+    padding: 0.7rem 1rem;
+    box-shadow: var(--card-box-shadow);
+    width: 100%;
+    border-radius: var(--border-radius-0);
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+.adminQuery .user-input textarea{
+    height: 8rem;
+    box-shadow: var(--card-box-shadow);
+    width: 100%;
+    padding: 1rem;
+    resize: none;
+    font-size: 15px;
+    border-radius: var(--border-radius-0);
+}
+
+.adminQuery .user-input a{
+    display: inline-block;
+    width: 100%;
+    background: var(--blacklight-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: var(--border-radius-0);
+    transition: all 300ms ease;
+}
+.adminQuery .user-input a:hover{
+    background: var(--gray-color);
+}
+.adminSupport .adminQuery .supportText{
+    margin-top: 5px;
+}
+/* ====Form===== */
+:is(.addPs, .popupBox){
+    display: none;
+    width: 80%;
+    margin: auto;
+    background: var(--blacklight-color);
+    color: var(--white-color);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-0);
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: showForm 400ms ease forwards;
+    z-index: 20;
+}
+@keyframes showForm {
+    to{
+        top: 50%;
+    }
+}
+:is(.addPs, .popupBox) .user{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+:is(.addPs, .popupBox) .user :is(input, select){
+    width: 100%;
+    padding: 1rem 1rem;
+    font-size: 16px;
+    box-shadow: var(--boxgrid-shadow);
+    border-radius: var(--border-radius-1);
+}
+:is(.addPs, .popupBox) .button {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+:is(.addPs, .popupBox) .button .save{
+    cursor: pointer;
+    background: var(--green-color);
+    color: var(--white-color);
+}
+:is(.addPs, .popupBox) .save:hover{
+    background: var(--greenlight-color);
+}
+:is(.addPs, .popupBox) .button .cancel{
+    cursor: pointer;
+    background: var(--red-color);
+    color: var(--white-color);
+}
+:is(.addPs, .popupBox) .button .cancel:hover{
+    background: var(--redlight-color);
+}
+.formOpen{
+    display: none;
+}
+.formOpen span{
+    font-size: 30px;
+    background: var(--black-color);
+    color: var(--white-color);
+    border-radius: 2rem;
+    padding: 5px 16px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+/* ---Popup-- */
+.popupBox{
+    display: none;
+    width: 80%;
+    margin: auto;
+    background: var(--blacklight-color);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius-0);
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: showPopup 400ms ease forwards;
+    z-index: 6;
+}
+@keyframes showPopup {
+    to{
+        top: 30%;
+    }
+}
+.popupBox .user p{
+    color: var(--white-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+/* ======Flash Msg========= */
+#flashMsg{
+    display: none;
+    width: 80%;
+    margin: auto;
+    padding: 1.5rem;
+    background: var(--blue-color);
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: var(--border-radius-0);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: showMsg 400ms ease forwards;
+    z-index: 15;
+}
+@keyframes showMsg{
+    to{
+        top: 30%;
+    }
+}
+/* ----------Patient by date---------- */
+#panel {
+    display: none;
+    width: calc(100% - 44.5rem);
+    margin: auto;
+    padding: var(--padding-1);
+    z-index: 2;
+    position: absolute;
+    top: 24.5%;
+    left: 18.5%;
+    border-radius: var(--border-radius-1);
+    background: var(--white-color);
+}
+#panel #cross{
+    cursor: pointer;
+    font-size: 25px;
+}
+#panel .marchgin{
+    overflow-y: scroll;
+    height: 70vh;
+
+}
+/* ==========MEDIA QUERIES=========== */
+@media screen and (max-width: 1200px) {
+    .adminContainer{
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    aside .sideBar h3{
+        display: none;
+    }
+    aside .sideBar a{
+        width: 5.6rem;
+    }
+    aside .sideBar a:last-child{
+        position: relative;
+        margin-top: 1.8rem;
+    }
+    main .insights .insightsSearch input{
+        width: 50%;
+    } 
+    .insights .insightsContainer .patientInfo,#panel .marchgin .patientInfo{
+        grid-template-columns: 5rem auto 5rem;
+    }
+    #panel{
+        width: calc(100% - 37.5rem);
+        left: 16%;
+    }
+    :is(.insightsContainer, #panel) .patientInfo .psNum{
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #panel{
+        width: 95%;
+        left: 2.5%;
+        top: 35%;
+    }
+    .adminContainer{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    aside{
+        position: fixed;
+        left: -100%;
+        background: var(--white-color);
+        width: 18rem;
+        z-index: 5;
+        box-shadow: var(--box-shadow);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
+    }
+    aside .top .logo{
+        margin-left: 2rem;
+    }
+    aside .sideBar h3{
+        display: inline;
+    }
+    aside .sideBar a{
+        width: 100%;
+        height: 3.4rem;
+    }
+    aside .sideBar a:last-child{
+        position: absolute;
+        bottom: 5rem;
+    }
+    aside .close{
+        display: inline-block;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    aside .close span{
+        font-size: 24px;
+        background: black;
+        color: white;
+        padding: 0px 5px;
+        border-radius: var(--border-radius-0);
+        transition: all 300ms ease;
+    }
+    aside .close span:hover{
+        background: var(--gray-color);
+    }
+    main{
+        margin-top: 6rem;
+        padding: 0 1rem;
+    }
+    .right{
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+    .right .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--white-color);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: var(--box-shadow);
+    }
+    .right .top .applyRequest{
+        display: block;
+    }
+    .right .theme-toggler{
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+    .right .profile .info{
+        display: none;
+    }
+    .right .top button{
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        position: absolute;
+        left: 1rem;
+    }
+    .right .top button span{
+        font-size: 30px;
+    }
+    .formOpen{
+        display: block;
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+    }
+    .formOpen span:hover{
+        background: var(--gray-color);
+    }
+    .addPs{
+        width: 100%;
+    }
+    #panel .marchgin .patientInfo{
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+@media screen and (max-width: 480px){
+    .insights .insightsSearch h2{
+        font-size: 18px;
+    }
+    main .insights .insightsSearch input{
+        width: 100%;
+        margin: 1rem auto;
+    }
+    main .insights .insightsSearch{
+        display: inline;
+        flex-direction: column;
+    }
+    .insights .insightsContainer .patientInfo, #panel .marchgin .patientInfo{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    :is(.insightsContainer, #panel) .patientInfo .psAction{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .patientInfo .psAction a{
+        padding: 0.1rem 0;
+    }
+    .insightsContainer .patientInfo .psNum{
+        width: 70%;
+    }
+    #panel{
+        width: 92%;
+        left: 4%;
+        top: 41%;
+    }
+}
