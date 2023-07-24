@@ -9,92 +9,65 @@ document.getElementById('Xclse').addEventListener("click", () => {
 function Cl_opnForm() {document.getElementsByClassName('registration-form')[0].style.display = 'none'}
 //2nd part-------------------------------------------------
 let i_d = location.pathname.split('/')[1];
-let dat = fetch(`${location.origin}/apiV3/r/fn/${i_d}`);
+async function FETchData(link) {
+  let res = await fetch(`${link}`);
+  return await res.json(); 
+}
 
-dat.then(function (ress) {
-  return ress.json();
-}).then(function (re) {
- // console.log(re);
-  re.forEach(ell => {
-    let clinicname = document.getElementById('clinicName');
-    let clinicrating = document.getElementById('clinicRating');
-    let clinicrev = document.getElementById('clinicRev');
-    clinicname.innerHTML = ell.c_name;
-    clinicrating.innerHTML = `${ell.star.toFixed(1)}&#9733;`;
-    clinicrev.innerHTML = `(${ell.total_review}+ Ratings)`
+async function displayDataWithRateandRev() {
+  let dataWithRevRat = await FETchData(`${location.origin}/apiV3/r/fn/${i_d}`)
+  dataWithRevRat.forEach(ell => {let clinic = document.getElementById('clinicid').childNodes;
+    clinic[1].innerHTML = ell.c_name;
+    clinic[3].childNodes[1].innerHTML = `${ell.star.toFixed(1)}&#9733;`;
+    clinic[3].childNodes[3].innerHTML = `(${ell.total_review}+ Ratings)`;
+  })
+}
+  async function DataOfRevrat() {
+    let revRat =  await FETchData(`${location.origin}/apiV3/r/revv/${i_d}`);
+    let box = document.getElementById('review')
+    revRat.forEach((el) => {
+      let html = `<div class="customerReview-profile">
+    <div class="reviewProfile-name">
+    <i class="uil uil-user-square "></i>
+    <p>${el.userName}</p>
+    </div>
+    <div class="reviewProfile-stars">
+        <label for="5" class="uis uis-star"></label>
+        <label for="5" class="uis uis-star"></label>
+        <label for="5" class="uis uis-star"></label>
+        <label for="5" class="uis uis-star"></label>
+        <label for="5" class="uis uis-star"></label>
+    </div>
+    <div class="reviewProfile-text">
+        <p>${el.review}</p>
+    </div>
+</div>
+<hr>`
+ if (el.review != null) { box.insertAdjacentHTML('afterbegin', html);}
+  })}
 
-    //2nd part of the same function================================================================
-    let rr = fetch(`${location.origin}/apiV3/r/revv/${i_d}`);
-    rr.then(function (res) {
-      return res.json();
-    }).then(function (res) {
-      //console.log(res);
-      res.forEach((el) => {
-        let html = ` <div class="customerReview-profile">
-      <div class="reviewProfile-name">
-          <i class="uil uil-user-square "></i>
-          <p>${el.userName}</p>
-      </div>
-      <div class="reviewProfile-stars">
-          <label for="5" class="uis uis-star"></label>
-          <label for="5" class="uis uis-star"></label>
-          <label for="5" class="uis uis-star"></label>
-          <label for="5" class="uis uis-star"></label>
-          <label for="5" class="uis uis-star"></label>
-      </div>
-      <div class="reviewProfile-text">
-          <p>${el.review}</p>
-      </div>
-  </div>
-  <hr>`
-        let box = document.getElementById('review')
-        if (el.review != null) {
-          box.insertAdjacentHTML('afterbegin', html);
-        }
-      })
-    })
-  });
-})// then function ended here bro !
+displayDataWithRateandRev();
+DataOfRevrat();
 
 //3rd part ===============submitting star and review-----------------------
 const star = document.querySelectorAll("#star");
-//console.log(star)
+console.log(document.querySelector('.review-form-details').childNodes[7].childNodes);
 let a;
-star.forEach(function (el) {el.addEventListener("click", function (e) {
-    a = el.dataset.val;
-  })
-})
+star.forEach((el)=> {el.addEventListener("click", ()=>{a = el.dataset.val;})})
 const submitReview = document.getElementById('submit-review');
-function getRatePoint() {
-  let name = document.getElementById('cus-name').value;
+async function getRatePoint() {
+  const revForm = document.querySelector('.review-form-details').childNodes;
   let review = document.getElementById('cus-review').value;
-  let idnumber = i_d; //document.getElementById('clinicid').dataset.guti;
-  let email_id = document.getElementById('emails').value;
+  let name = revForm[5].childNodes[3].value;
+  let email_id = revForm[7].childNodes[3].value;
   let validationRes = {nValid: valid.regName(name), eValid: valid.regEmail(email_id)};
 if (validationRes.nValid === true && validationRes.eValid === true) {
   document.getElementById('cls-mainbox').classList.add('hide')
   document.getElementById('reviewPopup-NE').classList.add('hide')
-  let valu = {
-    idNum: idnumber,
-    rating: 4,// a || '',
-    review: review,
-    u_name: name,
-    mail: email_id
-  };
-  let options = {
-    method: 'POST',
-    body: JSON.stringify(valu),
-    headers: {'Content-Type': 'application/json'}
-  }
-
-  async function FETchData(link, Method, data) {
-    let res = await fetch(`/${link}`);
-    return await res.json(); 
-  }
- fetch('/apiV3/r/rv', options).then(function (response) {
-  return response.json();}).then(function (respond) {
-    Obj.flashMsg(respond.msg, '', 200);
-  });  
+  let valu = {idNum: i_d,rating: 4, review: review, u_name: name, mail: email_id};
+  const SendRatRev = await fetch('/apiV3/r/rv', {method: 'POST',body: JSON.stringify(valu),headers: {'Content-Type': 'application/json'}});
+  const result = await SendRatRev.json();
+  Obj.flashMsg(result.msg, '', 200);
 }else{document.getElementById('err-Msg').innerHTML = 'Name and Email is required properly!'}} 
 submitReview.addEventListener('click', getRatePoint);
 
@@ -135,7 +108,7 @@ const userReq = {
     let data = { name: doc[0].children[1].value, number: doc[1].children[1].value, doctor: doc[2].children[1].value, date: ap_date, otherInfo: doc[4].children[1].value }
     ReqHandler.POST(ReqURI.FormSet + location.pathname.split('/')[1], data).then((data) => {
       Cl_opnForm();if (data.status) { 
-        correctAlert() ;//Obj.flashMsg(data.msg, '', data.status)
+        correctAlert() ;
        }else { wrongAlert();}
     })
   }
@@ -185,12 +158,9 @@ function formSubmit() {
    date: ap_date, otherInfo: doc[4].children[1].value }
    let res = valid.ValResult(data.name, data.number, data.date, data.otherInfo);
    if (res === true) {userReq.FormSet();}else{document.getElementById('err-msg').innerHTML = res;}
-   console.log(data);
 }
 document.getElementById('btnn').addEventListener('click', formSubmit)
-function closeWindow(){
-  document.querySelector('.booked-msg').classList.add('hide');
-}
+function closeWindow(){document.querySelector('.booked-msg').classList.add('hide');}
 
 function correctAlert() {
   document.querySelector('.booked-msg').classList.remove('hide')
